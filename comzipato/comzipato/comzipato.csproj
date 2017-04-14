@@ -851,6 +851,9 @@
     <Content Include="Content\creative\vendor\font-awesome\scss\_screen-reader.scss" />
     <Content Include="Content\creative\vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="Content\creative\vendor\font-awesome\scss\_variables.scss" />
+    <Content Include="Content\creative\js\creative.min.js.map">
+      <DependentUpon>creative.min.js</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />
