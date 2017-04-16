@@ -70,4 +70,7 @@
         }
     });
 
+    $('#carousel-slider-top-home').carousel({ interval: 20000 });
+
 })(jQuery); // End of use strict
+

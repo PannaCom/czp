@@ -9,7 +9,7 @@ body {
   width: 100%;
 }
 body {
-  font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Roboto", Arial, Tahoma, sans-serif;
 }
 hr {
   border-color: #F05F40;
@@ -29,13 +29,15 @@ a:hover,
 a:focus {
   color: #eb3812;
 }
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-family: "Roboto", Arial, Tahoma, sans-serif;
+    font-weight: 300;
 }
 p {
   font-size: 16px;
@@ -43,8 +45,19 @@ p {
   margin-bottom: 20px;
 }
 .bg-primary {
-  background-color: #F05F40;
+  background-color: #F5F5F5;
+    color: #858585;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    position: relative;
 }
+
+.bg-primary h1 {
+    font-size: 50px !important;
+    line-height: 54px;
+    font-weight: 100;
+}
+
 .bg-dark {
   background-color: #222222;
   color: white;
@@ -202,14 +215,6 @@ header {
   position: relative;
   width: 100%;
   min-height: auto;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-  background-position: center;
-  background-image: url('../img/header.jpg');
-  text-align: center;
-  color: white;
 }
 header .header-content {
   position: relative;
@@ -335,7 +340,7 @@ header .header-content .header-content-inner p {
   margin: 0 auto 20px;
 }
 .text-primary {
-  color: #F05F40;
+  color: #646464;
 }
 .no-gutter > [class*='col-'] {
   padding-right: 0;
@@ -499,5 +504,140 @@ body {
 .menutop_container > li > a:hover {
     background-color: #1d1d1c;
     color: #fff;
+}
+
+#slider-top {
+    padding: 0;
+}
+
+#slider-top .carousel,
+#slider-top .item, 
+#slider-top .active{height:100%;}
+#slider-top .carousel-inner{height:100%;}
+
+.fill{width:100%;height:100%;background-position:center top;background-size:cover;height: auto; }
+
+/* faster sliding speed */
+/*#slider-top .carousel-inner > .item {
+    -webkit-transition: 0.3s ease-in-out left;
+    -moz-transition: 0.3s ease-in-out left;
+    -o-transition: 0.3s ease-in-out left;
+    transition: 0.3s ease-in-out left;
+}*/
+
+#carousel-slider-top-home > .carousel-indicators {
+        left: 80%;
+    width: 50%;
+}
+
+#carousel-slider-top-home > .carousel-indicators > li{
+    border-radius: 0;
+    background: #aaa;
+    width: 15px;
+    height: 15px;
+}
+
+#carousel-slider-top-home > .carousel-indicators > li.active {
+    width: 15px;
+    height: 15px;
+    background: #333;
+    margin: 1px;
+}
+
+/* keep full widget on smaller screens */
+@media (min-width: 767px) { 
+	.fill {
+		height: 450px;
+        padding-right: 0;
+        padding-left: 0;
+	}
+   
+}
+
+.section {
+    position: relative;
+    padding: 0;
+}
+
+.section-divider.triangle.up, .section-divider.triangle.down {
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.section .section-divider {
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 50%;
+    margin-left: -25px;
+    background-color: inherit;
+    z-index: 1;
+    background-color: #F5F5F5;
+}
+
+.section-divider.triangle.down {
+    bottom: -15px;
+}
+
+.service-box a h3 {
+        text-transform: uppercase;
+    color: #646464;
+}
+
+.service-box a:hover {
+    text-decoration: none;
+}
+
+.fa-custom {
+    height: 83px;
+    background-size: cover;
+    width: 83px;
+    -webkit-filter: contrast(175%) brightness(3%) grayscale(100%);
+    filter: contrast(175%) brightness(3%) grayscale(100%);
+}
+
+.service-box a:hover .fa-custom {
+    -webkit-filter: none;
+    filter: none;
+}
+
+.cs-better {
+    background: url(../img/icons/Shield-Icon-Stroke-hovered.png);
+} 
+
+.cs-energy-consumption-hovered {
+    background: url(../img/icons/energy-consumption-hovered.png);
+} 
+
+.cs-alrting-icon-hovered {
+    background: url(../img/icons/alrting-icon-hovered.png);
+} 
+
+.cs-gears-hovered {
+    background: url(../img/icons/gears-hovered.png);
+} 
+
+.cs-home-hovered {
+    background: url(../img/icons/home-hovered.png);
+} 
+
+.cs-medica-alerts-hovered {
+    background: url(../img/icons/medica-alerts-hovered.png);
+} 
+
+.cs-Remote-Control-hovered {
+    background: url(../img/icons/Remote-Control-hovered.png);
+} 
+
+.cs-Shield-Icon-Stroke-hovered {
+    background: url(../img/icons/Shield-Icon-Stroke-hovered.png);
+} 
+
+.cs-video-monitoring-hovered {
+    background: url(../img/icons/video-monitoring-hovered.png);
 }
 
