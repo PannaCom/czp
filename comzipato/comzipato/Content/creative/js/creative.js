@@ -1,4 +1,4 @@
-(function($) {
+﻿(function($) {
     "use strict"; // Start of use strict
 
     // jQuery for page scrolling feature - requires jQuery Easing plugin
@@ -72,5 +72,36 @@
 
     $('#carousel-slider-top-home').carousel({ interval: 20000 });
 
+    // bỏ tự căn chỉnh chiều cao của item new đi.
+    //$('#article-item').map(function (i, e) {
+    //    var list = $(this).find('.article-item');
+    //    $.each(list, function (index, value) {            
+    //        var width = 0;
+    //        var height = 0;
+    //        setpostion($(this), width, height);
+    //        while (index = list.length) {
+    //            width += $(this).outerWidth();
+    //            height += $(this).outerHeight();
+    //            setpostion($(this), width, height);
+    //        }           
+    //    });
+    //})
+
+    //function setpostion(s, w, h) {
+    //    s.css({ 'position': 'absolute', 'left': w, 'top': h });
+    //}
+
+    
+
 })(jQuery); // End of use strict
+
+//$(document).ready(function () {
+//    var heights = $(".article-item").map(function () {
+//        return $(this).height();
+//    }).get(),
+
+//    maxHeight = Math.max.apply(null, heights);
+
+//    $(".article-item").height(maxHeight);
+//});
 

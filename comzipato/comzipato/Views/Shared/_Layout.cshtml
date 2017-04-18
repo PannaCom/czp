@@ -75,7 +75,11 @@
                     <span class="sr-only">Toggle navigation</span>
                     <i class="fa fa-bars fa-2x"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Zipato</a>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <img style="max-width: 73px; max-height: 27px;" src="~/Content/creative/img/zipato-lgo.png">
+                </a>
+
+
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -107,25 +111,171 @@
 
     @RenderBody()
 
-    <section id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Let's Get In Touch!</h2>
-                    <hr class="primary">
-                    <p>Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
+    <footer id="footer">
+        <div class="footer_top">
+            <div class="container-fluid">
+                <div class="row m_b_to20">
+                    <div class="col-md-2 col-md-offset-1">
+                        <div class="widget">
+                            <h4 class="text-uppercase">Giới thiệu Zipato</h4>
+                            <div class="widget-content">
+                                <p style="padding-left: 5px;">
+                                    <a href="https://www.zipato.com/what-is-zipato/overview/">Tổng quan</a>
+                                    <a href="https://www.zipato.com/what-is-zipato/security/">Bảo mật</a>
+                                    <a href="https://www.zipato.com/what-is-zipato/energy/">Năng lượng</a>
+                                    <a href="https://www.zipato.com/what-is-zipato/comfort/">Tiện nghi</a>
+                                    <a href="https://www.zipato.com/what-is-zipato/health/">Sức khỏe</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="widget">
+                            <h4 class="text-uppercase">HOW IT WORKS</h4>
+                            <div class="widget-content">
+                                <p style="padding-left: 5px;">
+                                    <a href="https://www.zipato.com/how-it-works/overview/">
+                                        Overview
+                                    </a><a href="https://www.zipato.com/how-it-works/interfaces/">
+                                        Interfaces
+                                    </a><a href="https://www.zipato.com/how-it-works/rule-creator/">
+                                        Rule Creator
+                                    </a><a href="https://www.zipato.com/how-it-works/features/">
+                                        Features
+                                    </a><a href="https://www.zipato.com/how-it-works/compatibility/">
+                                        Compatibility
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="widget">
+                            <h4 class="text-uppercase">THE COMPANY</h4>
+                            <div class="widget-content">
+                                <p style="padding-left: 5px;">
+                                    <a href="https://www.zipato.com/the-company/about-us/">
+                                        About Us
+                                    </a><a href="https://www.zipato.com/the-company/faq/">
+                                        FAQ
+                                    </a>
+                                    <a href="https://www.zipato.com/the-company/zipato-blog/">Zipato Blog</a>
+                                    <a href="https://www.zipato.com/the-company/download/">
+                                        Download
+                                    </a><a href="https://www.zipato.com/the-company/join-us/">
+                                        Join us
+                                    </a><a href="https://www.zipato.com/the-company/contact/">Contact</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="widget">
+                            <h4 class="text-uppercase">FOR PARTNERS</h4>
+                            <div class="widget-content">
+                                <p style="padding-left: 5px;">
+                                    <a href="https://www.zipato.com/for-partners/overview/">
+                                        Overview
+                                    </a><a href="https://www.zipato.com/for-partners/integrators/">
+                                        Integrators
+                                    </a><a href="https://www.zipato.com/for-partners/real-estate/">
+                                        Real Estate
+                                    </a><a href="https://www.zipato.com/for-partners/telecoms/">
+                                        Telecoms
+                                    </a><a href="https://www.zipato.com/for-partners/utilities/">
+                                        Utilities
+                                    </a><a href="https://www.zipato.com/for-partners/terms-and-conditions/">
+                                        Terms &amp; conditions
+                                    </a><a href="https://www.zipato.com/for-partners/dealer-locator/">
+                                        Dealer Locator
+                                    </a><a href="https://www.zipato.com/for-partners/become-a-zipato-dealer/">
+                                        Become a Zipato Dealer
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="widget">
+                            <h4 class="text-uppercase">CONTACT</h4>
+                            <div class="widget-content">
+                                <p style="padding-left: 5px;">
+                                    <a style="color: #a0ce4e;" href="mailto:hello@zipato.com">hello@zipato.com</a>
+                                    <a style="color: #a0ce4e;" href="mailto:support@zipato.com">support@zipato.com</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="col-lg-4 col-lg-offset-2 text-center">
-                    <i class="fa fa-phone fa-3x sr-contact"></i>
-                    <p>123-456-6789</p>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <i class="fa fa-envelope-o fa-3x sr-contact"></i>
-                    <p><a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a></p>
+                <div class="row">
+
+                    <div class="col-md-3 col-md-offset-1">
+                        <div class="widget">
+                            <h4 class="text-uppercase">WHERE TO BUY</h4>
+                            <div class="widget-content">
+                                <p style="padding-left: 5px;">
+                                    <a href="https://www.zipato.com/for-partners/dealer-locator/">
+                                        Find a Zipato Dealer<br>
+                                    </a><a href="https://www.zipato.com/for-partners/become-a-zipato-dealer/">
+                                        Become a Zipato Partner<br>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="widget">
+                            <h4 class="text-uppercase">PROTOCOLS</h4>
+                            <div class="widget-content">
+                                <p style="padding-left: 5px;">
+                                    <a href="https://www.zipato.com/for-partners/dealer-locator/">
+                                        <img class="size-full wp-image-15390 alignleft" src="https://www.zipato.com/wp-content/uploads/2015/07/z-wave-transparent.png" alt="z-wave-transparent" width="72" height="32">
+                                    </a>
+                                    <a href="https://www.zipato.com/for-partners/become-a-zipato-dealer/">
+                                        <img class="size-full wp-image-17575 alignleft" src="https://www.zipato.com/wp-content/uploads/2015/11/Z-Wave-Plus-2.png" alt="Z-Wave-Plus (2)" width="39" height="32">
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="widget">
+                            <h4 class="text-uppercase">SUPPORT</h4>
+                            <div class="widget-content">
+                                <p style="padding-left: 5px;">
+                                    <a href="https://community.zipato.com/">Community</a>
+                                    <a href="https://community.zipato.com/knowledge-base/articles">Knowledge base</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
-    </section>
+
+        <div class="footer_bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="pull-left">
+                            <p>Copyright © 2017 Zipato | All rights reserved.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="pull-right">
+                            <ul class="social">
+                                <li class="facebook"><a target="_blank" href="https://www.facebook.com/Zipato" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                <li class="twitter"><a target="_blank" href="https://twitter.com/zipatweet" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                <li class="youtube"><a target="_blank" href="https://www.youtube.com/user/zipatotv" title="YouTube"><i class="fa fa-youtube"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- jQuery -->
     <script src="/Content/creative/vendor/jquery/jquery.min.js"></script>

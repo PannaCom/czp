@@ -171,6 +171,16 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\creative\img\icons\alrting-icon-hovered.png" />
+    <Content Include="Content\creative\img\icons\energy-consumption-hovered.png" />
+    <Content Include="Content\creative\img\icons\gears-hovered.png" />
+    <Content Include="Content\creative\img\icons\home-hovered.png" />
+    <Content Include="Content\creative\img\icons\medica-alerts-hovered.png" />
+    <Content Include="Content\creative\img\icons\Remote-Control-hovered.png" />
+    <Content Include="Content\creative\img\icons\Shield-Icon-Stroke-hovered.png" />
+    <Content Include="Content\creative\img\icons\video-monitoring-hovered.png" />
+    <Content Include="Content\creative\img\zipato-lgo.png" />
+    <Content Include="Content\creative\img\zipato.jpg" />
     <Content Include="Content\creative\vendor\flagicon\css\flag-icon.css" />
     <Content Include="Content\creative\vendor\flagicon\css\flag-icon.min.css" />
     <Content Include="Content\creative\vendor\flagicon\flags\1x1\ad.svg" />
@@ -854,6 +864,7 @@
     <Content Include="Content\creative\js\creative.min.js.map">
       <DependentUpon>creative.min.js</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\com_zipato.pubxml" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />
@@ -869,7 +880,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
