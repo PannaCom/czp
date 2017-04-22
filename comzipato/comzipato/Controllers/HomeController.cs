@@ -12,6 +12,10 @@ namespace comzipato.Controllers
         {
             return View();
         }
+        public ActionResult IndexEn()
+        {
+            return View();
+        }
 
         public ActionResult About()
         {

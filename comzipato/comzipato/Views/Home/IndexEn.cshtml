@@ -1,0 +1,395 @@
+﻿@{
+    ViewBag.Title = "Zipato - everything smart";
+    Layout = "~/Views/Shared/_LayoutEn.cshtml";
+}
+
+
+
+
+<section id="slider-top" class="hidden-xs">
+    <div class="container fill">
+        <div id="carousel-slider-top-home" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="active item">
+                    <div class="fill" style="background-image:url('/images/sliders/zipatile_home_under_control.jpg');">
+                        <div class="container">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="fill" style="background-image:url('/images/sliders/zipatile_controller_devices.jpg');">
+                        <div class="container">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="fill" style="background-image:url('/images/sliders/zipatile_smart_device_in_one.jpg');">
+                        <div class="container">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-slider-top-home" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-slider-top-home" data-slide-to="1"></li>
+                <li data-target="#carousel-slider-top-home" data-slide-to="2"></li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<div id="content">
+
+
+    <section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h1 class="section-heading">Complete home control and automation</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-divider triangle down"></div>
+    </section>
+
+
+    <section id="services">
+        @*<div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">At Your Service</h2>
+                        <hr class="primary">
+                    </div>
+                </div>
+            </div>*@
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <a href="#!">
+                            <i class="fa fa-4x fa-custom cs-Remote-Control-hovered text-primary sr-icons"></i>
+                            <h3>Remote Control</h3>
+                            <p class="text-muted">Control your home from your smartphone or any other internet-enabled device, using a secure internet connection.</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <a href="#!">
+                            <i class="fa fa-4x fa-custom cs-gears-hovered text-primary sr-icons"></i>
+                            <h3>EASY AUTOMATION</h3>
+                            <p class="text-muted">Zipato Rule Creator allows you to easily create your own automation scenarios</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <a href="#!">
+                            <i class="fa fa-4x fa-custom cs-video-monitoring-hovered text-primary sr-icons"></i>
+                            <h3>VIDEO MONITORING</h3>
+                            <p class="text-muted">Stay in touch with your home wherever you are.</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <a href="#!">
+                            <i class="fa fa-4x fa-custom cs-alrting-icon-hovered text-primary sr-icons"></i>
+                            <h3>24/7 ALERTING</h3>
+                            <p class="text-muted">The Zipato monitoring station can be easily customized to send emergency and notification messages to your mobile phone or email</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    @*<section class="no-padding" id="portfolio">
+            <div class="container-fluid">
+                <div class="row no-gutter popup-gallery">
+                    <div class="col-lg-4 col-sm-6">
+                        <a href="img/portfolio/fullsize/1.jpg" class="portfolio-box">
+                            <img src="img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Category
+                                    </div>
+                                    <div class="project-name">
+                                        Project Name
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a href="img/portfolio/fullsize/2.jpg" class="portfolio-box">
+                            <img src="img/portfolio/thumbnails/2.jpg" class="img-responsive" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Category
+                                    </div>
+                                    <div class="project-name">
+                                        Project Name
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a href="img/portfolio/fullsize/3.jpg" class="portfolio-box">
+                            <img src="img/portfolio/thumbnails/3.jpg" class="img-responsive" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Category
+                                    </div>
+                                    <div class="project-name">
+                                        Project Name
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a href="img/portfolio/fullsize/4.jpg" class="portfolio-box">
+                            <img src="img/portfolio/thumbnails/4.jpg" class="img-responsive" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Category
+                                    </div>
+                                    <div class="project-name">
+                                        Project Name
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a href="img/portfolio/fullsize/5.jpg" class="portfolio-box">
+                            <img src="img/portfolio/thumbnails/5.jpg" class="img-responsive" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Category
+                                    </div>
+                                    <div class="project-name">
+                                        Project Name
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a href="img/portfolio/fullsize/6.jpg" class="portfolio-box">
+                            <img src="img/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Category
+                                    </div>
+                                    <div class="project-name">
+                                        Project Name
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>*@
+
+    <section id="services" class="bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <a href="#!">
+                            <i class="fa fa-4x fa-custom cs-better text-primary sr-icons"></i>
+                            <h3>BETTER SECURITY</h3>
+                            <p class="text-muted">Zipato brings you a new generation of home safety and security protection.</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <a href="#!">
+                            <i class="fa fa-4x fa-custom cs-energy-consumption-hovered text-primary sr-icons"></i>
+                            <h3>ENERGY SAVING</h3>
+                            <p class="text-muted">Zipato allows you to analyze and optimize your energy consumption through various energy efficiency scenarios</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <a href="#!">
+                            <i class="fa fa-4x fa-custom cs-home-hovered text-primary sr-icons"></i>
+                            <h3>MORE COMFORT</h3>
+                            <p class="text-muted">With Zipato your home dynamically adapts according to your needs.</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <a href="#!">
+                            <i class="fa fa-4x fa-custom cs-medica-alerts-hovered text-primary sr-icons"></i>
+                            <h3>HEALTH CARE</h3>
+                            <p class="text-muted">Zipato allows you to always keep an eye on your children or other dependants, and maintain their comfort remotely</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="bg-map">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 style="text-align: center;"><span class="tX00002" style="font-size: 46px; font-weight: 100;">Zipato worldwide</span></h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <p>
+                    <a href="https://www.zipato.com/for-partners/dealer-locator/">
+                        <img class="img-responsive grayscale world_image_gray" src="~/Content/creative/img/Zipato-Worldwide-Map-Update-01.png" alt="" width="1100" height="550">
+                    </a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="numbers">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="number-box">
+                        <h3>30</h3>
+                        <p class="text-muted">Supported Brands</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="number-box">
+                        <h3>91</h3>
+                        <p class="text-muted">Countries</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="number-box">
+                        <h3>20000</h3>
+                        <p class="text-muted">Households</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="number-box">
+                        <h3>112000</h3>
+                        <p class="text-muted">Devices</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    @*<section id="articles" class="bg-primary">
+        <div class="container">
+            <div class="row" id="article-item">
+                <div class="col-md-4 col-md-6 article-item">
+                    <div class="thumbnail">
+                        <a href="#!" class="thumb-zoom">
+                            <div class="mask"></div>
+                            <img src="https://www.zipato.com/wp-content/uploads/2016/11/ces_award_blog_673x436_v3.jpg" alt="">
+                        </a>
+                        <div class="caption">
+                            <h3><a href="#!">Zipato named as CES 2017 Innovations Awards Honoree</a></h3>
+                            <p>
+                                lZipato today announced that it has been named a CES 2017 Innovation Awards Honoree
+                                for the new version of its smart home control panel - ZipaTile.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-md-6 article-item">
+                    <div class="thumbnail">
+                        <a href="#!" class="thumb-zoom">
+                            <div class="mask"></div>
+                            <img src="https://www.zipato.com/wp-content/uploads/2016/11/ces_award_blog_673x436_v3.jpg" alt="">
+                        </a>
+                        <div class="caption">
+                            <h3><a href="#!">Zipato named as CES 2017 Innovations Awards Honoree</a></h3>
+                            <p>lZipato today announced that it has been named a CES 2017 Innovation Awards Honoree for the new version of its smart home control panel - ZipaTile.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-md-6 article-item">
+                    <div class="thumbnail">
+                        <a href="#!" class="thumb-zoom">
+                            <div class="mask"></div>
+                            <img src="https://www.zipato.com/wp-content/uploads/2016/11/ces_award_blog_673x436_v3.jpg" alt="">
+                        </a>
+                        <div class="caption">
+                            <h3><a href="#!">Zipato named as CES 2017 Innovations Awards Honoree</a></h3>
+                            <p>lZipato today announced that it has been named a CES 2017 Innovation Awards Honoree for the new version of its smart home control panel - ZipaTile.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-md-6 article-item">
+                    <div class="thumbnail">
+                        <a href="#!" class="thumb-zoom">
+                            <div class="mask"></div>
+                            <img src="https://www.zipato.com/wp-content/uploads/2016/11/ces_award_blog_673x436_v3.jpg" alt="">
+                        </a>
+                        <div class="caption">
+                            <h3><a href="#!">Zipato named as CES 2017 Innovations Awards Honoree</a></h3>
+                            <p>lZipato today announced that it has been named a CES 2017 Innovation Awards Honoree for the new version of its smart home control panel - ZipaTile.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-md-6 article-item">
+                    <div class="thumbnail">
+                        <a href="#!" class="thumb-zoom">
+                            <div class="mask"></div>
+                            <img src="https://www.zipato.com/wp-content/uploads/2016/11/ces_award_blog_673x436_v3.jpg" alt="">
+                        </a>
+                        <div class="caption">
+                            <h3><a href="#!">Zipato named as CES 2017 Innovations Awards Honoree</a></h3>
+                            <p>lZipato today announced that it has been named a CES 2017 Innovation Awards Honoree for the new version of its smart home control panel - ZipaTile.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-md-6 article-item">
+                    <div class="thumbnail">
+                        <a href="#!" class="thumb-zoom">
+                            <div class="mask"></div>
+                            <img src="https://www.zipato.com/wp-content/uploads/2016/11/ces_award_blog_673x436_v3.jpg" alt="">
+                        </a>
+                        <div class="caption">
+                            <h3><a href="#!">Zipato named as CES 2017 Innovations Awards Honoree</a></h3>
+                            <p>lZipato today announced that it has been named a CES 2017 Innovation Awards Honoree for the new version of its smart home control panel - ZipaTile.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>*@
+
+</div>
