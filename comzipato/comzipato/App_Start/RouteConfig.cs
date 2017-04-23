@@ -12,7 +12,17 @@ namespace comzipato
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            //AdminAddProduct
+            routes.MapRoute(
+             "AdminAddProduct",
+             "admin/product/add",
+             new { controller = "Products", action = "Add" }
+           );
+            routes.MapRoute(
+           "AdminListProduct",
+           "admin/product/list",
+           new { controller = "Products", action = "List" }
+         );
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

@@ -4,49 +4,220 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="comzipatoDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="users">
+    <Schema Namespace="comzipatoDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="cats">
+          <Key>
+            <PropertyRef Name="cat_id" />
+          </Key>
+          <Property Name="cat_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cat_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="cat_url" Type="nvarchar" MaxLength="505" />
+          <Property Name="cat_pos" Type="int" />
+          <Property Name="cat_parent_id" Type="int" />
+          <Property Name="lang" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="product_file">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="username" Type="nvarchar" MaxLength="50" />
-          <Property Name="pass" Type="nvarchar(max)" />
-          <Property Name="role" Type="nvarchar" MaxLength="50" />
+          <Property Name="product_id" Type="int" />
+          <Property Name="file_path" Type="nvarchar" MaxLength="251" />
         </EntityType>
+        <EntityType Name="product_img">
+          <Key>
+            <PropertyRef Name="img_id" />
+          </Key>
+          <Property Name="img_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="img_url" Type="nvarchar" MaxLength="500" />
+          <Property Name="img_title" Type="nvarchar" MaxLength="250" />
+          <Property Name="img_alt" Type="nvarchar" MaxLength="250" />
+          <Property Name="product_id" Type="bigint" />
+        </EntityType>
+        <EntityType Name="products">
+          <Key>
+            <PropertyRef Name="product_id" />
+          </Key>
+          <Property Name="product_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="product_name" Type="nvarchar" MaxLength="255" />
+          <Property Name="product_des" Type="nvarchar" MaxLength="555" />
+          <Property Name="product_type" Type="int" />
+          <Property Name="product_new_type" Type="int" />
+          <Property Name="product_price_public" Type="int" />
+          <Property Name="product_photo" Type="nvarchar" MaxLength="250" />
+          <Property Name="product_photo2" Type="nvarchar" MaxLength="250" />
+          <Property Name="product_content" Type="ntext" />
+          <Property Name="product_feature" Type="ntext" />
+          <Property Name="product_technical" Type="ntext" />
+          <Property Name="updated_date" Type="datetime" />
+          <Property Name="edit_date" Type="datetime" />
+          <Property Name="deleted_date" Type="datetime" />
+          <Property Name="status" Type="bit" />
+          <Property Name="cat_id" Type="int" />
+          <Property Name="orderby" Type="int" />
+          <Property Name="lang" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_product_img_products">
+          <End Role="products" Type="Self.products" Multiplicity="0..1" />
+          <End Role="product_img" Type="Self.product_img" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="products">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="product_img">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="comzipatoDbModelStoreContainer">
-          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cats" EntityType="Self.cats" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="product_file" EntityType="Self.product_file" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="product_img" EntityType="Self.product_img" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="products" EntityType="Self.products" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_product_img_products" Association="Self.FK_product_img_products">
+            <End Role="products" EntitySet="products" />
+            <End Role="product_img" EntitySet="product_img" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="comzipatoDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="user">
+        <EntityContainer Name="comzipatoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="product_img" EntityType="comzipatoDbModel.product_img" />
+          <EntitySet Name="cats" EntityType="comzipatoDbModel.cat" />
+          <EntitySet Name="product_file" EntityType="comzipatoDbModel.product_file" />
+          <EntitySet Name="products" EntityType="comzipatoDbModel.product" />
+          <AssociationSet Name="FK_product_img_products" Association="comzipatoDbModel.FK_product_img_products">
+            <End Role="product" EntitySet="products" />
+            <End Role="product_img" EntitySet="product_img" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="product_img">
+          <Key>
+            <PropertyRef Name="img_id" />
+          </Key>
+          <Property Name="img_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="img_url" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="img_title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="img_alt" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="product_id" Type="Int64" />
+          <NavigationProperty Name="product" Relationship="comzipatoDbModel.FK_product_img_products" FromRole="product_img" ToRole="product" />
+        </EntityType>
+        <EntityType Name="cat">
+          <Key>
+            <PropertyRef Name="cat_id" />
+          </Key>
+          <Property Name="cat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cat_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="cat_url" Type="String" MaxLength="505" FixedLength="false" Unicode="true" />
+          <Property Name="cat_pos" Type="Int32" />
+          <Property Name="cat_parent_id" Type="Int32" />
+          <Property Name="lang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="product_file">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="pass" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="product_id" Type="Int32" />
+          <Property Name="file_path" Type="String" MaxLength="251" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="comzipatoEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="users" EntityType="Self.user" />
-        </EntityContainer>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="product_id" />
+          </Key>
+          <Property Name="product_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="product_des" Type="String" MaxLength="555" FixedLength="false" Unicode="true" />
+          <Property Name="product_type" Type="Int32" />
+          <Property Name="product_new_type" Type="Int32" />
+          <Property Name="product_price_public" Type="Int32" />
+          <Property Name="product_photo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="product_photo2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="product_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="product_feature" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="product_technical" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="updated_date" Type="DateTime" Precision="3" />
+          <Property Name="edit_date" Type="DateTime" Precision="3" />
+          <Property Name="deleted_date" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Boolean" />
+          <Property Name="cat_id" Type="Int32" />
+          <Property Name="orderby" Type="Int32" />
+          <Property Name="lang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="product_img" Relationship="comzipatoDbModel.FK_product_img_products" FromRole="product" ToRole="product_img" />
+        </EntityType>
+        <Association Name="FK_product_img_products">
+          <End Type="comzipatoDbModel.product" Role="product" Multiplicity="0..1" />
+          <End Type="comzipatoDbModel.product_img" Role="product_img" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="product_img">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="comzipatoDbModelStoreContainer" CdmEntityContainer="comzipatoEntities">
-          <EntitySetMapping Name="users">
-            <EntityTypeMapping TypeName="comzipatoDbModel.user">
-              <MappingFragment StoreEntitySet="users">
+          <EntitySetMapping Name="product_img">
+            <EntityTypeMapping TypeName="comzipatoDbModel.product_img">
+              <MappingFragment StoreEntitySet="product_img">
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="img_alt" ColumnName="img_alt" />
+                <ScalarProperty Name="img_title" ColumnName="img_title" />
+                <ScalarProperty Name="img_url" ColumnName="img_url" />
+                <ScalarProperty Name="img_id" ColumnName="img_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cats">
+            <EntityTypeMapping TypeName="comzipatoDbModel.cat">
+              <MappingFragment StoreEntitySet="cats">
+                <ScalarProperty Name="lang" ColumnName="lang" />
+                <ScalarProperty Name="cat_parent_id" ColumnName="cat_parent_id" />
+                <ScalarProperty Name="cat_pos" ColumnName="cat_pos" />
+                <ScalarProperty Name="cat_url" ColumnName="cat_url" />
+                <ScalarProperty Name="cat_name" ColumnName="cat_name" />
+                <ScalarProperty Name="cat_id" ColumnName="cat_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="product_file">
+            <EntityTypeMapping TypeName="comzipatoDbModel.product_file">
+              <MappingFragment StoreEntitySet="product_file">
+                <ScalarProperty Name="file_path" ColumnName="file_path" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="username" ColumnName="username" />
-                <ScalarProperty Name="pass" ColumnName="pass" />
-                <ScalarProperty Name="role" ColumnName="role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="products">
+            <EntityTypeMapping TypeName="comzipatoDbModel.product">
+              <MappingFragment StoreEntitySet="products">
+                <ScalarProperty Name="lang" ColumnName="lang" />
+                <ScalarProperty Name="orderby" ColumnName="orderby" />
+                <ScalarProperty Name="cat_id" ColumnName="cat_id" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="deleted_date" ColumnName="deleted_date" />
+                <ScalarProperty Name="edit_date" ColumnName="edit_date" />
+                <ScalarProperty Name="updated_date" ColumnName="updated_date" />
+                <ScalarProperty Name="product_technical" ColumnName="product_technical" />
+                <ScalarProperty Name="product_feature" ColumnName="product_feature" />
+                <ScalarProperty Name="product_content" ColumnName="product_content" />
+                <ScalarProperty Name="product_photo2" ColumnName="product_photo2" />
+                <ScalarProperty Name="product_photo" ColumnName="product_photo" />
+                <ScalarProperty Name="product_price_public" ColumnName="product_price_public" />
+                <ScalarProperty Name="product_new_type" ColumnName="product_new_type" />
+                <ScalarProperty Name="product_type" ColumnName="product_type" />
+                <ScalarProperty Name="product_des" ColumnName="product_des" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

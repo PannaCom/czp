@@ -12,11 +12,30 @@ namespace comzipato.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class user
+    public partial class User
     {
-        public int id { get; set; }
-        public string username { get; set; }
-        public string pass { get; set; }
-        public string role { get; set; }
+        public User()
+        {
+            this.UserClaims = new HashSet<UserClaim>();
+            this.UserLogins = new HashSet<UserLogin>();
+            this.Roles = new HashSet<Role>();
+        }
+    
+        public string Id { get; set; }
+        public string Email { get; set; }
+        public bool EmailConfirmed { get; set; }
+        public string PasswordHash { get; set; }
+        public string SecurityStamp { get; set; }
+        public string PhoneNumber { get; set; }
+        public bool PhoneNumberConfirmed { get; set; }
+        public bool TwoFactorEnabled { get; set; }
+        public Nullable<System.DateTime> LockoutEndDateUtc { get; set; }
+        public bool LockoutEnabled { get; set; }
+        public int AccessFailedCount { get; set; }
+        public string UserName { get; set; }
+    
+        public virtual ICollection<UserClaim> UserClaims { get; set; }
+        public virtual ICollection<UserLogin> UserLogins { get; set; }
+        public virtual ICollection<Role> Roles { get; set; }
     }
 }

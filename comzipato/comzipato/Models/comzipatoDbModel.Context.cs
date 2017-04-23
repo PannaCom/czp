@@ -25,6 +25,9 @@ namespace comzipato.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<user> users { get; set; }
+        public virtual DbSet<product_img> product_img { get; set; }
+        public virtual DbSet<cat> cats { get; set; }
+        public virtual DbSet<product_file> product_file { get; set; }
+        public virtual DbSet<product> products { get; set; }
     }
 }
