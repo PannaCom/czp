@@ -31,6 +31,7 @@ namespace comzipato.Models
         public string product_content { get; set; }
         public string product_feature { get; set; }
         public string product_technical { get; set; }
+        public string product_file { get; set; }
         public Nullable<System.DateTime> updated_date { get; set; }
         public Nullable<System.DateTime> edit_date { get; set; }
         public Nullable<System.DateTime> deleted_date { get; set; }

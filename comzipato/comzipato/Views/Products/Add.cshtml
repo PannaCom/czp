@@ -69,6 +69,9 @@
                         <li role="presentation">
                             <a href="#product_addphoto" aria-controls="product_addphoto" role="tab" data-toggle="tab">Thêm ảnh sản phẩm</a>
                         </li>
+                        <li role="presentation">
+                            <a href="#product_file" aria-controls="product_file" role="tab" data-toggle="tab">Thêm file đính kèm</a>
+                        </li>
                     </ul>
 
                     <!-- Tab panes -->
@@ -82,7 +85,14 @@
                                     @Html.ValidationMessageFor(model => model.cat_id, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.lang, htmlAttributes: new { @class = "control-label col-md-4 required-after" })
+                                <div class="col-md-8">
+                                    @Html.HiddenFor(m => m.lang)
+                                   <select id="lang" name="lang"><option value="vn" selected>Việt Nam</option><option value="en" selected>Tiếng Anh</option></select>
+                                    @Html.ValidationMessageFor(model => model.lang, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
                             <div class="form-group">
                                 @Html.LabelFor(model => model.product_name, htmlAttributes: new { @class = "control-label col-md-4 required-after" })
                                 <div class="col-md-6">
@@ -160,17 +170,37 @@
                         </div>
                         @*Noi dung*@
                         <div role="tabpanel" class="tab-pane" id="profile">
+                            @Html.LabelFor(m => m.product_content, new { @class = "col-md-4 control-label" })
                             <div class="form-group">
                                 <div class="col-md-12">
                                     @Html.TextAreaFor(m => m.product_content, new { @class = "form-control", @rows = "5" })
                                 </div>
                             </div>
+                            @*@Html.LabelFor(m => m.product_feature, new { @class = "col-md-4 control-label" })
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    @Html.TextAreaFor(m => m.product_feature, new { @class = "form-control", @rows = "5" })
+                                </div>
+                            </div>
+                            @Html.LabelFor(m => m.product_technical, new { @class = "col-md-4 control-label" })
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    @Html.TextAreaFor(m => m.product_technical, new { @class = "form-control", @rows = "5" })
+                                </div>
+                            </div>*@
                         </div>
 
                         <div id="product_addphoto" class="tab-pane">
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <p>Vui lòng thêm sản phẩm trước khi thêm ảnh</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="product_file" class="tab-pane">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <p>Vui lòng thêm sản phẩm trước khi thêm file</p>
                                 </div>
                             </div>
                         </div>
@@ -235,11 +265,19 @@
                     }
                 }
             });
-
-            CKEDITOR.replace('product_content', {
-                removeButtons: 'Save',
-                height: '500px'
-            })
+            CKEDITOR.replace('product_content')
+            //CKEDITOR.replace('product_content', {
+            //    removeButtons: 'Save',
+            //    height: '500px'
+            //});
+            //CKEDITOR.replace('product_feature', {
+            //    removeButtons: 'Save',
+            //    height: '500px'
+            //})
+            //CKEDITOR.replace('product_technical', {
+            //    removeButtons: 'Save',
+            //    height: '500px'
+            //})
 
         })
 

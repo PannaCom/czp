@@ -49,6 +49,7 @@
           <Property Name="product_content" Type="ntext" />
           <Property Name="product_feature" Type="ntext" />
           <Property Name="product_technical" Type="ntext" />
+          <Property Name="product_file" Type="nvarchar" MaxLength="205" />
           <Property Name="updated_date" Type="datetime" />
           <Property Name="edit_date" Type="datetime" />
           <Property Name="deleted_date" Type="datetime" />
@@ -138,6 +139,7 @@
           <Property Name="product_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="product_feature" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="product_technical" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="product_file" Type="String" MaxLength="205" FixedLength="false" Unicode="true" />
           <Property Name="updated_date" Type="DateTime" Precision="3" />
           <Property Name="edit_date" Type="DateTime" Precision="3" />
           <Property Name="deleted_date" Type="DateTime" Precision="3" />
@@ -207,6 +209,7 @@
                 <ScalarProperty Name="deleted_date" ColumnName="deleted_date" />
                 <ScalarProperty Name="edit_date" ColumnName="edit_date" />
                 <ScalarProperty Name="updated_date" ColumnName="updated_date" />
+                <ScalarProperty Name="product_file" ColumnName="product_file" />
                 <ScalarProperty Name="product_technical" ColumnName="product_technical" />
                 <ScalarProperty Name="product_feature" ColumnName="product_feature" />
                 <ScalarProperty Name="product_content" ColumnName="product_content" />

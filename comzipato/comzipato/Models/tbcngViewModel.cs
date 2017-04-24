@@ -42,6 +42,9 @@ namespace comzipato.Models
         [Required(ErrorMessage = "Vui lòng nhập {0}")]
         [Display(Name = "Tên sản phẩm")]
         public string product_name { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập {0}")]
+        [Display(Name = "Ngôn ngữ")]
+        public string lang { get; set; }
         //[Required(ErrorMessage = "Vui lòng nhập {0}")]
         //[Display(Name = "Loại sản phẩm")]
         //public Nullable<int> product_type { get; set; }
@@ -68,6 +71,10 @@ namespace comzipato.Models
         public Nullable<int> cat_id { get; set; }
         [Display(Name = "Mô tả sản phẩm")]
         public string product_des { get; set; }
+        [Display(Name = "Tính năng(feature)")]
+        public string product_feature { get; set; }
+        [Display(Name = "Thông số kỹ thuật")]
+        public string product_technical { get; set; }
     }
 
     public class DanhMuc
