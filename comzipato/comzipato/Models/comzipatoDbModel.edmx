@@ -23,6 +23,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="product_id" Type="int" />
           <Property Name="file_path" Type="nvarchar" MaxLength="251" />
+          <Property Name="title" Type="nvarchar" MaxLength="201" />
         </EntityType>
         <EntityType Name="product_img">
           <Key>
@@ -87,12 +88,12 @@
         <EntityContainer Name="comzipatoEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="product_img" EntityType="comzipatoDbModel.product_img" />
           <EntitySet Name="cats" EntityType="comzipatoDbModel.cat" />
-          <EntitySet Name="product_file" EntityType="comzipatoDbModel.product_file" />
           <EntitySet Name="products" EntityType="comzipatoDbModel.product" />
           <AssociationSet Name="FK_product_img_products" Association="comzipatoDbModel.FK_product_img_products">
             <End Role="product" EntitySet="products" />
             <End Role="product_img" EntitySet="product_img" />
           </AssociationSet>
+          <EntitySet Name="product_file" EntityType="comzipatoDbModel.product_file" />
         </EntityContainer>
         <EntityType Name="product_img">
           <Key>
@@ -115,14 +116,6 @@
           <Property Name="cat_pos" Type="Int32" />
           <Property Name="cat_parent_id" Type="Int32" />
           <Property Name="lang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="product_file">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="product_id" Type="Int32" />
-          <Property Name="file_path" Type="String" MaxLength="251" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="product">
           <Key>
@@ -161,6 +154,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="product_file">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_id" Type="Int32" />
+          <Property Name="file_path" Type="String" MaxLength="251" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="201" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -190,15 +192,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="product_file">
-            <EntityTypeMapping TypeName="comzipatoDbModel.product_file">
-              <MappingFragment StoreEntitySet="product_file">
-                <ScalarProperty Name="file_path" ColumnName="file_path" />
-                <ScalarProperty Name="product_id" ColumnName="product_id" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="products">
             <EntityTypeMapping TypeName="comzipatoDbModel.product">
               <MappingFragment StoreEntitySet="products">
@@ -221,6 +214,16 @@
                 <ScalarProperty Name="product_des" ColumnName="product_des" />
                 <ScalarProperty Name="product_name" ColumnName="product_name" />
                 <ScalarProperty Name="product_id" ColumnName="product_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="product_file">
+            <EntityTypeMapping TypeName="comzipatoDbModel.product_file">
+              <MappingFragment StoreEntitySet="product_file">
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="file_path" ColumnName="file_path" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

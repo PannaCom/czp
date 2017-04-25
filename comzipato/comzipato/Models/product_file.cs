@@ -17,5 +17,6 @@ namespace comzipato.Models
         public int id { get; set; }
         public Nullable<int> product_id { get; set; }
         public string file_path { get; set; }
+        public string title { get; set; }
     }
 }

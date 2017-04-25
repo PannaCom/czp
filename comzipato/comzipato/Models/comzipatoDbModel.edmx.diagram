@@ -7,9 +7,9 @@
       <Diagram DiagramId="bdac01371b82442e841a17389aca8968" Name="Diagram1">
         <EntityTypeShape EntityType="comzipatoDbModel.product_img" Width="1.5" PointX="5" PointY="2" />
         <EntityTypeShape EntityType="comzipatoDbModel.cat" Width="1.5" PointX="5.375" PointY="5.75" />
-        <EntityTypeShape EntityType="comzipatoDbModel.product_file" Width="1.5" PointX="0.75" PointY="6.75" />
         <EntityTypeShape EntityType="comzipatoDbModel.product" Width="1.5" PointX="2.75" PointY="9.75" />
         <AssociationConnector Association="comzipatoDbModel.FK_product_img_products" />
+        <EntityTypeShape EntityType="comzipatoDbModel.product_file" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

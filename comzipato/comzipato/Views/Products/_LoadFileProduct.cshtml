@@ -1,0 +1,42 @@
+﻿
+@model List<comzipato.Models.product_file>
+@if (Model != null)
+{
+    if (Model.Count > 0)
+    {
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>File</th>
+                        <th>Title</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.id</td>
+                            <td><a href="@item.file_path">Link</a></td>
+                            <td>@item.title</td>                           
+                            <td><a class="btn btn-danger remove_anh" href="#" onclick="delete_file(@item);">Xóa file</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+}
+
+<script>
+    function delete_photo(id) {
+        if (confirm('Bạn chắc chắn muốn xóa ảnh này?')) {
+            var anh_xoa = "/products/xoa_anh?id=" + id;
+            window.location.href = anh_xoa;
+            return true;
+        }
+        return false;
+    }
+</script>

@@ -42,7 +42,7 @@
                 <h3 class="panel-title">Vui lòng nhập đầy đủ các trường có dấu <span class="color-red">(*)</span></h3>
             </div>
             <div class="panel-body">
-                @using (Html.BeginForm("Add", "Products", FormMethod.Post, htmlAttributes: new { @class = "form-horizontal", role = "form", @id = "add-new-product" }))
+                @using (Html.BeginForm("Add", "Products", FormMethod.Post, htmlAttributes: new { @class = "form-horizontal", role = "form", @id = "add-new-product", @name = "add-new-product" }))
                 {
                     @Html.AntiForgeryToken()
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -88,8 +88,7 @@
                             <div class="form-group">
                                 @Html.LabelFor(model => model.lang, htmlAttributes: new { @class = "control-label col-md-4 required-after" })
                                 <div class="col-md-8">
-                                    @Html.HiddenFor(m => m.lang)
-                                   <select id="lang" name="lang"><option value="vn" selected>Việt Nam</option><option value="en" selected>Tiếng Anh</option></select>
+                                   <select id="lang" name="lang"><option value="vn" selected>Việt Nam</option><option value="en" >Tiếng Anh</option></select>
                                     @Html.ValidationMessageFor(model => model.lang, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -176,7 +175,7 @@
                                     @Html.TextAreaFor(m => m.product_content, new { @class = "form-control", @rows = "5" })
                                 </div>
                             </div>
-                            @*@Html.LabelFor(m => m.product_feature, new { @class = "col-md-4 control-label" })
+                            @Html.LabelFor(m => m.product_feature, new { @class = "col-md-4 control-label" })
                             <div class="form-group">
                                 <div class="col-md-12">
                                     @Html.TextAreaFor(m => m.product_feature, new { @class = "form-control", @rows = "5" })
@@ -187,7 +186,7 @@
                                 <div class="col-md-12">
                                     @Html.TextAreaFor(m => m.product_technical, new { @class = "form-control", @rows = "5" })
                                 </div>
-                            </div>*@
+                            </div>
                         </div>
 
                         <div id="product_addphoto" class="tab-pane">
@@ -214,7 +213,7 @@
 
                     <div class="form-group">
                         <div class="col-md-6">
-                            <button class="btn btn-primary">
+                            <button class="btn btn-primary" >
                                 <i class="fa fa-plus"></i> Thêm mới
                             </button>
                             <span class="btn btn-danger" onclick="gotoUrl('@Url.RouteUrl("AdminListProduct")')"><i class="fa fa-close"></i> Hủy bỏ</span>
@@ -265,23 +264,25 @@
                     }
                 }
             });
-            CKEDITOR.replace('product_content')
-            //CKEDITOR.replace('product_content', {
-            //    removeButtons: 'Save',
-            //    height: '500px'
-            //});
-            //CKEDITOR.replace('product_feature', {
-            //    removeButtons: 'Save',
-            //    height: '500px'
-            //})
-            //CKEDITOR.replace('product_technical', {
-            //    removeButtons: 'Save',
-            //    height: '500px'
-            //})
+            //CKEDITOR.replace('product_content')
+            CKEDITOR.replace('product_content', {
+                removeButtons: 'Save',
+                height: '500px'
+            })
+            CKEDITOR.replace('product_feature', {
+                removeButtons: 'Save',
+                height: '500px'
+            })
+            CKEDITOR.replace('product_technical', {
+                removeButtons: 'Save',
+                height: '500px'
+            })
 
         })
 
-
+        //function addNew() {
+        //    $('#add-new-product').submit();
+        //}
     </script>
 
 }

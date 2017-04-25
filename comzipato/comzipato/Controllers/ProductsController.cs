@@ -311,7 +311,7 @@ namespace comzipato.Controllers
                 CatURL = x.cat_url
             }).OrderBy(x => x.CatPos).ToList();
 
-            var presidents = data.Where(x => x.ParentCatId == null || x.ParentCatId ==-1).FirstOrDefault();
+            var presidents = data.Where(x => x.ParentCatId == null).FirstOrDefault();
             SetChildrenCat(presidents, data);
             return PartialView("_lstOptionCatPartial", presidents);
         }
@@ -329,8 +329,13 @@ namespace comzipato.Controllers
         }
         public ActionResult LoadPhotoProduct(long? id)
         {
-            var model = db.products.Find(id).product_img.ToList();
+            var model = db.products.Find(id).product_img.ToList();//db.products.Find(id).product_img.ToList();
             return PartialView("_LoadPhotoProduct", model);
+        }
+        public ActionResult LoadFileProduct(long? id)
+        {
+            var model = db.product_file.Where(x => x.product_id == id).ToList();
+            return PartialView("_LoadFileProduct", model);
         }
         public ActionResult SaveImage()
         {
@@ -507,6 +512,41 @@ namespace comzipato.Controllers
 
             }
             return RedirectToRoute("AdminEditProduct", new { id = id });
+        }
+        public ActionResult uploadfile(long? product_id,string name)
+        {
+            var fName = "";
+            try
+            {
+                foreach (string fileName in Request.Files)
+                {
+                    HttpPostedFileBase file = Request.Files[fileName];
+                    //Save file content goes here
+                    if (file != null && file.ContentLength > 0)
+                    {
+                        var originalDirectory = new DirectoryInfo(string.Format("{0}images\\files", Server.MapPath(@"\")));
+                        string strDay = DateTime.Now.ToString("yyyyMM");
+                        string pathString = System.IO.Path.Combine(originalDirectory.ToString(), strDay);
+
+                        var _fileName = Guid.NewGuid().ToString("N") + file.FileName.Substring(file.FileName.IndexOf("."));
+
+                        bool isExists = System.IO.Directory.Exists(pathString);
+
+                        if (!isExists)
+                            System.IO.Directory.CreateDirectory(pathString);
+                    
+                        fName =  "/images/files/" + strDay + "/" + _fileName;
+                        file.SaveAs(Server.MapPath(@"\") + fName);
+                        var update_img_product = db.Database.ExecuteSqlCommand("INSERT INTO product_file(title,file_path,product_id) VALUES('" + name + "','" + fName + "'," + product_id + ")");
+                        fName = "1";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                //configs.SaveTolog(ex.ToString());
+            }
+            return Json(new { Message = fName }, JsonRequestBehavior.AllowGet);
         }
     }
 }
