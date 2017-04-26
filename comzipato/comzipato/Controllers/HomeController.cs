@@ -30,5 +30,9 @@ namespace comzipato.Controllers
 
             return View();
         }
+        public ActionResult HuongDan()
+        {
+            return View();
+        }
     }
 }

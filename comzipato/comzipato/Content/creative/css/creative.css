@@ -944,3 +944,45 @@ ul.social > li > a:hover {
 .m_b_to20 {
         margin-bottom: 20px;
 }
+.huongdan_tab_p{
+    height: 50px;line-height: 50px;margin: 0;display: table;width: 100%;text-align: center;
+}
+.huongdan_tab_a{
+    width: 100%;
+    color: #fff;
+    font-size: 14px;
+    display: table-cell;
+    vertical-align: middle;
+}
+.huongdan_tab{
+    background-color:#a0ce4e;text-align:center;margin: -1px 0px 0px;float: left;
+}
+.huongdan_tab2{
+    background-color:#e64a19;text-align:center;margin: -1px 0px 0px;float: left;
+}
+.huongdan_tab3{
+    background-color:#9c27b0;text-align:center;margin: -1px 0px 0px;float: left;
+}
+.huongdan_tab4{
+    background-color:#2196f3;text-align:center;margin: -1px 0px 0px;float: left;
+}
+.huongdan_tab1_icon{
+    position: absolute;
+    z-index: 25;    
+    width: 100% !important;    
+    float: left;
+    margin: 0 1% 40px;
+}
+.huongdan_tab1_1{
+    background-image: url("/images/blue-freeze.png");
+    left: 22%;top: 54%;
+    position: absolute;
+    color: transparent;
+    height: 47px;
+    width: 47px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+}
