@@ -3,24 +3,67 @@
     ViewBag.Title = "HuongDan";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+   
 
+.tooltip {
+  top:40px;
+  background-color:#4cad50;
+  color:white;
+  border-radius:5px;
+  opacity:0;
+  position:absolute;
+  -webkit-transition: opacity 0.5s;
+  -moz-transition:  opacity 0.5s;
+  -ms-transition: opacity 0.5s;
+  -o-transition:  opacity 0.5s;
+  transition:  opacity 0.5s;
+  width:250px;
+  padding-left:2px;
+  z-index:1000;
+}
+
+.hover:hover .tooltip {
+    opacity:1;
+}
+.hover2:hover .tooltip {
+    opacity:1;
+}
+.hover3:hover .tooltip {
+    opacity:1;
+}
+</style>
 
 <section id="slider-top" class="hidden-xs">
     <div class="container fill">
-        <div id="carousel-slider-top-home" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="active item">
-                    <div class="fill" style="background-image:url('/images/house-grayscale.jpg');">
-                        <div class="container">
-                            <div class="huongdan_tab1_icon" style="height: 560px !important;">
-                                <div data-title-main="abc 1" data-title="abc 2" class="huongdan_tab1_1">Freeze sensor</div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3"><p><a title="ENERGY" href="#" style="color:#ffffff;">ENERGY</a></p></div>
+        <div id="carousel-slider-top-home" class="col-md-12" data-ride="carousel">
+            <div class="huongdan_bg">
+                <div class="image-content">
+                    <img class="overview-background-img" src="/images/house-grayscale.jpg" alt="">
                 </div>
-            </div>           
+            </div>
+            <div>
+                <div class="huongdan_tab1_icon" style="height: 560px !important;">
+                    <div data-title-main="abc 1" data-title="abc 2" class="huongdan_tab1_1 hover" title="Cảm ứng lạnh">
+                        <span class="tooltip">
+                            <p><b>Đồng hồ điện</b></p>
+                            <p>Bạn có thể kết nối Đồng hồ điện với bất kỳ mạch điện nào ở nhà bạn. Bạn sẽ nhận được dữ liệu thời gian thực về tiêu thụ năng lượng trong đơn vị đo chuẩn. Bạn có thể đồng bộ các phép đo với máy chủ đám mây để hình dung và phân tích mức tiêu thụ năng lượng của bạn và tạo các quy tắc tiết kiệm năng lượng của riêng bạn bằng cách sử dụng Zipato Rule Creator.</p>
+                        </span>
+                    </div>
+                    <div data-title-main="abc 1" data-title="abc 2" class="huongdan_tab1_2 hover2" title="Cảm biến nhiệt độ">
+                        <span class="tooltip">
+                            <p><b>Cảm biến nhiệt độ</b></p>
+                            <p>Cảm biến nhiệt độ có thể được đặt trong nhà như là các thiết bị độc lập hoặc như một phần của thiết bị đa cảm biến. Bạn có thể sử dụng các phép đo nhiệt độ để điều chỉnh các thiết bị sưởi ấm và làm mát của bạn. Bằng cách này, Zipato sẽ hoạt động như một bộ điều chỉnh nhiệt độ tiên tiến mà bạn có thể mở rộng bằng cách sử dụng Zipato Rule Creator để tạo các kịch bản thoải mái của riêng mình.</p>
+                        </span>
+                    </div>
+                    <div data-title-main="abc 1" data-title="abc 2" class="huongdan_tab1_3 hover3" title="Bật mở điện">
+                        <span class="tooltip">
+                            <p><b>Bật mở điện</b></p>
+                            <p>Cách đơn giản nhất để tự động hoá đèn của bạn hoặc các thiết bị gia dụng khác. Chỉ cần cắm chúng vào ổ cắm điện và sử dụng chúng như ổ cắm tự động cho bất kỳ thiết bị nào bạn muốn. Bạn có thể kiểm soát thiết bị cắm trên bất kỳ thiết bị hỗ trợ Internet nào và tự động hoá chúng theo ý muốn của bạn. Bạn cũng có thể nhận được báo cáo chi tiết về tiêu thụ năng lượng của thiết bị được kết nối và sử dụng thông tin này để tối ưu hóa hiệu suất năng lượng.</p>
+                        </span>
+                    </div>
+                </div>
+            </div>          
         </div>
        
         <div class="col-md-3 huongdan_tab"><p class="huongdan_tab_p"><a title="NĂNG LƯỢNG" href="#" class="huongdan_tab_a">NĂNG LƯỢNG</a></p></div>
@@ -29,4 +72,3 @@
         <div class="col-md-3 huongdan_tab4"><p class="huongdan_tab_p"><a title="AN TOÀN" href="#" class="huongdan_tab_a">AN TOÀN</a></p></div>
     </div>
 </section>
-

@@ -974,8 +974,9 @@ ul.social > li > a:hover {
     margin: 0 1% 40px;
 }
 .huongdan_tab1_1{
-    background-image: url("/images/blue-freeze.png");
-    left: 22%;top: 54%;
+    background-image: url("/images/green-power-meter.png");
+    left: 30%;
+    top: 23%;
     position: absolute;
     color: transparent;
     height: 47px;
@@ -985,4 +986,36 @@ ul.social > li > a:hover {
     -o-background-size: cover;
     background-size: cover;
 }
+.huongdan_tab1_2{
+    background-image: url("/images/green-temperature.png");
+    left: 44%;
+    top: 47%;
+    position: absolute;
+    color: transparent;
+    height: 47px;
+    width: 47px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.huongdan_tab1_3{
+    background-image: url("/images/green-plug-in.png");
+    left: 50%;
+    top: 20%;
+    position: absolute;
+    color: transparent;
+    height: 47px;
+    width: 47px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.huongdan_bg{
+    width: 100% !important;
+    margin: 0 0 -6px;
+    z-index: 22;
+    float: left;
+
 }
