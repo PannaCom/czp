@@ -1012,6 +1012,201 @@ ul.social > li > a:hover {
     -o-background-size: cover;
     background-size: cover;
 }
+.huongdan_tab1_4{
+    background-image: url("/images/green-lights.png");
+    left: 64%;
+    top: 45%;
+    position: absolute;
+    color: transparent;
+    height: 47px;
+    width: 47px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.huongdan_tab2_1{
+    background-image: url("/images/red-camera.png");
+    left: 22%;
+    top: 33%;
+    position: absolute;
+    color: transparent;
+    height: 47px;
+    width: 47px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.huongdan_tab2_2{
+    background-image: url("/images/red-motion.png");
+    left: 41%;
+    top: 51%;
+    position: absolute;
+    color: transparent;
+    height: 47px;
+    width: 47px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.huongdan_tab2_3{
+    background-image: url("/images/red-shock.png");
+    left: 46%;
+    top: 17%;
+    position: absolute;
+    color: transparent;
+    height: 47px;
+    width: 47px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.huongdan_tab2_4{
+    background-image: url("/images/red-door-lock.png");
+    left: 60%;
+    top: 43%;
+    position: absolute;
+    color: transparent;
+    height: 47px;
+    width: 47px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.huongdan_tab2_5{
+    background-image: url("/images//red-glass.png");
+    left: 65%;
+    top: 20%;
+    position: absolute;
+    color: transparent;
+    height: 47px;
+    width: 47px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.huongdan_tab3_1{
+    background-image: url("/images/purple-on-off.png");
+    left: 29%;
+    top: 14%;
+    position: absolute;
+    color: transparent;
+    height: 47px;
+    width: 47px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.huongdan_tab3_2{
+    background-image: url("/images/purple-temperature.png");
+    left: 50%;
+    top: 43%;
+    position: absolute;
+    color: transparent;
+    height: 47px;
+    width: 47px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.huongdan_tab3_3{
+    background-image: url("/images/purple-lights.png");
+    left: 53.4%;
+    top: 13%;
+    position: absolute;
+    color: transparent;
+    height: 47px;
+    width: 47px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.huongdan_tab3_4{
+    background-image: url("/images/purple-ir.png");
+    left: 66%;
+    top: 19%;
+    position: absolute;
+    color: transparent;
+    height: 47px;
+    width: 47px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.huongdan_tab4_1{
+    background-image: url("/images/blue-freeze.png");
+    left: 22%;
+    top: 54%;
+    position: absolute;
+    color: transparent;
+    height: 47px;
+    width: 47px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.huongdan_tab4_2{
+    background-image: url("/images/blue-fire.png");
+    left: 28%;
+    top: 21%;
+    position: absolute;
+    color: transparent;
+    height: 47px;
+    width: 47px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.huongdan_tab4_3{
+    background-image: url("/images/blue-gas.png");
+    left: 46%;
+    top: 35%;
+    position: absolute;
+    color: transparent;
+    height: 47px;
+    width: 47px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.huongdan_tab4_4{
+    background-image: url("/images/blue-co.png");
+    left: 55%;
+    top: 21%;
+    position: absolute;
+    color: transparent;
+    height: 47px;
+    width: 47px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.huongdan_tab4_5{
+    background-image: url("/images/blue-flood.png");
+    left: 67%;
+    top: 49%;
+    position: absolute;
+    color: transparent;
+    height: 47px;
+    width: 47px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 .huongdan_bg{
     width: 100% !important;
     margin: 0 0 -6px;
