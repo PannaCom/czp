@@ -1,0 +1,212 @@
+﻿@{
+    ViewBag.Title = "Tổng quan hoạt động của Zipato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .tooltip {
+        top: 40px;
+        background-color: #4cad50;
+        color: white;
+        border-radius: 5px;
+        opacity: 0;
+        position: absolute;
+        -webkit-transition: opacity 0.5s;
+        -moz-transition: opacity 0.5s;
+        -ms-transition: opacity 0.5s;
+        -o-transition: opacity 0.5s;
+        transition: opacity 0.5s;
+        width: 250px;
+        padding-left: 2px;
+        z-index: 1000;
+    }
+
+    .tooltip2 {
+        background-color: #e64919;
+    }
+
+    .hover:hover .tooltip {
+        opacity: 1;
+    }
+
+    .hover2:hover .tooltip {
+        opacity: 1;
+    }
+
+    .hover3:hover .tooltip {
+        opacity: 1;
+    }
+
+    .hover4:hover .tooltip {
+        opacity: 1;
+    }
+
+    .hover5:hover .tooltip {
+        opacity: 1;
+    }
+    #submenu .a{
+        color: #a0ce4e;
+        text-decoration: blink;
+        font-weight: 300;
+    }
+</style>
+<div class="col-md-12" style="float:left;position:relative;width:100%;background-color:#ffffff;" id="submenu">
+    <div class="col-md-4" style="float:left;display:block;position:relative;text-align:left;color:#646464;">
+        HƯỚNG DẪN | TỔNG QUAN
+    </div>
+    <div class="col-md-8" style="float:right;display:block;position:relative;text-align:right;color:#a0ce4e;">
+        <a href="/howitworks/overview">TỔNG QUAN</a>| <a href="/howitworks/interfaces">GIAO DIỆN</a> | <a href="/howitworks/rulecreator">NGUYÊN TẮC</a>  | <a href="/howitworks/compatibility">TƯƠNG THÍCH</a> |<a href="/howitworks/feature">TÍNH NĂNG</a> 
+    </div>
+</div>
+<section id="slider-top" class="hidden-xs" style="float:left;position:relative;width:100%;">
+    <div class="container fill">
+        <div id="carousel-slider-top-home" class="col-md-12" data-ride="carousel" style="padding-left:0;">
+            <div class="huongdan_bg">
+                <div class="image-content" style="float:left;position:relative;width:100%;">
+                    <img class="overview-background-img" src="/images/house-grayscale.jpg" alt="">
+                </div>
+            </div>
+            <div>
+                <div class="huongdan_tab1_icon" style="height: 560px !important;" id="tab1">
+                    <div data-title-main="abc 1" data-title="abc 2" class="huongdan_tab1_1 hover" title="Cảm ứng lạnh">
+                        <span class="tooltip">
+                            <p><b>Đồng hồ điện</b></p>
+                            <p>Bạn có thể kết nối Đồng hồ điện với bất kỳ mạch điện nào ở nhà bạn. Bạn sẽ nhận được dữ liệu thời gian thực về tiêu thụ năng lượng trong đơn vị đo chuẩn. Bạn có thể đồng bộ các phép đo với máy chủ đám mây để hình dung và phân tích mức tiêu thụ năng lượng của bạn và tạo các quy tắc tiết kiệm năng lượng của riêng bạn bằng cách sử dụng Zipato Rule Creator.</p>
+                        </span>
+                    </div>
+                    <div data-title-main="abc 1" data-title="abc 2" class="huongdan_tab1_2 hover2" title="Cảm biến nhiệt độ">
+                        <span class="tooltip">
+                            <p><b>Cảm biến nhiệt độ</b></p>
+                            <p>Cảm biến nhiệt độ có thể được đặt trong nhà như là các thiết bị độc lập hoặc như một phần của thiết bị đa cảm biến. Bạn có thể sử dụng các phép đo nhiệt độ để điều chỉnh các thiết bị sưởi ấm và làm mát của bạn. Bằng cách này, Zipato sẽ hoạt động như một bộ điều chỉnh nhiệt độ tiên tiến mà bạn có thể mở rộng bằng cách sử dụng Zipato Rule Creator để tạo các kịch bản thoải mái của riêng mình.</p>
+                        </span>
+                    </div>
+                    <div data-title-main="abc 1" data-title="abc 2" class="huongdan_tab1_3 hover3" title="Bật mở điện">
+                        <span class="tooltip">
+                            <p><b>Bật mở điện</b></p>
+                            <p>Cách đơn giản nhất để tự động hoá đèn của bạn hoặc các thiết bị gia dụng khác. Chỉ cần cắm chúng vào ổ cắm điện và sử dụng chúng như ổ cắm tự động cho bất kỳ thiết bị nào bạn muốn. Bạn có thể kiểm soát thiết bị cắm trên bất kỳ thiết bị hỗ trợ Internet nào và tự động hoá chúng theo ý muốn của bạn. Bạn cũng có thể nhận được báo cáo chi tiết về tiêu thụ năng lượng của thiết bị được kết nối và sử dụng thông tin này để tối ưu hóa hiệu suất năng lượng.</p>
+                        </span>
+                    </div>
+                    <div data-title-main="abc 1" data-title="abc 2" class="huongdan_tab1_4 hover4" title="Điều chỉnh sáng">
+                        <span class="tooltip">
+                            <p><b>Điều chỉnh sáng</b></p>
+                            <p>Tương tự như thiết bị chuyển mạch nhưng cho phép bạn điều chỉnh ánh sáng của bạn ở mức mong muốn. Bằng cách này bạn có thể sử dụng Zipato để tự động thiết lập đèn của bạn đến 80% nếu phòng không được hoán đổi hoặc thậm chí tắt chúng sau một khoảng thời gian nhất định. Tất nhiên, đèn sẽ tự động bật khi ai đó bước vào phòng. Bằng cách này bạn có thể tiết kiệm đến 30% trên hóa đơn điện của bạn.</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="huongdan_tab2_icon" style="height: 560px !important;display:none;" id="tab2">
+                    <div data-title-main="abc 1" data-title="abc 2" class="huongdan_tab2_1 hover" title="An Ninh">
+                        <span class="tooltip">
+                            <p><b>An Ninh</b></p>
+                            <p>Zipato giải pháp kết hợp giám sát bằng video, cửa / cửa sổ, chuyển động và cảm biến ánh sáng để cung cấp bảo vệ các xâm nhập không mong muốn và các vấn đề an ninh khác. Dịch vụ theo dõi miễn phí 24/7 cung cấp các cảnh báo thời gian thực thông qua thông báo điện thoại thông minh, SMS và email.</p>
+                        </span>
+                    </div>
+                    <div data-title-main="abc 1" data-title="abc 2" class="huongdan_tab2_2 hover2" title="Phát hiện chuyển động">
+                        <span class="tooltip">
+                            <p><b>Phát hiện chuyển động</b></p>
+                            <p>Cảm biến chuyển động có thể phù hợp với nhiều mục đích khi là một phần của hệ thống Zipato. Zipato có thể sử dụng cùng một máy dò chuyển động cho an ninh, chăm sóc người cao tuổi, tiết kiệm năng lượng và các mục đích tiện nghi..</p>
+                        </span>
+                    </div>
+                    <div data-title-main="abc 1" data-title="abc 2" class="huongdan_tab2_3 hover3" title="Cảm biến rung động">
+                        <span class="tooltip">
+                            <p><b>Cảm biến rung động</b></p>
+                            <p>Máy dò rung động này sẽ phát hiện ngay cả rung động nhỏ nhất. Nó có thể được đặt trên tường để kích hoạt một báo động trong trường hợp một ai đó cố gắng phá cửa hoặc tường, thông qua các cửa hoặc tường mỏng. Bạn có thể dễ dàng thiết lập Zipato để gửi thông báo cho ai và dưới dạng nào (email, tin nhắn văn bản, cuộc gọi điện thoại, Twitter ...)..</p>
+                        </span>
+                    </div>
+                    <div data-title-main="abc 1" data-title="abc 2" class="huongdan_tab2_4 hover4" title="Khóa cửa tự động">
+                        <span class="tooltip">
+                            <p><b>Khóa cửa tự động</b></p>
+                            <p>Bạn có thể sử dụng hệ thống Zipato để kiểm soát bất kỳ khóa điện tử nào. Bằng cách này, bạn có thể khóa / mở  cửa từ xa qua điện thoại của bạn, hoặc lập chương trình tự khóa cửa để khóa tự động vào thời gian bạn mong muốn mỗi ngày.</p>
+                        </span>
+                    </div>
+                    <div data-title-main="abc 1" data-title="abc 2" class="huongdan_tab2_5 hover5" title="Máy dò vỡ kính">
+                        <span class="tooltip">
+                            <p><b>Máy dò vỡ kính</b></p>
+                            <p>Bạn có thể đặt máy dò này trong bất kỳ phòng nào có mặt kính trong suốt mà ai đó có thể đột nhập vào nhà bạn. Nó sẽ phát hiện âm thanh vỡ kính cụ thể và kích hoạt một báo động về Zipato. Bạn có thể dễ dàng thiết lập Zipato để gửi thông báo cho ai và dưới dạng nào (email, tin nhắn văn bản, cuộc gọi điện thoại, Twitter ...).</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="huongdan_tab3_icon" style="height: 560px !important;display:none;" id="tab3">
+                    <div data-title-main="abc 1" data-title="abc 2" class="huongdan_tab3_1 hover" title="Bật tắt chuyển đổi">
+                        <span class="tooltip">
+                            <p><b>Bật tắt chuyển đổi</b></p>
+                            <p>Zipato cung cấp nhiều thiết bị chuyển mạch từ xa, từ micromodules mà bạn có thể ẩn trong hộp tường của bạn để plug-in-switch dễ dàng cắm vào ổ cắm điện của bạn, cho phép bạn từ xa bật / tắt các thiết bị được kết nối. Micromodule Motor Controller cho phép bạn kiểm soát và tinh chỉnh vị trí của cửa chớp hoặc rèm cửa.</p>
+                        </span>
+                    </div>
+                    <div data-title-main="abc 1" data-title="abc 2" class="huongdan_tab3_2 hover2" title="Cảm biến nhiệt độ">
+                        <span class="tooltip">
+                            <p><b>Cảm biến nhiệt độ</b></p>
+                            <p>Cảm biến nhiệt độ cho phép bạn đo mức nhiệt độ phòng. Các mức nhiệt độ khác nhau có thể kích hoạt nhiều sự thoải mái khác nhau. Tự động thao tác thiết bị HVAC của bạn để đạt được nhiệt độ môi trường tối ưu.</p>
+                        </span>
+                    </div>
+                    <div data-title-main="abc 1" data-title="abc 2" class="huongdan_tab3_3 hover3" title="Đèn">
+                        <span class="tooltip">
+                            <p><b>Đèn</b></p>
+                            <p>Bộ làm nguội Zipato có thể được sử dụng để tự động làm mờ mức sáng tới các giá trị mong muốn. Chúng có thể là một phần của các tình huống phức tạp sử dụng các thiết bị khác như cảm biến độ sáng, cửa / cửa sổ và cảm biến chuyển động ví dụ: Chúng luôn có thể mờ đến 80% khi không có ai đến, hoặc đèn có thể được đặt để tự động thay đổi tùy thuộc vào ánh sáng của căn phòng.</p>
+                        </span>
+                    </div>
+                    <div data-title-main="abc 1" data-title="abc 2" class="huongdan_tab3_4 hover4" title="IR controller">
+                        <span class="tooltip">
+                            <p><b>IR controller</b></p>
+                            <p>Bộ mở rộng IR Zipato có thể được sử dụng để điều khiển từ xa các thiết bị HVAC và thiết bị AV hồng ngoại ví dụ: Bộ điều chỉnh Z-Wave có thể thay đổi nhiệt độ phòng bằng cách điều khiển thiết bị HVAC thông qua bộ mở rộng IR Zipato.</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="huongdan_tab4_icon" style="height: 560px !important;display:none;" id="tab4">
+                    <div data-title-main="abc 1" data-title="abc 2" class="huongdan_tab4_1 hover" title="Cảm biến lạnh">
+                        <span class="tooltip">
+                            <p><b>Cảm biến lạnh</b></p>
+                            <p>Ngăn chặn các ống vỡ và giúp bảo vệ nhà của bạn khỏi bị hư hỏng do đóng băng.</p>
+                        </span>
+                    </div>
+                    <div data-title-main="abc 1" data-title="abc 2" class="huongdan_tab4_2 hover2" title="Cảm biến cháy">
+                        <span class="tooltip">
+                            <p><b>Cảm biến cháy</b></p>
+                            <p>Nhận báo động khi có hiện tượng khói được phát hiện trong nhà bạn. Đặt nhà của bạn để tự động gọi giúp đỡ nếu bạn ở ngoài tầm kiểm soát.</p>
+                        </span>
+                    </div>
+                    <div data-title-main="abc 1" data-title="abc 2" class="huongdan_tab4_3 hover3" title="Phát hiện ga">
+                        <span class="tooltip">
+                            <p><b>Phát hiện ga</b></p>
+                            <p>Máy dò khí tự nhiên không dây này cung cấp cảnh báo nhanh về sự rò rỉ khí tự nhiên (Methane CH4) thường được sử dụng để nấu nướng, gia đình và nước chữa bệnh. Nó sẽ kích hoạt một báo động sớm để Zipato có thể gửi cảnh báo theo thiết lập của bạn (email, tin nhắn văn bản, gọi điện thoại, twitter ...).</p>
+                        </span>
+                    </div>
+                    <div data-title-main="abc 1" data-title="abc 2" class="huongdan_tab4_4 hover4" title="Phát hiện khí CO">
+                        <span class="tooltip">
+                            <p><b>Phát hiện khí CO</b></p>
+                            <p>Máy dò này sẽ kích hoạt một báo động sớm trong trường hợp phát hiện khí CO không màu . Bạn có thể dễ dàng thiết lập Zipato để gửi thông báo cho ai và dưới dạng nào (email, tin nhắn văn bản, cuộc gọi điện thoại, Twitter ...)</p>
+                        </span>
+                    </div>
+                    <div data-title-main="abc 1" data-title="abc 2" class="huongdan_tab4_5 hover5" title="Cảm biến lũ">
+                        <span class="tooltip">
+                            <p><b>Cảm biến lũ</b></p>
+                            <p>Bảo vệ ngôi nhà của bạn trong trường hợp lũ lụt. Nhận được thông báo trong giai đoạn đầu và tắt thông báo từ xa hoặc thiết lập Zipato để làm điều đó tự động.</p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 huongdan_tab"><p class="huongdan_tab_p"><a title="NĂNG LƯỢNG" href="#" class="huongdan_tab_a" onclick="showTab(1);">NĂNG LƯỢNG</a></p></div>
+        <div class="col-md-3 huongdan_tab2"><p class="huongdan_tab_p"><a title="AN NINH" href="#" class="huongdan_tab_a" onclick="showTab(2);">AN NINH</a></p></div>
+        <div class="col-md-3 huongdan_tab3"><p class="huongdan_tab_p"><a title="TIỆN NGHI" href="#" class="huongdan_tab_a" onclick="showTab(3);">TIỆN NGHI</a></p></div>
+        <div class="col-md-3 huongdan_tab4"><p class="huongdan_tab_p"><a title="AN TOÀN" href="#" class="huongdan_tab_a" onclick="showTab(4);">AN TOÀN</a></p></div>
+    </div>
+</section>
+<script>
+    function showTab(id) {
+        $("#tab1").hide();
+        $("#tab2").hide();
+        $("#tab3").hide();
+        $("#tab4").hide();
+        $("#tab" + id).show();
+        switch (id) {
+            case 1:$('.tooltip').css('background','#4cad50');
+                break;
+            case 2: $('.tooltip').css('background', '#e64919');
+                break;
+            case 3: $('.tooltip').css('background', '#9c28b0');
+                break;
+            case 4: $('.tooltip').css('background', '#2298f2');
+                break;
+            default:$('.tooltip').css('background','#4cad50');
+        }
+    }
+</script>

@@ -186,7 +186,9 @@
     <Compile Include="Configs.cs" />
     <Compile Include="Controllers\adminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\howitworksController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\whatisController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1551,6 +1553,10 @@
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\_LoadFileProduct.cshtml" />
     <Content Include="Views\Home\HuongDan.cshtml" />
+    <Content Include="Views\whatis\overview.cshtml" />
+    <Content Include="Views\howitworks\overview.cshtml" />
+    <Content Include="Views\howitworks\overview_en.cshtml" />
+    <Content Include="Views\howitworks\interfaces.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
