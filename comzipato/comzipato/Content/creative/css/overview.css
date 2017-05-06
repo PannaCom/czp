@@ -1,0 +1,697 @@
+.layout-full-width {
+    padding: 0;
+}
+
+.layout-full-width #Wrapper {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    background-color: #ffffff;
+}
+
+h1, .text-logo #logo {
+    font-family: "Roboto", Arial, Tahoma, sans-serif;
+    font-weight: 300;
+}
+
+h1, h1 a, h1 a:hover, .text-logo #logo {
+    color: #646464;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+h2 {
+    margin-bottom: 15px;
+    margin-top: 0;
+    font-weight: 100;
+}
+
+h3 {
+    font-weight: 100;
+    font-size: 40px;
+    line-height: 100%;
+    font-family: "Roboto", Arial, Tahoma, sans-serif;
+    margin-top: 0;
+    margin-bottom: 15px;
+    vertical-align: baseline;
+}
+
+h3, h3 a, h3 a:hover {
+    color: #646464;
+}
+
+h4 {
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 2px;
+    font-family: "Roboto", Arial, Tahoma, sans-serif;
+    font-weight: 300;
+    margin-top: 0;
+}
+
+h4, h4 a, h4 a:hover, .style-simple .sliding_box .desc_wrapper h4 {
+    color: #646464;
+}
+
+body, button, span.date_label, .timeline_items li h3 span, input[type="submit"], input[type="reset"], input[type="button"], input[type="text"], input[type="password"], input[type="tel"], input[type="email"], textarea, select, .offer_li .title h3 {
+    font-family: "Roboto", Arial, Tahoma, sans-serif;
+    font-weight: 400;
+}
+
+body, ul.timeline_items, .icon_box a .desc, .icon_box a:hover .desc, .feature_list ul li a, .list_item a, .list_item a:hover, .widget_recent_entries ul li a, .flat_box a, .flat_box a:hover, .story_box .desc, .content_slider.carouselul li a .title, .content_slider.flat.description ul li .desc, .content_slider.flat.description ul li a .desc {
+    color: #646464;
+}
+
+p {
+    font-weight: 300;
+}
+
+b, strong {
+    font-weight: 400;
+}
+
+.style-simple .icon_box .icon_wrapper i, .style-simple .icon_box .image_wrapper img, .style-simple .icon_box .desc_wrapper h4:before {
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+#Content {
+    width: 100%;
+    padding-top: 0px;
+    background-color: #fff;
+    height: auto;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.section_wrapper, .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.overview-sectionf {
+    padding-top: 180px;
+    padding-bottom: 100px;
+    background-image: url(/Content/creative/img/images/piece-of-mind-zipato.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+.overview-sectionf .column {
+    width: 48%;
+    float: left;
+    margin: 0 1% 40px;
+}
+
+.overview-sectionf .column h1 {
+    text-align: left;
+    font-size: 50px !important;
+    line-height: 54px;
+    font-weight: 100;
+    color: #646464;
+    margin: 0px 0px 15px 0px;
+}
+
+.overview-sectionf .column h1 span {
+    font-size: 50px !important;
+    line-height: 54px;
+    font-weight: 100;
+}
+
+.overview-sectionf .column p.tX20501 {
+    margin-top: -10px;
+    font-size: 17px;
+    text-align: left;
+}
+
+.overview-sectionf .column p.tX20501 span {
+    color: #000000;
+    font-size: 16px;
+}
+
+.page .section p {
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.page .section p span {
+    color: #646464;
+}
+
+p {
+    margin: 4px 10px 10px 0px;
+}
+
+.section {
+    position: relative;
+}
+
+.section_wrapper:after, .container:after {
+    clear: both;
+    content: " ";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+a.mfn-link-5 {
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    font-weight: 300;
+    margin: 0 15px 0 0;
+
+}
+
+a.mfn-link {
+    color: #656B6F;
+    display: inline-block;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+    font-size: 15px;
+    text-decoration: none;
+}
+
+a.mfn-link-5:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: left;
+    z-index: -1;
+    padding: 10px 20px;
+    width: 100%;
+    height: 100%;
+    content: attr(data-hover);
+    -webkit-transition: -webkit-transform .3s;
+    -moz-transition: -moz-transform .3s;
+    transition: transform .3s;
+    -webkit-transform: translateX(-25%);
+    -moz-transform: translateX(-25%);
+    transform: translateX(-25%);
+    color: #fff;
+    background: #74b701;
+}
+
+a.mfn-link-5 span {
+    display: block;
+    padding: 10px 20px;
+    -webkit-transition: -webkit-transform .3s;
+    -moz-transition: -moz-transform .3s;
+    transition: transform .3s;
+    background: #a0ce4e;
+    color: #fff !important;
+}
+
+a:hover.mfn-link {
+    text-decoration: none;
+    color: #a0ce4e !important;
+}
+
+a:hover.mfn-link-5:before, a.hover.mfn-link-5:before {
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    transform: translateX(0%);
+}
+
+a:hover.mfn-link-5 span, a.hover.mfn-link-5 span {
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    transform: translateX(100%);
+}
+
+.section-image-box {
+    padding-top: 20px;
+    padding-bottom: 0px;
+    background-color: #eae9e9
+}
+
+#automation-with-ease {
+    padding-top: 60px;
+    padding-bottom: 20px;
+    background-color: #fff
+}
+
+.one.column {
+    width: 98%;
+}
+
+.column, .columns {
+    float: left;
+    margin: 0 1% 40px;
+}
+
+.column.column_divider, .column-margin-0px .column {
+    margin-bottom: 0;
+}
+
+.one-third.column {
+    width: 31.333%;
+}
+
+.two-third.column {
+    width: 64.666%;
+}
+
+.four.columns, .one-fourth.column {
+    width: 23%;
+}
+
+.section.box_wrapper_style .column_visual h2, .section.box_wrapper_style .column h2 {
+    font-weight: 100;
+    font-size: 36px;
+    line-height: 40px;
+}
+
+hr.hr_narrow {
+    width: 7%;
+}
+
+hr {
+    background-color: rgba(0, 0, 0, .08);
+    color: rgba(0, 0, 0, .08);
+    clear: both;
+    display: block;
+    border: none;
+    outline: none;
+    height: 1px;
+    -webkit-margin-before: 0.5em;
+    -webkit-margin-after: 0.5em;
+    -webkit-margin-start: auto;
+    -webkit-margin-end: auto;
+}
+
+.icon_box {
+    position: relative;
+    padding: 10px 0;
+}
+
+.style-simple .icon_box .image_wrapper, .style-simple .icon_box .icon_wrapper {
+    padding-top: 5px;
+    margin-bottom: 25px;
+}
+
+.icon_box .image_wrapper {
+    text-align: center;
+}
+
+.icon_box .desc_wrapper {
+    text-align: center;
+}
+
+.style-simple .icon_box .desc_wrapper h4 {
+    margin-bottom: 5px;
+    text-align: center;
+    letter-spacing: 0.8px;
+}
+
+.style-simple .icon_box .desc_wrapper h4:before {
+    content: "";
+    display: block;
+    width: 0px;
+    margin: 0 auto;
+    height: 0px;
+    top: -15px;
+    position: relative;
+    background-color: #ccc;
+    left: -85px;
+}
+
+.desc {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #646464;
+    font-size: 15px;
+    line-height: 24px;
+    text-align: center;
+}
+
+#section-4 {
+    padding-top: 150px;
+    padding-bottom: 150px;
+    background-image: url(/Content/creative/img/images/CFA-MOB3-1.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+.one-second.column {
+    width: 48%;
+}
+
+.section.no-margin .column, .section.no-margin-v .column {
+    margin-bottom: 0;
+}
+
+.image_frame, .wp-caption {
+    border-width: 0px;
+    border-style: solid;
+    display: block;
+    max-width: 100%;
+    line-height: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#section-4 h2 {
+    margin-top: 0;
+}
+
+.page .section .column h3 {
+    display: block;
+    line-height: 100%;
+    margin-bottom: 10px;
+}
+
+.section .column.paddBottom_none {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+#keepEyeBox {
+    padding-top: 60px;
+    padding-bottom: 20px;
+}
+
+#securityProtection {
+    padding-top: 200px;
+    padding-bottom: 120px;
+    background-image: url(/Content/creative/img/images/security-protection3-zipato.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+#fullComfort {
+    padding-top: 150px;
+    padding-bottom: 150px;
+    background-image: url(/Content/creative/img/images/full-comfort-2-zipato.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+#healthCare {
+    padding-top: 60px;
+    padding-bottom: 35px;
+    background-color: #fff;
+}
+
+img.scale-with-grid, #Content img {
+    max-width: 100%;
+    height: auto;
+}
+
+.page .section h1, .page .section h1 > span, .error404 .section h1, .error404 .section h1 > span {
+    font-size: 50px !important;
+    line-height: 54px;
+    font-weight: 100;
+}
+
+#youAndFamily {
+    padding-top: 60px;
+    padding-bottom: 0px;
+    background-color: #f5f5f5;
+}
+
+.section-divider.triangle.down {
+    bottom: -15px;
+}
+
+.section-divider.triangle.up, .section-divider.triangle.down {
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.section .section-divider {
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 50%;
+    margin-left: -25px;
+    background-color: inherit;
+    z-index: 1;
+}
+
+.section .column_visual h2 {
+    text-align: left;
+    font-size: 36px;
+    line-height: 40px;
+}
+
+#deserveIt {
+    padding-top: 60px;
+    padding-bottom: 0px;
+    background-color: #ffffff;
+}
+
+#zipatoPrinciples {
+    padding-top: 60px;
+    padding-bottom: 0px;
+    background-color: #f5f5f5;
+}
+
+#comfortScenes {
+    padding-top: 60px;
+    padding-bottom: 0px;
+    background-color: #ffffff;
+}
+
+#lightingControl {
+    padding-top: 60px;
+    padding-bottom: 0px;
+    background-color: #f4f4f2;
+}
+
+.image_frame .image_wrapper {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+img.scale-with-grid, #Content img {
+    max-width: 100%;
+    height: auto;
+}
+
+#climateControl {
+    padding-top: 60px;
+    padding-bottom: 0px;
+    background-color: #ffffff;
+}
+
+.section .column_visual h2.h2_title {
+    margin-top: 45px;
+}
+
+#healthBanner {
+    padding-top: 60px;
+    padding-bottom: 0px;
+    background-color: #f5f5f5;
+}
+
+#healthCare2 {
+    padding-top: 30px;
+    padding-bottom: 0px;
+    background-color: #ffffff;
+}
+
+#caregiversNetwork {
+    padding-top: 60px;
+    padding-bottom: 0px;
+    background-color: #231f20;
+}
+
+#advancedAlertSystem {
+    padding-top: 60px;
+    padding-bottom: 0px;
+    background-color: #ffffff;
+}
+
+#zipatoAdvantages {
+    padding-top: 60px;
+    padding-bottom: 0px;
+    background-color: #f5f5f5;
+}
+
+.page .section .column h3 span {
+    display: block;
+    line-height: 120%;
+}
+
+.breadcrumbs-name {
+    padding-top: 9px;
+    text-transform: uppercase;
+}
+
+div.breadcrumbs-name h4 {
+    font-size: 14px !important;
+    font-weight: 300;
+}
+
+div.breadcrumbs-nav {
+    float: right;
+    width: 63% !important;
+    margin-top: 0px !important;
+    margin-right: 0px;
+    padding-right: 10px;
+}
+
+.column_attr.align_right {
+    text-align: right;
+    padding-right: 0px;
+    text-transform: uppercase;
+}
+
+#submenu_top {
+    line-height: 36px !important;
+    margin: 0px !important;
+    display: block;
+}
+
+.column_column ul {
+    margin: -10px 0px 10px 0px;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.column_column ul, .column_column ol, .the_content_wrapper ul, .the_content_wrapper ol {
+    color: #737E86;
+}
+
+ul {
+    list-style: none outside;
+}
+
+.column_column .menu-what-is-zipato-container ul li {
+    border-color: rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-width: 1px;
+    display: inline;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#submenu_top li.current-menu-item a {
+    color: #a0ce4e !important;
+}
+
+.section h1 > span {
+    font-size: 50px !important;
+    line-height: 54px;
+    font-weight: 100;
+}
+
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+    body {
+        font-size: 13px;
+        line-height: 20px;
+    }
+
+    #Wrapper {
+        max-width: 420px;
+    }
+}
+
+body {
+    overflow-x: hidden;
+}
+
+@media screen and (max-width: 960px) {
+    .health-bottom30 {
+        padding-bottom: 30px !important;
+    }
+}
+
+/* > 1240 ===================================================================================================== */
+@media only screen and (min-width: 1240px) {
+    .section_wrapper, .container, .with_aside .content_wrapper {
+        max-width: 1180px;
+    }
+}
+
+/* < 1240 ===================================================================================================== */
+@media only screen and (max-width: 1239px) {
+
+}
+
+/* #Desktop 960 - 1239 ====================================================================================================== */
+@media only screen and (min-width: 960px) and (max-width: 1239px) {
+
+}
+
+/* #Header Creative always Open 1240 - 1489 ====================================================================================================== */
+@media only screen and (min-width: 1240px) and (max-width: 1489px) {
+
+}
+
+/* #Tablet (Landscape) > 960 ===================================================================================================== */
+@media only screen and (min-width: 960px) {
+    .hide-desktop {
+        display: none !important;
+    }
+}
+
+/* #Tablet (Landscape) 768 - 959 ===================================================================================================== */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+    .section_wrapper, .container, .with_aside .content_wrapper {
+        max-width: 708px;
+    }
+}
+
+/* #Tablet (Portrait) & Mobile - COMMON < 768 ===================================================================================================== */
+@media only screen and (max-width: 767px) {
+    body {
+        min-width: 0;
+    }
+
+    #Wrapper {
+        max-width: 300px;
+    }
+
+    .section_wrapper .column, .container .column, .sections_group, .four.columns {
+        margin: 0;
+        width: 100% !important;
+        clear: both;
+    }
+
+    .section {
+        background-attachment: scroll !important;
+        height: auto !important;
+    }
+
+    .section_wrapper, .container, .four.columns {
+        max-width: 340px !important;
+    }
+
+    .section_wrapper .column {
+        margin: 0 0 20px;
+        height: auto !important;
+    }
+}
+
+/* #Tablet (Portrait) & #Mobile (Landscape) 480 - 767 ===================================================================================================== */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .section_wrapper, .container, .four.columns {
+        max-width: 380px !important;
+    }
+}
+
+/* 	#Mobile (Portrait) < 480 ===================================================================================================== */
+@media only screen and (max-width: 479px) {
+
+}
+
+/* ============================================  Retina  ============================================ */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+
+}
