@@ -309,6 +309,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\creative\css\overview.css" />
+    <Content Include="Content\creative\css\submenu.css" />
     <Content Include="Content\creative\img\icons\alrting-icon-hovered.png" />
     <Content Include="Content\creative\img\icons\energy-consumption-hovered.png" />
     <Content Include="Content\creative\img\icons\gears-hovered.png" />
@@ -1557,6 +1559,15 @@
     <Content Include="Views\howitworks\overview.cshtml" />
     <Content Include="Views\howitworks\overview_en.cshtml" />
     <Content Include="Views\howitworks\interfaces.cshtml" />
+    <Content Include="Views\whatis\security.cshtml" />
+    <Content Include="Views\whatis\energy.cshtml" />
+    <Content Include="Views\whatis\comfort.cshtml" />
+    <Content Include="Views\whatis\health.cshtml" />
+    <Content Include="Views\howitworks\rulecreator.cshtml" />
+    <Content Include="Views\howitworks\compatibility.cshtml" />
+    <Content Include="Views\howitworks\feature.cshtml" />
+    <Content Include="Views\Products\Delete.cshtml" />
+    <Content Include="Views\Products\ShopVn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

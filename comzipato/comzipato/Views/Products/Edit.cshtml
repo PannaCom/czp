@@ -76,7 +76,7 @@
                             <a href="#image_product" aria-controls="home" role="tab" data-toggle="tab">Hình ảnh sản phẩm</a>
                         </li>
                         <li role="presentation">
-                            <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Thông tin mô tả</a>
+                            <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Hướng dẫn sử dụng</a>
                         </li>
                         <li role="presentation">
                             <a href="#product_addphoto" aria-controls="product_addphoto" role="tab" data-toggle="tab">Thêm ảnh sản phẩm</a>
@@ -216,7 +216,7 @@
                                     @Html.TextAreaFor(m => m.product_content, new { @class = "form-control", @rows = "5" })
                                 </div>
                             </div>
-                            @Html.LabelFor(m => m.product_feature, new { @class = "col-md-4 control-label" })
+                            @*@Html.LabelFor(m => m.product_feature, new { @class = "col-md-4 control-label" })
                             <div class="form-group">
                                 <div class="col-md-12">
                                     @Html.TextAreaFor(m => m.product_feature, new { @class = "form-control", @rows = "5" })
@@ -227,19 +227,28 @@
                                 <div class="col-md-12">
                                     @Html.TextAreaFor(m => m.product_technical, new { @class = "form-control", @rows = "5" })
                                 </div>
-                            </div>
+                            </div>*@
                         </div>
 
                         <div id="product_addphoto" class="tab-pane">
                             @{Html.RenderAction("LoadPhotoProduct", "Products", new { id = @Model.product_id });}
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <input type="hidden" id="img_url" name="img_url" />
-                                    <div id="hinhanh_sp" class="dropzone">
-                                        <div class="dz-default dz-message" data-dz-message>
-                                            <span>Chọn ảnh sản phẩm</span>
-                                        </div>
+                                    <div id="divhinhanh_sp" class="upanh">
+                                        <a class="closed"><i class="fa fa-close fa-2x"></i></a>
+                                        <input type="hidden" id="img_url" name="img_url" />
+                                        
+                                        <i class="fa fa-plus fa-3x"></i>
                                     </div>
+                                    <div id="dzhinhanh_sp" class="dropzone undropzone">
+                                    </div>
+                                    <div id="divbghinhanh_sp" class="upanh" style="display:none;">
+                                    </div>
+                                    
+                                    <span class="help-block">
+                                        Nên chọn hình có kích thước 1x1, 500x500px, 400x310px
+                                        và chọn hình ảnh có dung lượng không vượt quá 12 Mb.
+                                    </span>                                    
                                 </div>
                             </div>
                         </div>
@@ -435,6 +444,7 @@
                 this.removeFile(file);
             },
             init: function () {
+                //alert("ok11111");
                 this.on("thumbnail", function (file) {
                     $('#divproduct_photo2').append('<div class="loaded">'
                     + '<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>'
@@ -446,7 +456,89 @@
             },
             HiddenFilesPath: 'body'
         });
-
+        var upanhvanphong = new Dropzone("#dzhinhanh_sp", {
+            url: "/Products/tailennhieuanh",
+            addRemoveLinks: true,
+            init: function() {
+                this.on("sending", function(file, xhr, formData){
+                    formData.append("product_id", @Model.product_id)
+                })
+            },
+            maxFiles: 50,
+            maxFilesize: 5,
+            uploadMultiple: true,
+            acceptedFiles: "image/*",
+            clickable: '#divhinhanh_sp>i',
+            dictFallbackMessage: "Trình duyệt của bạn không hỗ trợ kéo thả tệp để tải lên.",
+            dictFallbackText: "Please use the fallback form below to upload your files like in the olden days.",
+            dictFileTooBig: "Tệp có dung lượng quá lớn ({{filesize}}MiB). Dung lượng cho phép: {{maxFilesize}}MiB.",
+            dictInvalidFileType: "Tệp bạn chọn không được phép tải lên.",
+            dictResponseError: "Đã xảy ra lỗi {{statusCode}}.",
+            dictCancelUpload: "Hủy tải lên",
+            dictCancelUploadConfirmation: "Bạn chắc chắn muốn hủy tải lên?",
+            dictRemoveFile: "Loại bỏ tệp tin",
+            dictMaxFilesExceeded: "Bạn không thể tải lên quá 1 hình.",
+            success: function (file, response) {
+                var imgPath = response.Message;
+                if (imgPath ==1) {
+                    $("#img_url").val(imgPath);
+                    //file.previewElement.classList.add("dz-success");
+                    //$('#divbghinhanh_sp').show();
+                    //$('#divbghinhanh_sp').css('background-image', 'url("' + imgPath + '")');
+                    window.location.reload();
+                }else {
+                    this.removeFile(file);
+                }
+            },
+            error: function (file, response) {
+                file.previewElement.classList.add("dz-error");
+                $(file.previewElement).find('.dz-error-message').text(response);
+                //alert(response);
+            },            
+            complete: function () {
+                $('#divhinhanh_sp').children('.loaded').remove();
+            },
+            HiddenFilesPath: 'body'
+        });
+        
+        var upfilesanpham = new Dropzone("div#file_sp", {
+            url: "/Products/uploadfile",
+            addRemoveLinks: true,
+            init: function() {
+                this.on("sending", function(file, xhr, formData){
+                    formData.append("product_id", @Model.product_id);
+                    formData.append("name", document.getElementById("namefile").value);
+                })
+            },
+            maxFiles: 50,
+            maxFilesize: 5,
+            uploadMultiple: true,
+            acceptedFiles: ".pdf",
+            dictFallbackMessage: "Trình duyệt của bạn không hỗ trợ kéo thả tệp để tải lên.",
+            dictFallbackText: "Please use the fallback form below to upload your files like in the olden days.",
+            dictFileTooBig: "Tệp có dung lượng quá lớn ({{filesize}}MiB). Dung lượng cho phép: {{maxFilesize}}MiB.",
+            dictInvalidFileType: "Tệp bạn chọn không được phép tải lên.",
+            dictResponseError: "Đã xảy ra lỗi {{statusCode}}.",
+            dictCancelUpload: "Hủy tải lên",
+            dictCancelUploadConfirmation: "Bạn chắc chắn muốn hủy tải lên?",
+            dictRemoveFile: "Loại bỏ tệp tin",
+            dictMaxFilesExceeded: "Bạn không thể tải lên quá 1 file.",
+            success: function (file, response) {
+                var imgPath = response.Message;
+                if (imgPath == "1" || imgPath == 1) {
+                    //$("#img_url").val(imgPath);
+                    file.previewElement.classList.add("dz-success");
+                }else {
+                    this.removeFile(file);
+                }
+            },
+            error: function (file, response) {
+                file.previewElement.classList.add("dz-error");
+                $(file.previewElement).find('.dz-error-message').text(response);
+                //alert(response);
+            },
+            HiddenFilesPath: 'body'
+        });
         $('.closed').click(function (e) {
             e.preventDefault();
             if ($(this).siblings('input').val() !== "") {
@@ -470,118 +562,7 @@
             height: '500px'
         })
 
-        var upanhvanphong = new Dropzone("div#hinhanh_sp", {
-            url: "/Products/tailennhieuanh",
-            addRemoveLinks: true,
-            init: function() {
-                this.on("sending", function(file, xhr, formData){
-                    formData.append("product_id", @Model.product_id)
-                })
-            },
-            maxFiles: 50,
-            maxFilesize: 5,
-            uploadMultiple: true,
-            acceptedFiles: "image/*",
-            dictFallbackMessage: "Trình duyệt của bạn không hỗ trợ kéo thả tệp để tải lên.",
-            dictFallbackText: "Please use the fallback form below to upload your files like in the olden days.",
-            dictFileTooBig: "Tệp có dung lượng quá lớn ({{filesize}}MiB). Dung lượng cho phép: {{maxFilesize}}MiB.",
-            dictInvalidFileType: "Tệp bạn chọn không được phép tải lên.",
-            dictResponseError: "Đã xảy ra lỗi {{statusCode}}.",
-            dictCancelUpload: "Hủy tải lên",
-            dictCancelUploadConfirmation: "Bạn chắc chắn muốn hủy tải lên?",
-            dictRemoveFile: "Loại bỏ tệp tin",
-            dictMaxFilesExceeded: "Bạn không thể tải lên quá 1 hình.",
-            success: function (file, response) {
-                var imgPath = response.Message;
-                if (imgPath == 1) {
-                    //$("#img_url").val(imgPath);
-                    file.previewElement.classList.add("dz-success");
-                }else {
-                    this.removeFile(file);
-                }
-            },
-            error: function (file, response) {
-                file.previewElement.classList.add("dz-error");
-                $(file.previewElement).find('.dz-error-message').text(response);
-                //alert(response);
-            },
-            HiddenFilesPath: 'body'
-        });
-        @*var upanhvanphong2 = new Dropzone("div#hinhanh_sp", {
-            url: "/Products/tailennhieuanh",
-            addRemoveLinks: true,
-            init: function() {
-                this.on("sending", function(file, xhr, formData){
-                    formData.append("product_id", @Model.product_id)
-                })
-            },
-            maxFiles: 50,
-            maxFilesize: 5,
-            uploadMultiple: true,
-            acceptedFiles: "image/*",
-            dictFallbackMessage: "Trình duyệt của bạn không hỗ trợ kéo thả tệp để tải lên.",
-            dictFallbackText: "Please use the fallback form below to upload your files like in the olden days.",
-            dictFileTooBig: "Tệp có dung lượng quá lớn ({{filesize}}MiB). Dung lượng cho phép: {{maxFilesize}}MiB.",
-            dictInvalidFileType: "Tệp bạn chọn không được phép tải lên.",
-            dictResponseError: "Đã xảy ra lỗi {{statusCode}}.",
-            dictCancelUpload: "Hủy tải lên",
-            dictCancelUploadConfirmation: "Bạn chắc chắn muốn hủy tải lên?",
-            dictRemoveFile: "Loại bỏ tệp tin",
-            dictMaxFilesExceeded: "Bạn không thể tải lên quá 1 hình.",
-            success: function (file, response) {
-                var imgPath = response.Message;
-                if (imgPath == 1) {
-                    //$("#img_url").val(imgPath);
-                    file.previewElement.classList.add("dz-success");
-                }else {
-                    this.removeFile(file);
-                }
-            },
-            error: function (file, response) {
-                file.previewElement.classList.add("dz-error");
-                $(file.previewElement).find('.dz-error-message').text(response);
-                //alert(response);
-            },
-            HiddenFilesPath: 'body'
-        });*@
-        var upfilesanpham = new Dropzone("div#file_sp", {
-            url: "/Products/uploadfile",
-            addRemoveLinks: true,
-            init: function() {
-                this.on("sending", function(file, xhr, formData){
-                    formData.append("product_id", @Model.product_id);
-                    formData.append("name", document.getElementById("namefile").value);
-                    })
-                },
-                maxFiles: 50,
-                maxFilesize: 5,
-                uploadMultiple: true,
-                acceptedFiles: ".pdf",
-                dictFallbackMessage: "Trình duyệt của bạn không hỗ trợ kéo thả tệp để tải lên.",
-                dictFallbackText: "Please use the fallback form below to upload your files like in the olden days.",
-                dictFileTooBig: "Tệp có dung lượng quá lớn ({{filesize}}MiB). Dung lượng cho phép: {{maxFilesize}}MiB.",
-                dictInvalidFileType: "Tệp bạn chọn không được phép tải lên.",
-                dictResponseError: "Đã xảy ra lỗi {{statusCode}}.",
-                dictCancelUpload: "Hủy tải lên",
-                dictCancelUploadConfirmation: "Bạn chắc chắn muốn hủy tải lên?",
-                dictRemoveFile: "Loại bỏ tệp tin",
-                dictMaxFilesExceeded: "Bạn không thể tải lên quá 1 file.",
-                success: function (file, response) {
-                    var imgPath = response.Message;
-                    if (imgPath == "1" || imgPath == 1) {
-                        //$("#img_url").val(imgPath);
-                        file.previewElement.classList.add("dz-success");
-                    }else {
-                        this.removeFile(file);
-                    }
-                },
-                error: function (file, response) {
-                    file.previewElement.classList.add("dz-error");
-                    $(file.previewElement).find('.dz-error-message').text(response);
-                    //alert(response);
-                },
-                HiddenFilesPath: 'body'
-            });
+        
             //$('#ThemHinhAnh').on('click', function (e) {
             //    if (document.getElementById("img_url").value == "") {
             //        alert("Vui lòng chọn ảnh tải lên!");

@@ -44,6 +44,32 @@ namespace comzipato.Controllers
             data = data.OrderBy(x => x.updated_date);
             return View(data.ToList().ToPagedList(pageNumber, pageSize));
         }
+        public ActionResult ShopVn(int? pg, string search)
+        {
+            //int pageSize = 25;
+            //if (pg == null) pg = 1;
+            //int pageNumber = (pg ?? 1);
+            //ViewBag.pg = pg;
+            //var data = db.products.Select(x => x);
+            //if (data == null)
+            //{
+            //    return View(data);
+            //}
+            //if (!string.IsNullOrWhiteSpace(search))
+            //{
+            //    search = search.Trim();
+            //    data = data.Where(x => x.product_name.ToLower().Contains(search));
+            //    ViewBag.search = search;
+            //}
+
+            //data = data.OrderBy(x => x.updated_date);
+            //return View(data.ToList().ToPagedList(pageNumber, pageSize));
+            var p = (from q in db.products where q.cat_id == 14 select q).OrderByDescending(x => x.product_id).Take(100).ToList();
+            ViewBag.control = p;
+            p = (from q in db.products where q.cat_id == 15 select q).OrderByDescending(x => x.product_id).Take(100).ToList();
+            ViewBag.acc = p;
+            return View();
+        }
         [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Add(ProductVM model)
@@ -73,8 +99,8 @@ namespace comzipato.Controllers
                 _new.product_feature = model.product_feature ?? null;
                 _new.product_technical = model.product_technical ?? null;
                 db.products.Add(_new);
-
-                await db.SaveChangesAsync();
+                db.SaveChanges();
+                //await db.SaveChangesAsync();
                 idproduct = _new.product_id;
 
                 TempData["Updated"] = "Thêm sản phẩm thành công";
@@ -254,8 +280,8 @@ namespace comzipato.Controllers
                         file.SaveAs(path);
                         string file_url = "/images/photos/" + _fileName;
                         var update_img_product = db.Database.ExecuteSqlCommand("INSERT INTO product_img(img_url,product_id) VALUES('" + file_url + "'," + product_id + ")");
-
                         fName = 1;
+                        //return Json(new { Message = file_url }, JsonRequestBehavior.AllowGet);
                     }
                 }
             }

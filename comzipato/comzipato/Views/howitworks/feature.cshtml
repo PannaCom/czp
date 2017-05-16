@@ -1,0 +1,1303 @@
+﻿
+@{
+    ViewBag.Title = "Tính Năng ZIPATO";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .box-title-over-box {
+        position: relative;
+    }
+
+    .section {
+        position: relative;
+    }
+
+    .section-divider.triangle.down {
+        bottom: -15px;
+    }
+
+    .section-divider.triangle.down {
+        bottom: -25px;
+    }
+
+    .section-divider.triangle.up, .section-divider.triangle.down {
+        -moz-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    .section .section-divider {
+        display: block;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        left: 50%;
+        margin-left: -25px;
+        background-color: inherit;
+        z-index: 1;
+    }
+
+    .section .section-divider {
+        display: block;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        left: 50%;
+        margin-left: -25px;
+        background-color: inherit;
+        z-index: 1;
+    }
+
+    .box-title-over-image h2 span {
+        line-height: 54px !important;
+        color: white;
+        font-weight: 300;
+    }
+
+    .box-title-over-image {
+        left: 0;
+        position: absolute;
+        top: 6%;
+        width: 40% !important;
+    }
+
+    .section_wrapper, .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .one.column {
+        width: 98%;
+    }
+
+    .column, .columns {
+        float: left;
+        margin: 0 1% 40px;
+    }
+
+    .one-second.column {
+        width: 48%;
+    }
+
+    .one-second.column {
+        width: 48%;
+    }
+
+    .column.column_divider, .column-margin-0px .column {
+        margin-bottom: 0;
+    }
+    table.tablepress {
+        margin-top: 30px !important;
+        margin-bottom: 30px !important;
+    }
+    .tablepress {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        margin-bottom: 1em;
+        border: none;
+    }
+    table {
+        width: 100%;
+        margin-bottom: 0px;
+        border-collapse: collapse !important;
+        border-spacing: 0;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+    }
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        position: relative;
+        top: 0px;
+    }
+    table {
+        width: 100%;
+        margin-bottom: 15px;
+        border-collapse: collapse !important;
+        border-spacing: 0;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+    }
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    .style-simple table th, .style-simple table td {
+    border-width: 0 0px 0px 0;
+    text-align: -webkit-left;
+    }
+    .style-simple table th, .style-simple table td {
+        border-width: 0 0px 0px 0;
+    }
+    .tablepress tfoot th, .tablepress thead th {
+        background-color: #d9edf7;
+        font-weight: 700;
+        vertical-align: middle;
+    }
+    .tablepress thead th {
+        border-bottom: 1px solid #ddd;
+    }
+    .tablepress tfoot th, .tablepress thead th {
+        background-color: #1d1d1d !important;
+        color: white;
+        text-transform: uppercase;
+        font-size: 14px;
+        text-align: center;
+    }
+    .style-simple table th, .style-simple table td {
+        border-width: 0 1px 1px 0;
+    }
+    .style-simple table th {
+        background: none;
+    }
+    .tablepress td, .tablepress th {
+        padding: 8px;
+        border: none;
+        background: 0 0;
+        text-align: left;
+        float: none !important;
+    }
+    .ui-tabs .ui-tabs-nav li a, .accordion .question .title, .faq .question .title, table th {
+        color: #444;
+        text-transform: uppercase;
+        font-size: 14px !important;
+        font-weight: 300;
+    }
+    .ui-tabs .ui-tabs-nav li a, .accordion .question .title, .faq .question .title, table th {
+        color: #444;
+    }
+    table.tablepress tr {
+        border-top: 1px solid #dcdcdc !important;
+        border-bottom: 1px solid #dcdcdc !important;
+    }
+    .tablepress tbody tr:first-child td {
+        border-top: 0;
+    }
+    .style-simple table tr:first-child td {
+        background: none;
+    }
+    table.tablepress tr td {
+        color: #646464;
+        text-align: left !important;
+    }
+    table tr:first-child td {
+        background: url(../images/box_shadow.png) repeat-x left top;
+    }
+    .style-simple table th, .style-simple table td {
+        border-width: 0 0px 0px 0;
+        text-align: -webkit-left;
+    }
+    .style-simple table th, .style-simple table td {
+        border-width: 0 0px 0px 0;
+    }
+    .tablepress tbody td, .tablepress tfoot th {
+        border-top: 1px solid #ddd;
+    }
+    .tablepress tbody td {
+        vertical-align: top;
+    }
+    .style-simple table th, .style-simple table td {
+        border-width: 0 1px 1px 0;
+    }
+        img.scale-with-grid, #Content img {
+        max-width: 100%;
+        height: auto;
+    }
+    .tablepress img {
+        margin: 0;
+        padding: 0;
+        border: none;
+        max-width: none;
+    }
+    img.wp-smiley, img.emoji {
+        display: inline !important;
+        border: none !important;
+        box-shadow: none !important;
+        height: 1em !important;
+        width: 1em !important;
+        margin: 0 .07em !important;
+        vertical-align: -0.1em !important;
+        background: none !important;
+        padding: 0 !important;
+    }
+    table.tablepress th:nth-last-child(2), table.tablepress td:nth-last-child(2) {
+        text-align: center !important;
+        border-left: 1px solid #dcdcdc !important;
+        border-right: 1px solid #dcdcdc !important;
+    }
+</style>
+<link rel="stylesheet" href="/Content/creative/css/submenu.css" />
+<div class="section  no-margin sub_menu_container " style="padding-top:0px; padding-bottom:0px; background-color:#f5f5f5">
+    <div class="section_wrapper clearfix">
+        <div class="items_group clearfix">
+            <div class="column one-fourth column_visual breadcrumbs-name" style="margin: 0;"><h4 style="text-align: left;margin-top: 0;" class="tX02355">Hướng Dẫn | Giao diện</h4></div><div class="column three-fourth column_column breadcrumbs-nav">
+                <div class="column_attr align_right" style="">
+                    <div class="menu-how-it-works-container">
+                        <ul id="submenu_top" class="submenu_top">
+                            <li id="menu-item-15223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15223"><a href="/howitworks/overview">Tổng quan</a></li>
+                            <li id="menu-item-15114" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-15106 current_page_item menu-item-15114"><a href="/howitworks/interfaces">Giao diện</a></li>
+                            <li id="menu-item-15113" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15113"><a href="/howitworks/rulecreator">Nguyên Tắc</a></li>
+                            <li id="menu-item-15112" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15112"><a href="/howitworks/compatibility">Tương Thích</a></li>
+                            <li id="menu-item-17974" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17974"><a href="/howitworks/feature">Tính Năng</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section    " style="padding-top:60px; padding-bottom:0px; background-color:#f5f5f5">
+    <div class="section-divider triangle down"></div><div class="section_wrapper clearfix">
+        <div class="items_group clearfix">
+            <div class="column one column_visual ">
+                <h1 style="text-align: center;"><span class="" style="font-size: 54px;">DANH SÁCH TÍNH NĂNG</span></h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section    " style="padding-top:0px; padding-bottom:0px; background-color:">
+    <div class="section-divider triangle down"></div><div class="section_wrapper clearfix">
+        <div class="items_group clearfix">
+            <div class="column one column_column ">
+                <div class="column_attr" style="">
+                    <table id="tablepress-3" class="tablepress tablepress-id-3">
+                        <thead>
+                            <tr class="row-1">
+                                <th class="column-1" colspan="4">Tên Tính Năng</th>
+                                <th class="column-6">SMART</th>
+                                <th class="column-7">PRO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="row-2">
+                                <td class="column-1" colspan="4" column-expend="0" style="padding-left: 0%;">Protocols</td>
+                                <td class="column-6" style="">3</td>
+                                <td class="column-7" style="">unlimited</td>
+                            </tr>
+                            <tr class="row-3">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Z-wave plus</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-4">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">ZigBee</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-5">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">KNX</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-6">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">EnOcean</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-7">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">CoCo</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-8">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Chacon</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-9">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Nexa</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-10">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">ARW</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-11">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">LightwaveRF</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-12">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Somfy RTS</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-13">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Kangtai</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-14">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Oregon Scientific</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-15">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">DSC</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-16">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Paradox</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-17">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Dakota Alert</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-18">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Goelst</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-19">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Pulsework</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-20">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Blyss 433</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-21">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">P1</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-22">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">HDL</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-23">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Nest</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-24">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Philips Hue</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-25">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Global Cache</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-26">
+                                <td class="column-1" colspan="4" column-expend="0" style="padding-left: 0%;">Control</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""></td>
+                            </tr>
+                            <tr class="row-27">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Local</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-28">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Remote</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-29">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Two-way</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-30">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Device types</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""></td>
+                            </tr>
+                            <tr class="row-31">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Actuators</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""></td>
+                            </tr>
+                            <tr class="row-32">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Lights</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-33">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Valves</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-34">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Gates</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-35">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Roller Shutters</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-36">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Curtain</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-37">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Thermostats</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-38">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Security panels</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-39">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Sockets</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-40">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Door locks</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-41">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Meters</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""></td>
+                            </tr>
+                            <tr class="row-42">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Electricity</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-43">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Temperature</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-44">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Humidity</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-45">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Illuminance</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-46">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Sensors</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""></td>
+                            </tr>
+                            <tr class="row-47">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Doors / Windows</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-48">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Motion</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-49">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Shock</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-50">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Noise</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-51">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">CO</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-52">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Gas</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-53">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Smoke</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-54">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Favorites</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-55">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Zones</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-56">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Rooms</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-57">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Groups</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-58">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Applications</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""></td>
+                            </tr>
+                            <tr class="row-59">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Web</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-60">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">iOS</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-61">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Android</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-62">
+                                <td class="column-1" colspan="4" column-expend="0" style="padding-left: 0%;">Automate</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""></td>
+                            </tr>
+                            <tr class="row-63">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Scenes</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-64">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Scheduler</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-65">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Single</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-66">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Repeat</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-67">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Astro Sunrise</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-68">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Astro Sunset</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-69">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Astro offset</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-70">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Rule creator</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-71">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Control</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""></td>
+                            </tr>
+                            <tr class="row-72">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">When</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-73">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">If</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-74">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">else</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-75">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">repeat</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-76">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Action</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""></td>
+                            </tr>
+                            <tr class="row-77">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">actuator (on, off, go toÉ)</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-78">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">send message</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-79">
+                                <td class="column-5" colspan="4" column-expend="16" style="padding-left: 16%;">email</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-80">
+                                <td class="column-5" colspan="4" column-expend="16" style="padding-left: 16%;">attach photo</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-81">
+                                <td class="column-5" colspan="4" column-expend="16" style="padding-left: 16%;">attach variable</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-82">
+                                <td class="column-5" colspan="4" column-expend="16" style="padding-left: 16%;">attach attribute</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-83">
+                                <td class="column-5" colspan="4" column-expend="16" style="padding-left: 16%;">push</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-84">
+                                <td class="column-5" colspan="4" column-expend="16" style="padding-left: 16%;">sms</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-85">
+                                <td class="column-5" colspan="4" column-expend="16" style="padding-left: 16%;">voice</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-86">
+                                <td class="column-5" colspan="4" column-expend="16" style="padding-left: 16%;">attach attribute</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-87">
+                                <td class="column-5" colspan="4" column-expend="16" style="padding-left: 16%;">attach variable</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-88">
+                                <td class="column-5" colspan="4" column-expend="16" style="padding-left: 16%;">DTMF response</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-89">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">set value</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-90">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">send http request</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-91">
+                                <td class="column-5" colspan="4" column-expend="16" style="padding-left: 16%;">attach attribute</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-92">
+                                <td class="column-5" colspan="4" column-expend="16" style="padding-left: 16%;">attach variable</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-93">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">send socket request</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-94">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">wait</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-95">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Sensor</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""></td>
+                            </tr>
+                            <tr class="row-96">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Sensor</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-97">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Meter</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-98">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Scheduler</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-99">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Operators</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""></td>
+                            </tr>
+                            <tr class="row-100">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Addition</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-101">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Subtraction</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-102">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Multiplication</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-103">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Division</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-104">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Equal</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-105">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Not equal</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-106">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Greater than</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-107">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Greater than or equal</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-108">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Less than</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-109">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Less than or equal</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-110">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Not</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-111">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">And</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-112">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Or</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-113">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Between</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-114">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Variable</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""></td>
+                            </tr>
+                            <tr class="row-115">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Now</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-116">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Date</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-117">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Date between</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-118">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Time select</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-119">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Time between</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-120">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Date of</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-121">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Time of</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-122">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Random between</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-123">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Part of</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-124">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Set variable</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-125">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Increment of</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-126">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Decrement of</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-127">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Set variable to function</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-128">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Advanced</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""></td>
+                            </tr>
+                            <tr class="row-129">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Refresh</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-130">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Stop</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-131">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">Join</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-132">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Groups</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-133">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Scenes</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-134">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Drag and drop rules filter (per device)</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-135">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Monitoring &amp; Alerting</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-136">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">24/7 monitoring servers</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-137">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Phone call alerts</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-138">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Push notifications</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-139">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Email messages</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-140">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">SMS messages</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-141">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Video surveillance</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-142">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">IP auto discovery</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-143">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">IP auto configuration</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-144">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">IP proxy - remote access</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-145">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Onvif</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-146">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Recording storage</td>
+                                <td class="column-6" style="">10 MB</td>
+                                <td class="column-7" style="">1 GB</td>
+                            </tr>
+                            <tr class="row-147">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Attribute charts</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-148">
+                                <td class="column-1" colspan="4" column-expend="0" style="padding-left: 0%;">Virtual devices</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""></td>
+                            </tr>
+                            <tr class="row-149">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Thermostat</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-150">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Control physical thermostats</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-151">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Graphical scheduler</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-152">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Vacation mode</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-153">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Thermostat PRO</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-154">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Control physical thermostats</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-155">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Control multiple heating actuators</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-156">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Control multiple cooling actuators</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-157">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Read multiple thermometers</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-158">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Graphical scheduler</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-159">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Vacation mode</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-160">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Setup hysteresis for heating and cooling</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-161">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Security alarm</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-162">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Unlimited number of zones</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-163">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Different zone types</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-164">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">interior</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-165">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">perimeter</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-166">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">24/7</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-167">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Security alarm PRO</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-168">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Unlimited number of zones</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-169">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Different zone types</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-170">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">interior</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-171">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">perimeter</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-172">
+                                <td class="column-4" colspan="4" column-expend="12" style="padding-left: 12%;">24/7</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-173">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Integration with existing security control panels</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-174">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Away arming exit delay</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-175">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Away arming entry delay</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-176">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Home arming exit delay</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-177">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Home arming entry delay</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-178">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Multiple sirens</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-179">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Siren time</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-180">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Siren delay</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-181">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Multiple squawk devices</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-182">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Quick arming</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-183">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Cross zoning</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-184">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Silent option</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-185">
+                                <td class="column-3" colspan="4" column-expend="8" style="padding-left: 8%;">Elderly care mode</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-186">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Switch</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-187">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Sensor</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-188">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Meter</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-189">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Battery alarm</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-190">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Thermometer</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-191">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Level control</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-192">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Presence simulator</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-193">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Weather station</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-194">
+                                <td class="column-1" colspan="4" column-expend="0" style="padding-left: 0%;">Multiple homes</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-195">
+                                <td class="column-1" colspan="4" column-expend="0" style="padding-left: 0%;">Multiple controllers - Cluster</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-196">
+                                <td class="column-1" colspan="4" column-expend="0" style="padding-left: 0%;">SIP intercom</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-197">
+                                <td class="column-1" colspan="4" column-expend="0" style="padding-left: 0%;">SIA - security monitoring protocol</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-198">
+                                <td class="column-1" colspan="4" column-expend="0" style="padding-left: 0%;">User management</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-199">
+                                <td class="column-1" colspan="4" column-expend="0" style="padding-left: 0%;">Contacts for alerting and messages</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-200">
+                                <td class="column-1" colspan="4" column-expend="0" style="padding-left: 0%;">Supervisor account</td>
+                                <td class="column-6" style=""></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-201">
+                                <td class="column-1" colspan="4" column-expend="0" style="padding-left: 0%;">Z-wave network management</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-202">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Z-wave plus</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-203">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Add/remove node</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-204">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Network heal</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                            <tr class="row-205">
+                                <td class="column-2" colspan="4" column-expend="4" style="padding-left: 4%;">Network map</td>
+                                <td class="column-6" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                                <td class="column-7" style=""><img draggable="false" class="emoji" alt="✔" src="/images/2714.svg"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- #tablepress-3 from cache -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
