@@ -60,7 +60,7 @@ namespace comzipato.Models
         //[Required(ErrorMessage = "Vui lòng nhập {0}")]
         [Display(Name = "Hình ảnh nổi bật")]
         public string product_photo2 { get; set; }
-        [Display(Name = "Thông tin mô tả")]
+        [Display(Name = "Hướng dẫn")]
         public string product_content { get; set; }
         public Nullable<System.DateTime> updated_date { get; set; }
         public Nullable<System.DateTime> deleted_date { get; set; }
