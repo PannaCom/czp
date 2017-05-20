@@ -253,6 +253,7 @@
                                             @foreach (var item in ViewBag.control)
                                             {
                                                 var link = "/product/" + Configs.unicodeToNoMark(item.product_name)+"-"+item.product_id;
+                                                link = "/products/detail?id=" + item.product_id;
                                                 <li class="first post-19889 product type-product status-publish has-post-thumbnail product_cat-at product_cat-ba product_cat-be product_cat-bg product_cat-ca product_cat-ch product_cat-controllers product_cat-cz product_cat-de product_cat-dk product_cat-ee product_cat-es product_cat-fi product_cat-fr product_cat-gb product_cat-gr product_cat-hr product_cat-hu product_cat-ie product_cat-inter product_cat-it product_cat-lt product_cat-lu product_cat-lv product_cat-mt product_cat-nl product_cat-no product_cat-pl product_cat-pt product_cat-ro product_cat-rs product_cat-ru product_cat-se product_cat-si product_cat-sk product_cat-tr product_cat-ua product_cat-us  instock taxable shipping-taxable purchasable product-type-variable has-default-attributes has-children">
 
                                                     <a href="@link" class="woocommerce-LoopProduct-link">
@@ -262,7 +263,7 @@
                                                         <a href="@link">
                                                             <div class="product-price-layout-one">
 
-                                                                <span class="price price-recipes"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">@String.Format("{0:n0}", @item.product_price_public)</span>&nbsp vnd</span></span>
+                                                                <span class="price price-recipes"><span class="woocommerce-Price-amount amount">@*<span class="woocommerce-Price-currencySymbol">@String.Format("{0:n0}", @item.product_price_public)</span>&nbsp vnd*@</span></span>
                                                             </div>
 
                                                             @*<div class="product_label ">
@@ -293,7 +294,7 @@
                                                             </a>
                                                             @*<input style="max-width: 70px" step="1" min="0" max="" name="product_id" value="1" title="Qty" class="input-text qty text" size="4" pattern="[0-9]*" inputmode="numeric" type="number">*@
 
-                                                                <a href="@link" rel="nofollow" data-country_shop="" data-add-to-cart="19889" data-product_id="19889" data-quantity="1" class="button product_type_variable add_to_cart_button  product_type_variable" data-variation_id="19898" data-attribute_pa_frequency="eu" data-stock="in">Mua Ngay</a>
+                                                                <a href="@link" rel="nofollow" data-country_shop="" data-add-to-cart="19889" data-product_id="19889" data-quantity="1" class="btn btn-info" data-variation_id="19898" data-attribute_pa_frequency="eu" data-stock="in">Mua Ngay</a>
                                                         </div>
                                                     </div>
 
@@ -336,6 +337,7 @@
                                             @foreach (var item in ViewBag.acc)
                                             {
                                                 var link = "/product/" + Configs.unicodeToNoMark(item.product_name)+"-"+item.product_id;
+                                                link = "/products/detail?id=" + item.product_id;
                                                 <li class="first post-18149 product type-product status-publish has-post-thumbnail product_cat-accessoires product_cat-at product_cat-ba product_cat-be product_cat-bg product_cat-ca product_cat-ch product_cat-cz product_cat-de product_cat-dk product_cat-ee product_cat-es product_cat-fi product_cat-fr product_cat-gb product_cat-gr product_cat-hr product_cat-hu product_cat-ie product_cat-inter product_cat-it product_cat-lt product_cat-lu product_cat-lv product_cat-mt product_cat-nl product_cat-no product_cat-pl product_cat-pt product_cat-ro product_cat-rs product_cat-ru product_cat-se product_cat-si product_cat-sk product_cat-tr product_cat-ua product_cat-us  instock taxable shipping-taxable purchasable product-type-variable has-default-attributes has-children">
 
                                                     <a href="@link" class="woocommerce-LoopProduct-link">
@@ -345,7 +347,7 @@
                                                         <a href="@link">
                                                             <div class="product-price-layout-one">
 
-                                                                <span class="price price-recipes"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">@String.Format("{0:n0}", @item.product_price_public)</span>&nbsp;vnd</span> <small class="woocommerce-price-suffix">-</small></span>
+                                                                <span class="price price-recipes"><span class="woocommerce-Price-amount amount">@*<span class="woocommerce-Price-currencySymbol">@String.Format("{0:n0}", @item.product_price_public)</span>&nbsp;vnd*@</span> <small class="woocommerce-price-suffix">-</small></span>
                                                             </div>
 
                                                             <div class="product_label hidden">
@@ -374,7 +376,7 @@
                                                             </a>
                                                             @*<input style="max-width: 70px" step="1" min="0" max="" name="product_id" value="1" title="Qty" class="input-text qty text" size="4" pattern="[0-9]*" inputmode="numeric" type="number">*@
 
-                                                            <a href="@link" rel="nofollow" data-country_shop="" data-add-to-cart="18149" data-product_id="18149" data-quantity="1" class="button product_type_variable add_to_cart_button  product_type_variable" data-variation_id="18560" data-attribute_pa_frequency="eu" data-stock="in">Mua Ngay</a>
+                                                                <a href="@link" rel="nofollow" data-country_shop="" data-add-to-cart="18149" data-product_id="18149" data-quantity="1" class="btn btn-info" data-variation_id="18560" data-attribute_pa_frequency="eu" data-stock="in" >Mua Ngay</a>
                                                         </div>
                                                     </div>
 

@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 
-namespace dicung
+namespace comzipato
 {
     public class Configs
     {

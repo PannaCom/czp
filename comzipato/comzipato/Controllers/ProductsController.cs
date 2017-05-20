@@ -8,6 +8,7 @@ using PagedList;
 using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
+using System.Net;
 namespace comzipato.Controllers
 {
     public class ProductsController : Controller
@@ -46,29 +47,25 @@ namespace comzipato.Controllers
         }
         public ActionResult ShopVn(int? pg, string search)
         {
-            //int pageSize = 25;
-            //if (pg == null) pg = 1;
-            //int pageNumber = (pg ?? 1);
-            //ViewBag.pg = pg;
-            //var data = db.products.Select(x => x);
-            //if (data == null)
-            //{
-            //    return View(data);
-            //}
-            //if (!string.IsNullOrWhiteSpace(search))
-            //{
-            //    search = search.Trim();
-            //    data = data.Where(x => x.product_name.ToLower().Contains(search));
-            //    ViewBag.search = search;
-            //}
-
-            //data = data.OrderBy(x => x.updated_date);
-            //return View(data.ToList().ToPagedList(pageNumber, pageSize));
-            var p = (from q in db.products where q.cat_id == 14 select q).OrderByDescending(x => x.product_id).Take(100).ToList();
+            
+            var p = (from q in db.products where q.cat_id == 14 && q.lang.Contains("vn") select q).OrderByDescending(x => x.product_id).Take(100).ToList();
             ViewBag.control = p;
-            p = (from q in db.products where q.cat_id == 15 select q).OrderByDescending(x => x.product_id).Take(100).ToList();
+            p = (from q in db.products where q.cat_id == 15 && q.lang.Contains("vn") select q).OrderByDescending(x => x.product_id).Take(100).ToList();
             ViewBag.acc = p;
             return View();
+        }
+        public ActionResult Detail(long id)
+        {
+            product p = db.products.Find(id);
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            if (p == null)
+            {
+                return HttpNotFound();
+            }
+            return View(p);
         }
         [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
@@ -362,6 +359,16 @@ namespace comzipato.Controllers
         {
             var model = db.product_file.Where(x => x.product_id == id).ToList();
             return PartialView("_LoadFileProduct", model);
+        }
+        public ActionResult LoadFileProduct2(long? id)
+        {
+            var model = db.product_file.Where(x => x.product_id == id).ToList();
+            return PartialView("LoadFileProduct2", model);
+        }
+        public ActionResult LoadPhotoProduct2(long? id)
+        {
+            var model = db.products.Find(id).product_img.ToList();//db.products.Find(id).product_img.ToList();
+            return PartialView("LoadPhotoProduct2", model);
         }
         public ActionResult SaveImage()
         {
