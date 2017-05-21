@@ -76,7 +76,32 @@ namespace comzipato.Models
         [Display(Name = "Thông số kỹ thuật")]
         public string product_technical { get; set; }
     }
+    public class Partner
+    {
+        public int id { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập {0}")]
+        [Display(Name = "Email")]
+        public string email { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập {0}")]
+        [Display(Name = "Mật khẩu")]
+        public string pass { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập {0}")]
+        [Display(Name = "Họ tên")]
+        public string full_name { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập {0}")]       
+        [Display(Name = "Điện thoại")]
+        public string phone { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập {0}")]       
+        [Display(Name = "Địa chỉ")]
+        public string address { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập {0}")]
+        [Display(Name = "Địa chỉ bản đồ kinh độ")]
+        public float lon { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập {0}")]
+        [Display(Name = "Địa chỉ bản đồ vĩ độ")]
+        public float lat { get; set; }
 
+    }
     public class DanhMuc
     {
         public int CatId { get; set; }

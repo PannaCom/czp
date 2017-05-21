@@ -18,6 +18,6 @@ namespace comzipato.Models
         public string ProviderKey { get; set; }
         public string UserId { get; set; }
     
-        public virtual User User { get; set; }
+        //public virtual User User { get; set; }
     }
 }

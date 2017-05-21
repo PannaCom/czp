@@ -22,6 +22,7 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="pass" Type="nvarchar" MaxLength="50" />
           <Property Name="full_name" Type="nvarchar" MaxLength="150" />
           <Property Name="phone" Type="nvarchar" MaxLength="50" />
           <Property Name="address" Type="nvarchar" MaxLength="50" />
@@ -102,12 +103,12 @@
           <EntitySet Name="product_img" EntityType="comzipatoDbModel.product_img" />
           <EntitySet Name="cats" EntityType="comzipatoDbModel.cat" />
           <EntitySet Name="product_file" EntityType="comzipatoDbModel.product_file" />
-          <EntitySet Name="partners" EntityType="comzipatoDbModel.partner" />
           <EntitySet Name="products" EntityType="comzipatoDbModel.product" />
           <AssociationSet Name="FK_product_img_products" Association="comzipatoDbModel.FK_product_img_products">
             <End Role="product" EntitySet="products" />
             <End Role="product_img" EntitySet="product_img" />
           </AssociationSet>
+          <EntitySet Name="partners" EntityType="comzipatoDbModel.partner" />
         </EntityContainer>
         <EntityType Name="product_img">
           <Key>
@@ -139,18 +140,6 @@
           <Property Name="product_id" Type="Int32" />
           <Property Name="file_path" Type="String" MaxLength="251" FixedLength="false" Unicode="true" />
           <Property Name="title" Type="String" MaxLength="201" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="partner">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="full_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="lon" Type="Double" />
-          <Property Name="lat" Type="Double" />
         </EntityType>
         <EntityType Name="product">
           <Key>
@@ -189,6 +178,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="partner">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="full_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lon" Type="Double" />
+          <Property Name="lat" Type="Double" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -228,19 +230,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="partners">
-            <EntityTypeMapping TypeName="comzipatoDbModel.partner">
-              <MappingFragment StoreEntitySet="partner">
-                <ScalarProperty Name="lat" ColumnName="lat" />
-                <ScalarProperty Name="lon" ColumnName="lon" />
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="phone" ColumnName="phone" />
-                <ScalarProperty Name="full_name" ColumnName="full_name" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="products">
             <EntityTypeMapping TypeName="comzipatoDbModel.product">
               <MappingFragment StoreEntitySet="products">
@@ -263,6 +252,20 @@
                 <ScalarProperty Name="product_des" ColumnName="product_des" />
                 <ScalarProperty Name="product_name" ColumnName="product_name" />
                 <ScalarProperty Name="product_id" ColumnName="product_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="partners">
+            <EntityTypeMapping TypeName="comzipatoDbModel.partner">
+              <MappingFragment StoreEntitySet="partner">
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="lon" ColumnName="lon" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="full_name" ColumnName="full_name" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,0 +1,131 @@
+﻿
+@{
+    ViewBag.Title = "Đăng Ký";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="/Content/creative/css/overview.css" rel="stylesheet">
+<style>
+    span.wpcf7-form-control-wrap {
+        width: 100%;
+        position: relative !important;
+        display: inline-block;
+        margin-bottom: 3px;
+    }
+    .wpcf7-form-control-wrap {
+        position: relative;
+    }
+    span.wpcf7-form-control-wrap .wpcf7-quiz, span.wpcf7-form-control-wrap .wpcf7-select, span.wpcf7-form-control-wrap .wpcf7-text, span.wpcf7-form-control-wrap .wpcf7-textarea {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 0;
+}
+    input[type="date"], input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], select, textarea, .woocommerce .quantity input.qty {
+    background-color: #fff;
+    color: #626262;
+    -webkit-box-shadow: inset 0 0 2px 2px rgba(0,0,0,0.02);
+    box-shadow: inset 0 0 2px 2px rgba(0,0,0,0.02);
+}
+    input[type="date"], input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], select, textarea {
+    padding: 10px;
+    outline: none;
+    margin: 0;
+    width: 230px;
+    max-width: 100%;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 13px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 0;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+}
+    .button-stroke input[type="submit"] {
+    border-color: #FFFFFF;
+    background-color: #A0CE4E !important;
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+    width: 100% !important;
+    height: 50px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 300;
+    color: #ffffff !important;
+}
+   
+.button-stroke a.button.button_theme:not(.action_button), .button-stroke a.button.button_theme:not(.action_button), .button-stroke a.button.button_theme .button_icon i, .button-stroke a.tp-button.button_theme, .button-stroke button, .button-stroke input[type="submit"], .button-stroke input[type="reset"], .button-stroke input[type="button"] {
+    border-color: #1d1d1c;
+    color: #1d1d1c !important;
+}
+.wpcf7 input:focus, .wpcf7 textarea:focus {
+    background-color: #f5faed !important;
+}
+.button-stroke{
+    border-color: #1d1d1c;
+    background-color: #A0CE4E !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    width: 100% !important;
+    height: 50px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 300;
+}
+</style>
+
+    <div class="section   dealerForm-reg " style="padding-top: 60px; padding-bottom: 0px; display: block;">
+        <div class="section_wrapper clearfix">
+            <div class="items_group clearfix">
+                <div class="column one-second column_column dealerRegForm">
+                    <div class="column_attr" style="">
+                        <div role="form" class="wpcf7" id="wpcf7-f17147-p15161-o2" dir="ltr" lang="en-US">
+                            <div class="screen-reader-response"></div>
+                            @using (Html.BeginForm("Add", "Partner", FormMethod.Post, htmlAttributes: new { @class = "form-horizontal2", role = "form", @id = "add-new-product2", @name = "add-new-product2" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div>
+                                    <input name="lon" id="lon"  type="hidden">
+                                    <input name="lat" id="lat"  type="hidden">
+                                </div>
+                                <p><span class="wpcf7-form-control-wrap username"><input name="full_name" id="full_name" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email login-mz-username" placeholder="họ tên" type="text"></span></p>
+                                <p><span class="wpcf7-form-control-wrap firstname"><input name="email" id="email" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required login-mz-firstname" placeholder="email" type="text"></span></p>
+                                <p><span class="wpcf7-form-control-wrap firstname"><input name="pass" id="pass" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required login-mz-firstname" placeholder="mật khẩu" type="password"></span></p>
+                                <p><span class="wpcf7-form-control-wrap lastname"><input name="phone" id="phone"  class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required login-mz-lastname" placeholder="điện thoại" type="text"></span></p>
+                                <p><span class="wpcf7-form-control-wrap password"><input name="address" id="address" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required login-mz-password" placeholder="địa chỉ" type="text"></span></p>
+                                <p><span class="wpcf7-form-control-wrap password-repeat"><input name="pass" id="pass" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required login-mz-password-repeat" value="" placeholder="mật khẩu" type="password"></span></p>
+                                <p><input value="Đăng Ký" class="button-stroke" type="submit"></p>
+                                <div class="wpcf7-response-output wpcf7-display-none"></div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="column one-second column_visual dealerRegForm"><h2><span class="tX02699" style="font-size: 36px;">Đăng Ký Đại Lý</span></h2><h4 class="tX02698">Để đăng ký hợp tác, bạn cần phải có một tài khoản Zipato hoạt động. Vui lòng điền vào mẫu đăng ký.</h4><h4 class="h4_singin_link h4_singin_link_click"></h4><p class="tX02695">Chúng tôi rất mong có được sự hợp tác hiệu quả của bạn!</p></div>
+            </div>
+        </div>
+    </div>
+<script src="~/Scripts/jquery-1.12.4.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLPSKQ4QV4xGiQjnZDUecx-UEr3D0QePY&libraries=places&region=vn&language=vi" type="text/javascript"></script>
+<script src="/Scripts/jquery.geocomplete.min.js"></script>
+<div id="map-canvas" style="display: none;">
+    Bản đồ
+</div>
+<script>
+    var options = {
+        map: "#map-canvas"
+    };
+    $("#address").geocomplete(options)
+  .bind("geocode:result", function (event, result) {
+      $("#lat").val(result.geometry.location.lat());
+      $("#lon").val(result.geometry.location.lng());
+      //alert("long" + result.geometry.location.lng() + ", lat=" + result.geometry.location.lat());
+  })
+  .bind("geocode:error", function (event, status) {
+      $.log("ERROR: " + status);
+  })
+  .bind("geocode:multiple", function (event, results) {
+      $.log("Multiple: " + results.length + " results found");
+  });
+</script>
