@@ -1624,6 +1624,8 @@
     <Content Include="Views\Products\LoadPhotoProduct2.cshtml" />
     <Content Include="Views\Partner\Index.cshtml" />
     <Content Include="Views\Partner\Reg.cshtml" />
+    <Content Include="Views\Partner\Log.cshtml" />
+    <Content Include="Views\Partner\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

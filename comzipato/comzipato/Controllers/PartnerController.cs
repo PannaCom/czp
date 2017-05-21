@@ -15,8 +15,42 @@ namespace comzipato.Controllers
         {
             return View();
         }
+        public ActionResult List(long? product_id)
+        {
+            return View();
+        }
         public ActionResult Reg()
         {
+            return View();
+        }
+        public ActionResult Log(string title)
+        {
+            ViewBag.title2 = title;
+            return View();
+        }
+        public class logincs
+        {
+            public string email { get; set; }
+            public string pass { get; set; }
+        }
+        [HttpPost, ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(logincs lg)
+        {
+            try
+            {
+                var any = db.partners.Any(o=>o.email==lg.email && o.pass==lg.pass);
+                if (!any)
+                {
+                    return RedirectToAction("Log", new { title = "Sai Email hoặc Mật khẩu" });
+                }
+                else return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+
+                return RedirectToAction("Log", new { title = "Sai Email hoặc Mật khẩu" });
+            }
             return View();
         }
         [HttpPost, ValidateInput(false)]
@@ -26,34 +60,25 @@ namespace comzipato.Controllers
             if (!ModelState.IsValid)
             {
                 TempData["Errored"] = "Vui lòng kiểm tra lại các trường.";
-                return RedirectToRoute("AdminAddProduct");
+                return View(model);
             }
 
             try
             {
-                //long? idproduct = 0;
-                //partner _new = new partner();
-                //_new.cat_id = model.cat_id ?? null;
-                //_new.product_name = model.product_name ?? null;
-                //_new.product_content = model.product_content ?? null;
-                //_new.product_photo = model.product_photo ?? null;
-                //_new.product_photo2 = model.product_photo2 ?? null;
-                //_new.product_price_public = model.product_price_public ?? null;
-                ////_new.product_type = model.product_type ?? null;
-                //_new.product_new_type = model.product_new_type ?? null;
-                //_new.status = model.status;
-                //_new.updated_date = DateTime.Now;
-                //_new.product_des = model.product_des ?? null;
-                //_new.lang = model.lang ?? null;
-                //_new.product_feature = model.product_feature ?? null;
-                //_new.product_technical = model.product_technical ?? null;
-                //db.products.Add(_new);
-                //db.SaveChanges();
-                ////await db.SaveChangesAsync();
-                //idproduct = _new.product_id;
-
-                //TempData["Updated"] = "Thêm sản phẩm thành công";
-                return RedirectToRoute("AdminEditProduct", new { id = 0 });
+                int id = 0;
+                partner pn = new partner();
+                pn.address = model.address;
+                pn.email = model.email;
+                pn.full_name = model.full_name;
+                pn.lat = model.lat;
+                pn.lon = model.lon;
+                pn.pass = model.pass;
+                pn.phone = model.phone;
+                db.partners.Add(pn);
+                
+                await db.SaveChangesAsync();
+                
+                return RedirectToAction("Log", new { title = "Đăng Ký Thành Công, Chúng Tôi Sẽ Liên Hệ Sớm Nhất." });
             }
 
             catch (Exception ex)
