@@ -1,10 +1,287 @@
-﻿
+﻿@model PagedList.IPagedList<comzipato.Models.spt>
+@using PagedList.Mvc;
+@using comzipato
 @{
     ViewBag.Title = "List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link href="/Content/creative/css/overview.css" rel="stylesheet">
-<div class="section" style="padding-top:60px; padding-bottom:0px; background-color:#f5f5f5"><div class="section-divider triangle down"></div><div class="section_wrapper clearfix"><div class="items_group clearfix"><div class="column one column_visual "><h1 class="tX02711 h1-top-page" style="text-align: center;">TÌM ĐẠI LÝ PHÂN PHỐI</h1></div></div></div></div>
+<style>
+    .section {
+    position: relative;
+    }
+    .section-divider.triangle.down {
+        bottom: -15px;
+    }
+    .section-divider.triangle.down {
+        bottom: -25px;
+    }
+    .section-divider.triangle.up, .section-divider.triangle.down {
+        -moz-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    .section .section-divider {
+        display: block;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        left: 50%;
+        margin-left: -25px;
+        background-color: inherit;
+        z-index: 1;
+    }
+    .section .section-divider {
+        display: block;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        left: 50%;
+        margin-left: -25px;
+        background-color: inherit;
+        z-index: 1;
+    }
+    .section_wrapper, .container, .with_aside .content_wrapper {
+        max-width: 1180px;
+    }
+    .row, .clearfix {
+        zoom: 1;
+    }
+    #wpsl-wrap {
+        position: relative;
+        overflow: hidden;
+    }
+    #wpsl-wrap, .wpsl-clearfix::after, .wpsl-contact-details {
+        clear: both;
+    }
+    #wpsl-wrap, .wpsl-gmap-canvas {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    .wpsl-search {
+        margin-bottom: 12px;
+        padding: 12px 12px 0;
+        background: #f4f3f3;
+    }
+    #wpsl-search-wrap {
+        float: left;
+        width: 100%;
+    }
+    #wpsl-search-wrap .wpsl-input, #wpsl-search-wrap .wpsl-select-wrap {
+        display: table;
+    }
+    #wpsl-search-btn, #wpsl-search-wrap div {
+        margin-right: 10px;
+        float: left;
+    }
+    #wpsl-search-btn, #wpsl-search-wrap #wpsl-radius, #wpsl-search-wrap #wpsl-results, #wpsl-search-wrap .wpsl-input input, #wpsl-search-wrap .wpsl-input label {
+        display: table-cell;
+    }
+    #wpsl-search-btn, #wpsl-search-wrap input {
+        border: 1px solid #d2d2d2;
+        border-radius: 3px;
+    }
+    #wpsl-search-input {
+        width: 179px;
+    }
+    #wpsl-search-input {
+        width: 179px;
+        height: auto;
+        padding: 7px 12px;
+        font-size: 100%;
+        margin: 0;
+    }
+    #wpsl-search-wrap .wpsl-select-wrap {
+        position: relative;
+        z-index: 2;
+        margin-right: 0;
+    }
+    #wpsl-search-wrap .wpsl-input, #wpsl-search-wrap .wpsl-select-wrap {
+        display: table;
+    }
+    #wpsl-search-btn, #wpsl-search-wrap div {
+        margin-right: 10px;
+        float: left;
+    }
+    #wpsl-category, .wpsl-input, .wpsl-select-wrap {
+        position: relative;
+        margin-bottom: 10px;
+    }
+        #wpsl-search-btn, #wpsl-search-wrap #wpsl-radius, #wpsl-search-wrap #wpsl-results, #wpsl-search-wrap .wpsl-input input, #wpsl-search-wrap .wpsl-input label {
+        display: table-cell;
+    }
+    
+    #wpsl-search-btn, #wpsl-search-wrap input {
+        border: 1px solid #d2d2d2;
+        border-radius: 3px;
+    }
+    #wpsl-search-input {
+        width: 179px;
+    }
+    #wpsl-search-input {
+        width: 179px;
+        height: auto;
+        padding: 7px 12px;
+        font-size: 100%;
+        margin: 0;
+    }
+    input[type="date"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, select:focus, textarea:focus {
+    background-color: #F3F4F4;
+    border-color: #F3F4F4;
+    color: #646464;
+}
+.wpsl-search input:focus {
+    background-color: #f5faed !important;
+}
+input[type="date"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, select:focus, textarea:focus {
+    background-color: #F5FAED !important;
+}
+input[type="date"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, select:focus, textarea:focus {
+    background-color: #E9F5FC !important;
+    border-color: #d5e5ee;
+    color: #1982C2;
+}
+body, button, span.date_label, .timeline_items li h3 span, input[type="submit"], input[type="reset"], input[type="button"], input[type="text"], input[type="password"], input[type="tel"], input[type="email"], textarea, select, .offer_li .title h3 {
+    font-family: "Roboto", Arial, Tahoma, sans-serif;
+    font-weight: 400;
+}
+input[type="date"], input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], select, textarea, .woocommerce .quantity input.qty {
+    background-color: #fff;
+    color: #626262;
+    -webkit-box-shadow: inset 0 0 2px 2px rgba(0,0,0,0.02);
+    box-shadow: inset 0 0 2px 2px rgba(0,0,0,0.02);
+}
+.idea_box, .ui-tabs, .accordion .question, .accordion .question.active .title, .accordion .question .title::before, .ui-tabs .ui-tabs-nav, .ui-tabs .ui-tabs-nav li, .tabs_vertical.ui-tabs .ui-tabs-panel, table th, table td, .list_item .circle, input[type="date"], input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], select, textarea, .promo_box.has_border::after, dl > dt, dl > dd, .article_box .desc_wrapper p, a.icon_bar, a.content_link, .how_it_works .image, .opening_hours, .opening_hours .opening_hours_wrapper li, .icon_box.has_border::after, .chart_box::before, .pricing-box, .team_list .bq_wrapper, .post-footer .post-links, .format-link .post-title .icon-link, .share_wrapper, .post-header .title_wrapper, .section-post-related .section-related-adjustment, #comments > :first-child, .widget-area, .widget::after, .fixed-nav .desc h6, .portfolio_group.list .portfolio-item, .portfolio_group .portfolio-item .desc .details-wrapper, .Recent_posts ul li .desc h6, .widget_recent_entries ul li a, .woocommerce .widget_best_sellers li, .woocommerce .widget_featured_products li, .woocommerce .widget_recent_reviews li, .woocommerce .widget_recent_products li, .woocommerce .widget_recently_viewed_products li, .woocommerce .widget_random_products li, .woocommerce .widget_top_rated_products li, .woocommerce .widget_onsale li, .woocommerce .widget_layered_nav li, .woocommerce .widget_shopping_cart ul.product_list_widget li, .woocommerce .widget_products li, .woocommerce .product .related.products, .woocommerce .product .upsells.products, .woocommerce .product div.entry-summary h1.product_title::after, .woocommerce .quantity input.qty, .header-stack #Top_bar .logo, .offer_thumb .slider_pagination, .offer_thumb .slider_pagination a, .Latest_news ul li .desc_footer, .Latest_news ul li .photo, .offer_thumb.bottom .slider_pagination a, .style-simple .faq .question, .style-simple #Filters .filters_wrapper ul, #edd_checkout_cart th, #edd_checkout_cart td {
+    border-color: rgba(0,0,0,.08);
+}
+input[type="date"], input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], select, textarea {
+    padding: 10px;
+    outline: none;
+    margin: 0;
+    width: 230px;
+    max-width: 100%;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 13px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 0;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+}
+#wpsl-radius .wpsl-dropdown .wpsl-selected-item, #wpsl-radius .wpsl-dropdown li, #wpsl-results .wpsl-dropdown .wpsl-selected-item, #wpsl-results .wpsl-dropdown li {
+    white-space: nowrap;
+}
+#wpsl-wrap .wpsl-selected-item {
+    position: static;
+    padding-right: 35px !important;
+}
+.wpsl-dropdown .wpsl-selected-item, .wpsl-dropdown li, .wpsl-selected-item {
+    list-style: none;
+    padding: 9px 12px !important;
+    margin: 0 !important;
+}
+.wpsl-dropdown .wpsl-selected-item, .wpsl-dropdown li {
+    position: relative;
+    display: block;
+    line-height: normal;
+    color: #000;
+    overflow: hidden;
+}
+#wpsl-search-wrap div label {
+    float: left;
+    margin-right: 10px;
+    line-height: 32px;
+}
+#wpsl-search-btn, #wpsl-search-wrap input {
+    border: 1px solid #d2d2d2;
+    border-radius: 3px;
+}
+#wpsl-search-btn {
+    height: 34px !important;
+    color: #1d1d1c !important;
+}
+#wpsl-search-btn, #wpsl-search-wrap div {
+    margin-right: 10px;
+    float: left;
+}
+#wpsl-search-btn {
+    padding: 7px 10px;
+    line-height: 1.428571429;
+    font-weight: 400;
+    color: #7c7c7c;
+    background-color: #e6e6e6;
+    background-repeat: repeat-x;
+    background-image: -moz-linear-gradient(top,#f4f4f4,#e6e6e6);
+    background-image: -ms-linear-gradient(top,#f4f4f4,#e6e6e6);
+    background-image: -webkit-linear-gradient(top,#f4f4f4,#e6e6e6);
+    background-image: -o-linear-gradient(top,#f4f4f4,#e6e6e6);
+    background-image: linear-gradient(top,#f4f4f4,#e6e6e6);
+    box-shadow: 0 1px 2px rgba(64,64,64,.1);
+    text-transform: none !important;
+}
+#wpsl-search-btn, #wpsl-search-wrap #wpsl-radius, #wpsl-search-wrap #wpsl-results, #wpsl-search-wrap .wpsl-input input, #wpsl-search-wrap .wpsl-input label {
+    display: table-cell;
+}
+.button-stroke input[type="submit"] {
+    border-color: #FFFFFF;
+    background-color: #A0CE4E !important;
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+    width: 100% !important;
+    height: 50px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 300;
+    color: #ffffff !important;
+}
+.button-stroke a.button:not(.action_button), .button-stroke:not(.header-plain) a.button.action_button, .button-stroke a.tp-button, .button-stroke button, .button-stroke input[type="submit"], .button-stroke input[type="reset"], .button-stroke input[type="button"] {
+    border-width: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+}
+.button-stroke a.button.button_theme:not(.action_button), .button-stroke a.button.button_theme:not(.action_button), .button-stroke a.button.button_theme .button_icon i, .button-stroke a.tp-button.button_theme, .button-stroke button, .button-stroke input[type="submit"], .button-stroke input[type="reset"] {
+    border-color: #1d1d1c;
+    background-color: #A0CE4E !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    width: 100% !important;
+    height: 50px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 300;
+}
+.button-stroke a.button.button_theme:not(.action_button), .button-stroke a.button.button_theme:not(.action_button), .button-stroke a.button.button_theme .button_icon i, .button-stroke a.tp-button.button_theme, .button-stroke button, .button-stroke input[type="submit"], .button-stroke input[type="reset"], .button-stroke input[type="button"] {
+    border-color: #1d1d1c;
+    color: #1d1d1c !important;
+}
+.wpsl-search input:focus {
+    background-color: #f5faed !important;
+}
+#wpsl-search-btn, #wpsl-search-wrap div {
+    margin-right: 10px;
+    float: left;
+}
+</style>
+<div class="section" style="padding-top:60px; padding-bottom:0px; background-color:#f5f5f5">
+    <div class="section-divider triangle down">
+    </div>
+    <div class="section_wrapper clearfix">
+        <div class="items_group clearfix">
+            <div class="column one column_visual ">
+                <h1 class="tX02711 h1-top-page" style="text-align: center;">TÌM ĐẠI LÝ PHÂN PHỐI</h1>
+                @if (ViewBag.pname != "")
+                {
+                    <p><b>Tìm đại lý để mua sản phẩm</b></p>
+                    <p>@ViewBag.pname</p>
+                    <p><img src="@ViewBag.pphoto" style="width:220px;height:120px;"></p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="section   storeLocatorBox " style="padding-top:30px; padding-bottom:0px; background-color:#ffffff">
     <div class="section-divider triangle down"></div><div class="section_wrapper clearfix">
@@ -26,121 +303,79 @@
                             }
 
                         .wpsl-input label, #wpsl-radius label, #wpsl-category label {
-                            width: 95px;
+                            width: 195px;
                         }
 
                         #wpsl-search-input {
                             width: 179px;
                         }
                     </style>
-                    <div id="wpsl-wrap">
-                        <div class="wpsl-search wpsl-clearfix  wpsl-geolocation-run">
-                            <div id="wpsl-search-wrap">
+                    <div id="wpsl-wrap" style="background: #f4f3f3;">
+                        <div class="wpsl-search wpsl-clearfix  wpsl-geolocation-run" style="background: #f4f3f3;">
+                            <div id="wpsl-search-wrap" style="background: #f4f3f3;">
                                 <form autocomplete="off">
                                     <div class="wpsl-input">
-                                        <div><label for="wpsl-search-input">Your location</label></div>
-                                        <input id="wpsl-search-input" value="" name="wpsl-search-input" placeholder="" aria-required="true" class="" type="text">
+                                        <div><label for="wpsl-search-input">Địa chỉ của bạn</label></div>
+                                        <input id="wpsl-search-input" value="@ViewBag.address" name="wpsl-search-input" placeholder="" aria-required="true" class="" type="text">
+                                        <input name="lon" id="lon" type="hidden" value="@ViewBag.lon">
+                                        <input name="lat" id="lat" type="hidden" value="@ViewBag.lat">
                                     </div>
                                     <div class="wpsl-select-wrap">
                                         <div id="wpsl-radius">
-                                            <label for="wpsl-radius-dropdown">Search radius</label>
+                                            <label for="wpsl-radius-dropdown">Tìm đại lý trong bán kính</label>
                                             <div class="wpsl-dropdown">
-                                                <select id="wpsl-radius-dropdown" class="" name="wpsl-radius" style="display: none;">
+                                                <select id="wpsl-radius-dropdown" class="" name="wpsl-radius">
+                                                    @*<option value="1000" selected>Tìm đại lý trong bán kính</option>*@
                                                     <option value="10">10 km</option>
                                                     <option value="25">25 km</option>
-                                                    <option selected="selected" value="50">50 km</option>
+                                                    <option value="50">50 km</option>
                                                     <option value="100">100 km</option>
                                                     <option value="200">200 km</option>
                                                     <option value="500">500 km</option>
                                                     <option value="1000">1000 km</option>
                                                     <option value="5000">5000 km</option>
-                                                </select><span data-value="25000" class="wpsl-selected-item">50 km</span><div style="height: 0px;"><ul><li data-value="10">10 km</li><li data-value="25">25 km</li><li data-value="50" class="wpsl-selected-dropdown">50 km</li><li data-value="100">100 km</li><li data-value="200">200 km</li><li data-value="500">500 km</li><li data-value="1000">1000 km</li><li data-value="5000">5000 km</li></ul></div>
-                                            </div>
-                                        </div>
-                                        <div id="wpsl-results">
-                                            <label for="wpsl-results-dropdown">Results</label>
-                                            <div class="wpsl-dropdown">
-                                                <select id="wpsl-results-dropdown" class="" name="wpsl-results" style="display: none;">
-                                                    <option value="25">25</option>
-                                                    <option selected="selected" value="50">50</option>
-                                                    <option value="75">75</option>
-                                                    <option value="100">100</option>
-                                                    <option value="500">500</option>
-                                                </select><span data-value="500" class="wpsl-selected-item">50</span><div style="height: 0px;"><ul><li data-value="25">25</li><li data-value="50" class="wpsl-selected-dropdown">50</li><li data-value="75">75</li><li data-value="100">100</li><li data-value="500">500</li></ul></div>
+                                                </select>@*<span data-value="25000" class="wpsl-selected-item">50 km</span><div style="height: 0px;"><ul><li data-value="10">10 km</li><li data-value="25">25 km</li><li data-value="50" class="wpsl-selected-dropdown">50 km</li><li data-value="100">100 km</li><li data-value="200">200 km</li><li data-value="500">500 km</li><li data-value="1000">1000 km</li><li data-value="5000">5000 km</li></ul>*@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="wpsl-search-btn-wrap"><input id="wpsl-search-btn" value="Search" type="submit"></div>
-                                </form>
+                                    <div class="wpsl-search-btn-wrap" style="float:left;display:block;position:relative;"><input id="wpsl-search-btn" value="Tìm Kiếm" type="button" onclick="search();"></div>
                             </div>
                         </div>
-                        <div id="wpsl-gmap" class="wpsl-gmap-canvas" style="position: relative; overflow: hidden;">
-                            
+
+                        </form>
+                    </div>
                         </div>
+                        @*<div id="wpsl-gmap" class="wpsl-gmap-canvas" style="position: relative; overflow: hidden;">
+                            
+                        </div>*@
                         <div id="wpsl-result-list">
                             <div id="wpsl-stores">
                                 <ul>
-                                    <li data-store-id="25644">
+                            @if (Model != null)
+                            {
+                                if (Model.Count > 0)
+                                {
+                                    foreach (var item in Model)
+                                    {
+
+                                    <li data-store-id="25644" style="border-bottom:1px solid #d2d2d2;">
                                         <div class="wpsl-store-location">
                                             <p>
-
-                                                <strong><a target="_blank" href="http://www.nexusigroup.com">Macau Smart Store</a></strong>
-
-                                                <span class="wpsl-street">251A-301 Avenida Comercial De Macau Level 20, AIA Tower</span>
-
-                                                <span>Macau  999078</span>
-                                                <span class="wpsl-country">Macao</span>
+                                                <strong>@item.full_name</strong>
+                                                <span class="wpsl-street">, Địa chỉ: @item.address</span>
+                                                <span>, Điện thoại: @item.phone</span>
+                                                <span class="wpsl-country">, Email: @item.email</span>
+                                                <span class="wpsl-country">, Cách  @String.Format("{0:n2}", @item.D) km</span>
                                             </p>
 
                                         </div>
                                         <div class="wpsl-direction-wrap">
-                                            1 km
-                                            <a class="wpsl-directions" href="#">Directions</a>
+                                            <a class="wpsl-directions" href="tel:@item.phone">Gọi Đặt Mua <span class="btn-info btn">@item.phone</span></a>
                                         </div>
                                     </li>
-
-                                    <li data-store-id="25688">
-                                        <div class="wpsl-store-location">
-                                            <p>
-
-                                                <strong><a target="_blank" href="http://WWW.BOOMERSELECTRONICS.COM">BOOMERS ELECTRONICS</a></strong>
-
-                                                <span class="wpsl-street">10221 N 25 E</span>
-
-                                                <span>IDAHO FALLS  83401</span>
-                                                <span class="wpsl-country">United States</span>
-                                            </p>
-
-                                        </div>
-                                        <div class="wpsl-direction-wrap">
-                                            2324.9 km
-                                            <a class="wpsl-directions" href="#">Directions</a>
-                                        </div>
-                                    </li>
-
-                                    <li data-store-id="24733">
-                                        <div class="wpsl-store-location">
-                                            <p>
-
-                                                <strong><a target="_blank" href="http://www.iuworld.net">Ideas Unlimited Sdn Bhd</a></strong>
-
-                                                <span class="wpsl-street">No. 2-42, Jalan Puteri 4/8, Bandar Puteri,</span>
-
-                                                <span>Puchong  47100</span>
-                                                <span class="wpsl-country">Malaysia</span>
-                                            </p>
-
-                                        </div>
-                                        <div class="wpsl-direction-wrap">
-                                            2491.5 km
-                                            <a class="wpsl-directions" href="#">Directions</a>
-                                        </div>
-                                    </li>
-
-                                    
-
-                                  
-
+                                        }
+                                    }
+                                }
                                    
                                 </ul>
                             </div>
@@ -154,3 +389,37 @@
         </div>
     </div>
 </div>
+<script src="~/Scripts/jquery-1.12.4.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLPSKQ4QV4xGiQjnZDUecx-UEr3D0QePY&libraries=places&region=vn&language=vi" type="text/javascript"></script>
+<script src="/Scripts/jquery.geocomplete.min.js"></script>
+<div id="map-canvas" style="display: none;">
+    Bản đồ
+</div>
+<script>
+    var options = {
+        map: "#map-canvas"
+    };
+    $("#wpsl-search-input").geocomplete(options)
+  .bind("geocode:result", function (event, result) {
+      $("#lat").val(result.geometry.location.lat());
+      $("#lon").val(result.geometry.location.lng());
+      //alert("long" + result.geometry.location.lng() + ", lat=" + result.geometry.location.lat());
+  })
+  .bind("geocode:error", function (event, status) {
+      $.log("ERROR: " + status);
+  })
+  .bind("geocode:multiple", function (event, results) {
+      $.log("Multiple: " + results.length + " results found");
+  });
+  
+  function search() {
+      var d = $("#wpsl-radius-dropdown").val();
+      var address = $("#wpsl-search-input").val();
+      var lon = $("#lon").val();
+      var lat = $("#lat").val();
+      var product_id=@ViewBag.product_id;
+      var url = "/Partner/List?lon=" + lon + "&lat=" + lat + "&d=" + d + "&address=" + address+ "&product_id=" + product_id;
+      window.location.href = url;
+  }
+  document.getElementById("wpsl-radius-dropdown").value=@ViewBag.d;
+</script>

@@ -12,7 +12,7 @@
                     <tr>
                         <th>no</th>
                         <th>download</th>
-                        <th>title</th>                        
+                        @*<th>title</th>*@                        
                     </tr>
                 </thead>
                 <tbody>
@@ -21,8 +21,8 @@
                         count++;
                         <tr>
                             <td>@count</td>
-                            <td><a href="@item.file_path">Link</a></td>
-                            <td>@item.title</td>
+                            <td><a href="@item.file_path">Link @count</a></td>
+                            @*<td>@item.title</td>*@
                         </tr>
                     }
                 </tbody>

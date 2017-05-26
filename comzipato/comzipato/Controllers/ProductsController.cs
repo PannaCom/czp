@@ -218,7 +218,9 @@ namespace comzipato.Controllers
                 //configs.SaveTolog(ex.ToString());
                 return RedirectToRoute("AdminEditProduct", new { id = model.product_id });
             }
-            return RedirectToRoute("AdminListProduct");
+            TempData["Errored"] = "Cập nhật thành công.";
+            //configs.SaveTolog(ex.ToString());
+            return RedirectToRoute("AdminEditProduct", new { id = model.product_id });
 
         }
 
