@@ -17,7 +17,15 @@ namespace comzipato.Controllers
         {
             return View();
         }
+        public ActionResult overviewen()
+        {
+            return View();
+        }
         public ActionResult security()
+        {
+            return View();
+        }
+        public ActionResult securityen()
         {
             return View();
         }
@@ -25,11 +33,23 @@ namespace comzipato.Controllers
         {
             return View();
         }
+        public ActionResult energyen()
+        {
+            return View();
+        }
         public ActionResult comfort()
         {
             return View();
         }
+        public ActionResult comforten()
+        {
+            return View();
+        }
         public ActionResult health()
+        {
+            return View();
+        }
+        public ActionResult healthen()
         {
             return View();
         }

@@ -4,6 +4,7 @@
 @{
     ViewBag.Title = "List";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var locations = "{lat: 105.8194541, lng:21.0227431}";
 }
 <link href="/Content/creative/css/overview.css" rel="stylesheet">
 <style>
@@ -264,7 +265,60 @@ input[type="date"], input[type="email"], input[type="number"], input[type="passw
     margin-right: 10px;
     float: left;
 }
+#map-container {
+        padding: 6px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #ccc #ccc #999 #ccc;
+        -webkit-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
+        -moz-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
+        box-shadow: rgba(64, 64, 64, 0.1) 0 2px 5px;
+        width: 600px;
+      }
+      #map {
+        width: 512px;
+        height: 400px;
+      }
+
 </style>
+<!-- SUB MENU -->
+<div class="section  no-margin sub_menu_container  column-margin-0px"
+     style="padding-top:0px; padding-bottom:0px; background-color:">
+    <div class="section_wrapper clearfix">
+        <div class="items_group clearfix">
+            <div class="column one-fourth column_visual breadcrumbs-name">
+                <h4 class="tX20499"
+                    style="text-align: left;">
+                    Danh Sách Đại Lý
+                </h4>
+            </div>
+            <div class="column three-fourth column_column breadcrumbs-nav">
+                <div class="column_attr align_right" style="">
+                    <div class="menu-what-is-zipato-container">
+                        <ul id="submenu_top" class="submenu_top">
+                            <li id="menu-item-15641"
+                                class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-15639 current_page_item menu-item-15641">
+                                <a href="/Partner/">Tổng quan</a>
+                            </li>
+                            <li id="menu-item-15642"
+                                class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-15639 current_page_item menu-item-15641">
+                                <a href="/Partner/List">Danh sách đại lý</a>
+                            </li>
+                            <li id="menu-item-77"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-77">
+                                <a href="/Partner/Reg">Đăng Ký</a>
+                            </li>
+                            <li id="menu-item-93"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-93">
+                                <a href="/Partner/Log">Đăng Nhập</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="section" style="padding-top:60px; padding-bottom:0px; background-color:#f5f5f5">
     <div class="section-divider triangle down">
     </div>
@@ -348,40 +402,42 @@ input[type="date"], input[type="email"], input[type="number"], input[type="passw
                         @*<div id="wpsl-gmap" class="wpsl-gmap-canvas" style="position: relative; overflow: hidden;">
                             
                         </div>*@
-                        <div id="wpsl-result-list">
+                        <div id="wpsl-result-list" class="col-md-6">
                             <div id="wpsl-stores">
                                 <ul>
-                            @if (Model != null)
-                            {
-                                if (Model.Count > 0)
+                                @if (Model != null)
                                 {
-                                    foreach (var item in Model)
+                                    if (Model.Count > 0)
                                     {
+                                        foreach (var item in Model)
+                                        {
+                                            locations += ",{lat: " + item.lat + ", lng: " + item .lon+ "}";
+                                            <li data-store-id="25644" style="border-bottom:1px solid #d2d2d2;">
+                                                <div class="wpsl-store-location">
+                                                    <p>
+                                                        <strong>@item.full_name</strong>
+                                                        <span class="wpsl-street">, Địa chỉ: @item.address</span>
+                                                        <span>, Điện thoại: @item.phone</span>
+                                                        <span class="wpsl-country">, Email: @item.email</span>
+                                                        <span class="wpsl-country">, Cách  @String.Format("{0:n2}", @item.D) km</span>
+                                                    </p>
 
-                                    <li data-store-id="25644" style="border-bottom:1px solid #d2d2d2;">
-                                        <div class="wpsl-store-location">
-                                            <p>
-                                                <strong>@item.full_name</strong>
-                                                <span class="wpsl-street">, Địa chỉ: @item.address</span>
-                                                <span>, Điện thoại: @item.phone</span>
-                                                <span class="wpsl-country">, Email: @item.email</span>
-                                                <span class="wpsl-country">, Cách  @String.Format("{0:n2}", @item.D) km</span>
-                                            </p>
-
-                                        </div>
-                                        <div class="wpsl-direction-wrap">
-                                            <a class="wpsl-directions" href="tel:@item.phone">Gọi Đặt Mua <span class="btn-info btn">@item.phone</span></a>
-                                        </div>
-                                    </li>
+                                                </div>
+                                                <div class="wpsl-direction-wrap">
+                                                    <a class="wpsl-directions" href="tel:@item.phone">Gọi Đặt Mua <span class="btn-info btn">@item.phone</span></a>
+                                                </div>
+                                            </li>
+                                            }
                                         }
                                     }
-                                }
-                                   
                                 </ul>
                             </div>
                             <div id="wpsl-direction-details" style="display: none;">
                                 <ul></ul>
                             </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div id="map"></div>
                         </div>
                     </div>
                 </div>
@@ -390,11 +446,76 @@ input[type="date"], input[type="email"], input[type="number"], input[type="passw
     </div>
 </div>
 <script src="~/Scripts/jquery-1.12.4.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLPSKQ4QV4xGiQjnZDUecx-UEr3D0QePY&libraries=places&region=vn&language=vi" type="text/javascript"></script>
-<script src="/Scripts/jquery.geocomplete.min.js"></script>
+
+
+
 <div id="map-canvas" style="display: none;">
     Bản đồ
 </div>
+
+<script>
+
+    @*initMap();
+    function initMap() {
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 3,
+            center: {lat: 105.8194541, lng: 21.0227431}
+        });
+
+         Create an array of alphabetical characters used to label the markers.
+        var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+         Add some markers to the map.
+         Note: The code uses the JavaScript Array.prototype.map() method to
+         create an array of markers based on a given "locations" array.
+         The map() method here has nothing to do with the Google Maps API.
+        var markers = locations.map(function(location, i) {
+            return new google.maps.Marker({
+                position: location,
+                label: labels[i % labels.length]
+            });
+        });
+
+         Add a marker clusterer to manage the markers.
+        var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: '/Images/m1.png'});
+        alert("ok4");
+    }
+    var locations = [@locations];*@
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 3,
+            center: {lat: 21.0227431, lng: 105.8194541}
+        });
+
+        // Create an array of alphabetical characters used to label the markers.
+        var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        // Add some markers to the map.
+        // Note: The code uses the JavaScript Array.prototype.map() method to
+        // create an array of markers based on a given "locations" array.
+        // The map() method here has nothing to do with the Google Maps API.
+        var markers = locations.map(function(location, i) {
+            return new google.maps.Marker({
+                position: location,
+                label: labels[i % labels.length]
+            });
+        });
+
+        // Add a marker clusterer to manage the markers.
+        var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+    }
+    var locations = [@locations];
+
+
+</script>
+
+<script src="/Scripts/markerclusterer.js">
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLPSKQ4QV4xGiQjnZDUecx-UEr3D0QePY&libraries=places&region=vn&language=vi&callback=initMap" type="text/javascript"></script>
+<script src="/Scripts/jquery.geocomplete.min.js"></script>
 <script>
     var options = {
         map: "#map-canvas"
@@ -411,15 +532,15 @@ input[type="date"], input[type="email"], input[type="number"], input[type="passw
   .bind("geocode:multiple", function (event, results) {
       $.log("Multiple: " + results.length + " results found");
   });
-  
-  function search() {
-      var d = $("#wpsl-radius-dropdown").val();
-      var address = $("#wpsl-search-input").val();
-      var lon = $("#lon").val();
-      var lat = $("#lat").val();
-      var product_id=@ViewBag.product_id;
-      var url = "/Partner/List?lon=" + lon + "&lat=" + lat + "&d=" + d + "&address=" + address+ "&product_id=" + product_id;
-      window.location.href = url;
-  }
-  document.getElementById("wpsl-radius-dropdown").value=@ViewBag.d;
+
+    function search() {
+        var d = $("#wpsl-radius-dropdown").val();
+        var address = $("#wpsl-search-input").val();
+        var lon = $("#lon").val();
+        var lat = $("#lat").val();
+        var product_id=@ViewBag.product_id;
+        var url = "/Partner/List?lon=" + lon + "&lat=" + lat + "&d=" + d + "&address=" + address+ "&product_id=" + product_id;
+        window.location.href = url;
+    }
+    document.getElementById("wpsl-radius-dropdown").value=@ViewBag.d;
 </script>

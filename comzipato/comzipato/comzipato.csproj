@@ -1626,6 +1626,11 @@
     <Content Include="Views\Partner\Reg.cshtml" />
     <Content Include="Views\Partner\Log.cshtml" />
     <Content Include="Views\Partner\List.cshtml" />
+    <Content Include="Views\whatis\overviewen.cshtml" />
+    <Content Include="Views\whatis\securityen.cshtml" />
+    <Content Include="Views\whatis\energyen.cshtml" />
+    <Content Include="Views\whatis\comforten.cshtml" />
+    <Content Include="Views\whatis\healthen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
