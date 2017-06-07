@@ -17,11 +17,19 @@ namespace comzipato.Controllers
         {
             return View();
         }
+        public ActionResult overviewen()
+        {
+            return View();
+        }
         public ActionResult overview_en()
         {
             return View();
         }
         public ActionResult interfaces()
+        {
+            return View();
+        }
+        public ActionResult interfacesen()
         {
             return View();
         }

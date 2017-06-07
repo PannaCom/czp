@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Thêm Mới";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>Đăng Ký Mới Đại Lý</h2>
+<div class="section   dealerForm-reg " style="padding-top: 60px; padding-bottom: 0px; display: block;">
+    <div class="section_wrapper clearfix">
+        <div class="items_group clearfix">
+            <div class="column one-second column_column dealerRegForm">
+                <div class="column_attr" style="">
+                    <div role="form" class="wpcf7" id="wpcf7-f17147-p15161-o2" dir="ltr" lang="en-US">
+                        <div class="screen-reader-response"></div>
+                        @using (Html.BeginForm("AddNew", "Partner", FormMethod.Post, htmlAttributes: new { @class = "form-horizontal2", role = "form", @id = "add-new-product2", @name = "add-new-product2" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div>
+                                <input name="lon" id="lon" type="hidden">
+                                <input name="lat" id="lat" type="hidden">
+                            </div>
+                            <p><input name="full_name" id="full_name" class="form-control" placeholder="họ tên" type="text"></p>
+                            <p><input name="email" id="email" class="form-control" placeholder="email" type="text"></p>
+                            <p><input name="pass" id="pass" class="form-control" placeholder="mật khẩu" type="password"></p>
+                            <p><input name="phone" id="phone" class="form-control" placeholder="điện thoại" type="text"></p>
+                            <p><input name="address" id="address" class="form-control" placeholder="địa chỉ" type="text"></p>
+                           
+                            <p><input value="Thêm Mới" class="button-stroke" type="submit"></p>
+                            <div class="wpcf7-response-output wpcf7-display-none"></div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-1.12.4.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLPSKQ4QV4xGiQjnZDUecx-UEr3D0QePY&libraries=places&region=vn&language=vi" type="text/javascript"></script>
+<script src="/Scripts/jquery.geocomplete.min.js"></script>
+<div id="map-canvas" style="display: none;">
+    Bản đồ
+</div>
+<script>
+    var options = {
+        map: "#map-canvas"
+    };
+    $("#address").geocomplete(options)
+  .bind("geocode:result", function (event, result) {
+      $("#lat").val(result.geometry.location.lat());
+      $("#lon").val(result.geometry.location.lng());
+      //alert("long" + result.geometry.location.lng() + ", lat=" + result.geometry.location.lat());
+  })
+  .bind("geocode:error", function (event, status) {
+      $.log("ERROR: " + status);
+  })
+  .bind("geocode:multiple", function (event, results) {
+      $.log("Multiple: " + results.length + " results found");
+  });
+</script>

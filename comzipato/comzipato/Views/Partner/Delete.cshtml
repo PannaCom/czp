@@ -1,0 +1,13 @@
+﻿@model comzipato.Models.partner
+@{
+    ViewBag.Title = "Xóa";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using (Html.BeginForm("Delete", "Partner", FormMethod.Post, htmlAttributes: new { @class = "form-horizontal2", role = "form", @id = "add-new-product2", @name = "add-new-product2" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <h2>Bạn có chắc chắn xóa đại lý với tên @Model.full_name, email:@Model.email, điện thoại @Model.phone, địa chỉ @Model.address</h2>
+    <p><input value="Xóa" class="button-stroke" type="submit">&nbsp;<a href="/Partner/Admin">Quay lại danh sách</a></p>
+}
+

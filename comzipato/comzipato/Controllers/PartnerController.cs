@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using comzipato.Models;
 using System.Threading.Tasks;
 using PagedList;
+using System.Data.Entity;
 namespace comzipato.Controllers
 {
     public class PartnerController : Controller
@@ -16,8 +17,32 @@ namespace comzipato.Controllers
         {
             return View();
         }
-        
+        public ActionResult Admin(int? pg, string search)
+        {
+            int pageSize = 25;
+            if (pg == null) pg = 1;
+            int pageNumber = (pg ?? 1);
+            ViewBag.pg = pg;
+            var data = db.partners.Select(x => x);
+            if (data == null)
+            {
+                return View(data);
+            }
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                search = search.Trim();
+                data = data.Where(x => x.phone.ToLower().Contains(search) || x.full_name.Contains(search) || x.email.Contains(search));
+                ViewBag.search = search;
+            }
+
+            data = data.OrderByDescending(x => x.id);
+            return View(data.ToList().ToPagedList(pageNumber, pageSize));
+        }
         public ActionResult Reg()
+        {
+            return View();
+        }
+        public ActionResult AddNew()
         {
             return View();
         }
@@ -94,6 +119,63 @@ namespace comzipato.Controllers
             }
             return View(data.ToList().ToPagedList(pageNumber, pageSize));
         }
+        public ActionResult Edit(int? id)
+        {
+
+            if (id == null || id == 0)
+            {
+                return RedirectToRoute("Admin");
+            }
+            partner _model = db.partners.Find(id);
+            if (_model == null)
+            {
+                return View(_model);
+            }
+
+            return View(_model);
+        }
+        [HttpPost, ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(partner partner)
+        {
+            if (!ModelState.IsValid)
+            {
+                TempData["error"] = "Vui lòng kiểm tra lại các trường.";
+                return RedirectToAction("Edit", new { id = partner.id });
+            }
+            if (ModelState.IsValid)
+            {
+                db.Entry(partner).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Admin");
+            }
+            return View(partner);
+        }
+        public ActionResult Delete(int? id)
+        {
+
+            if (id == null || id == 0)
+            {
+                return RedirectToRoute("Admin");
+            }
+            partner _model = db.partners.Find(id);
+            if (_model == null)
+            {
+                return View(_model);
+            }
+
+            return View(_model);
+        }
+        // POST: News/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(long id)
+        {
+            partner pt = db.partners.Find(id);
+            db.partners.Remove(pt);
+            db.SaveChanges();
+            return RedirectToAction("Admin");
+        }
         [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Add(Partner model)
@@ -120,6 +202,42 @@ namespace comzipato.Controllers
                 await db.SaveChangesAsync();
                 
                 return RedirectToAction("Log", new { title = "Đăng Ký Thành Công, Chúng Tôi Sẽ Liên Hệ Sớm Nhất." });
+            }
+
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Có lỗi xảy ra khi thêm mới");
+                //configs.SaveTolog(ex.ToString());
+                return View(model);
+            }
+
+        }
+        [HttpPost, ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> AddNew(Partner model)
+        {
+            if (!ModelState.IsValid)
+            {
+                TempData["Errored"] = "Vui lòng kiểm tra lại các trường.";
+                return View(model);
+            }
+
+            try
+            {
+                int id = 0;
+                partner pn = new partner();
+                pn.address = model.address;
+                pn.email = model.email;
+                pn.full_name = model.full_name;
+                pn.lat = model.lat;
+                pn.lon = model.lon;
+                pn.pass = model.pass;
+                pn.phone = model.phone;
+                db.partners.Add(pn);
+
+                await db.SaveChangesAsync();
+
+                return RedirectToAction("Admin");
             }
 
             catch (Exception ex)

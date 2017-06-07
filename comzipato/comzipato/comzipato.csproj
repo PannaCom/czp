@@ -1631,6 +1631,12 @@
     <Content Include="Views\whatis\energyen.cshtml" />
     <Content Include="Views\whatis\comforten.cshtml" />
     <Content Include="Views\whatis\healthen.cshtml" />
+    <Content Include="Views\howitworks\overviewen.cshtml" />
+    <Content Include="Views\howitworks\interfacesen.cshtml" />
+    <Content Include="Views\Partner\Admin.cshtml" />
+    <Content Include="Views\Partner\AddNew.cshtml" />
+    <Content Include="Views\Partner\Edit.cshtml" />
+    <Content Include="Views\Partner\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
