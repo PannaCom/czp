@@ -72,6 +72,15 @@
           <Property Name="orderby" Type="int" />
           <Property Name="lang" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+          <Property Name="pass" Type="nvarchar(max)" />
+          <Property Name="role" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <Association Name="FK_product_img_products">
           <End Role="products" Type="Self.products" Multiplicity="0..1" />
           <End Role="product_img" Type="Self.product_img" Multiplicity="*" />
@@ -90,6 +99,7 @@
           <EntitySet Name="product_file" EntityType="Self.product_file" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="product_img" EntityType="Self.product_img" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="products" EntityType="Self.products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_product_img_products" Association="Self.FK_product_img_products">
             <End Role="products" EntitySet="products" />
             <End Role="product_img" EntitySet="product_img" />
@@ -109,6 +119,7 @@
             <End Role="product_img" EntitySet="product_img" />
           </AssociationSet>
           <EntitySet Name="partners" EntityType="comzipatoDbModel.partner" />
+          <EntitySet Name="users" EntityType="comzipatoDbModel.user" />
         </EntityContainer>
         <EntityType Name="product_img">
           <Key>
@@ -191,6 +202,15 @@
           <Property Name="lon" Type="Double" />
           <Property Name="lat" Type="Double" />
         </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pass" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -265,6 +285,16 @@
                 <ScalarProperty Name="full_name" ColumnName="full_name" />
                 <ScalarProperty Name="pass" ColumnName="pass" />
                 <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="comzipatoDbModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="username" ColumnName="username" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

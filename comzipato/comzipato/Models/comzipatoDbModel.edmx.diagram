@@ -11,6 +11,7 @@
         <EntityTypeShape EntityType="comzipatoDbModel.product" Width="1.5" PointX="3.125" PointY="8.75" />
         <AssociationConnector Association="comzipatoDbModel.FK_product_img_products" />
         <EntityTypeShape EntityType="comzipatoDbModel.partner" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="comzipatoDbModel.user" Width="1.5" PointX="0.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

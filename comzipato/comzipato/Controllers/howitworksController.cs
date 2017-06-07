@@ -37,11 +37,23 @@ namespace comzipato.Controllers
         {
             return View();
         }
+        public ActionResult rulecreatoren()
+        {
+            return View();
+        }
         public ActionResult compatibility()
         {
             return View();
         }
+        public ActionResult compatibilityen()
+        {
+            return View();
+        }
         public ActionResult feature()
+        {
+            return View();
+        }
+        public ActionResult featureen()
         {
             return View();
         }

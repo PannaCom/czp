@@ -272,6 +272,9 @@
     </Compile>
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\tbcngViewModel.cs" />
+    <Compile Include="Models\user.cs">
+      <DependentUpon>comzipatoDbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UserClaim.cs" />
     <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1637,6 +1640,11 @@
     <Content Include="Views\Partner\AddNew.cshtml" />
     <Content Include="Views\Partner\Edit.cshtml" />
     <Content Include="Views\Partner\Delete.cshtml" />
+    <Content Include="Views\admin\Login.cshtml" />
+    <Content Include="Views\admin\Logout.cshtml" />
+    <Content Include="Views\howitworks\rulecreatoren.cshtml" />
+    <Content Include="Views\howitworks\compatibilityen.cshtml" />
+    <Content Include="Views\howitworks\featureen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

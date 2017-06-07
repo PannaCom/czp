@@ -22,10 +22,18 @@ namespace comzipato.Controllers
         // GET: Cats
         public ActionResult Add()
         {
+            if (Configs.getCookie("admin") == null || Configs.getCookie("admin") == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             return View();
         }
         public ActionResult List(int? pg, string search)
         {
+            if (Configs.getCookie("admin") == null || Configs.getCookie("admin") == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             int pageSize = 25;
             if (pg == null) pg = 1;
             int pageNumber = (pg ?? 1);

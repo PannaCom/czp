@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Web siêu thị MVC5">
     <meta name="author" content="Nguyen Van Nam">
-    <title>@ViewBag.Title | Trang quản trị thiết bị công nghệ</title>
+    <title>@ViewBag.Title | Trang quản trị Zipato</title>
     @RenderSection("metatags", false)
     <!-- Bootstrap Core CSS -->
     <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
@@ -74,7 +74,32 @@
             <!-- /.navbar-top-links -->
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
-                    @*@Html.Partial("_MenuAdminPartial")*@
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="/" target="_blank"><i class="fa icon-home fa-fw"></i> Trang chủ</a>
+                        </li>                            
+                        <li>
+                            <a href="#"><i class="fa fa-product-hunt fa-fw"></i> Quản lý sản phẩm<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="/Products/List">Danh sách sản phẩm</a></li>
+                                <li><a href="/Products/Add">Thêm mới sản phẩm</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-list fa-fw"></i> Quản lý đối tác <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="/Partner/Admin">Danh sách đối tác</a></li>
+                                <li><a href="/Partner/AddNew">Thêm mới đối tác</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/admin/logout" ><i class="fa icon-home fa-fw"></i>Thoát</a>
+                        </li>   
+                        <li>
+                            <a href="/admin/login"><i class="fa icon-home fa-fw"></i>Đăng Nhập</a>
+                        </li>  
+                    </ul>
+
                 </div>
                 <!-- /.sidebar-collapse -->
             </div>

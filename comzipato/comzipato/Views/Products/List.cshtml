@@ -72,9 +72,9 @@
                     <table class="table table-bordered table-striped" id="table-articles">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>Ảnh</th>
                                 <th>Tên sản phẩm</th>
-                                <th>Danh mục</th>
+                                <th>Ngôn Ngữ</th>
                                 <th>Ngày tạo</th>
                                 <th>Tình trạng</th>
                                 <th style="width: 160px;" class="no-sort"></th>
@@ -88,19 +88,12 @@
                                     foreach (var item in Model)
                                     {
                                         <tr class='@if (item.status == false) {<text>text-line-through</text>}'>
-                                            <td>@item.product_id</td>
+                                            <td><img src="@item.product_photo" style="width:50px;height:50px;"></td>
                                             <td>@item.product_name</td>
                                             @*<td>@item.cat.cat_name</td>*@
-                                            <td>@string.Format("{0:dd/MM/yyyy HH:mm tt}", item.updated_date)</td>
+                                            <td>@item.lang</td>
                                             <td>
-                                                @if (item.status == false)
-                                                {
-                                                    <span>Tạm khóa</span>
-                                                }
-                                                else
-                                                {
-                                                    <span>Đã đăng</span>
-                                                }
+                                                @item.updated_date
                                             </td>
                                             <td>
                                                 <span class="btn btn-primary" onclick="gotoUrl('@Url.RouteUrl("AdminEditProduct", new { id = item.product_id })')"><i class="fa fa-edit"></i> Sửa</span>

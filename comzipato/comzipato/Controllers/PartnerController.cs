@@ -7,6 +7,7 @@ using comzipato.Models;
 using System.Threading.Tasks;
 using PagedList;
 using System.Data.Entity;
+using System.Net;
 namespace comzipato.Controllers
 {
     public class PartnerController : Controller
@@ -19,6 +20,10 @@ namespace comzipato.Controllers
         }
         public ActionResult Admin(int? pg, string search)
         {
+            if (Configs.getCookie("admin") == null || Configs.getCookie("admin") == "")
+            {
+                return RedirectToAction("Login", "Admin"); //RedirectToAction("Login", "Admin");
+            }
             int pageSize = 25;
             if (pg == null) pg = 1;
             int pageNumber = (pg ?? 1);
@@ -44,6 +49,10 @@ namespace comzipato.Controllers
         }
         public ActionResult AddNew()
         {
+            if (Configs.getCookie("admin") == null || Configs.getCookie("admin") == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             return View();
         }
         public ActionResult Log(string title)
@@ -153,7 +162,10 @@ namespace comzipato.Controllers
         }
         public ActionResult Delete(int? id)
         {
-
+            if (Configs.getCookie("admin") == null || Configs.getCookie("admin") == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             if (id == null || id == 0)
             {
                 return RedirectToRoute("Admin");

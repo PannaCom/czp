@@ -1,0 +1,43 @@
+﻿@model comzipato.Models.user
+@{
+    ViewBag.Title = "Đăng Nhập Quản Trị";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row" style="background: #fff;">
+    <div class="col-md-8" id="dang_nhap_thanh_vien_moi">
+        <div class="page-header">
+            <h2>@ViewBag.Title.</h2>
+        </div>
+        @using (Html.BeginForm("Login", "Admin", FormMethod.Post, new { id = "form_dang_nhap_thanh_vien", role = "form" }))
+        {
+            <div class="form-horizontal">
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.username, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.username, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.username, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.pass, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.pass, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.pass, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Đăng nhập" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+    
+</div>
+

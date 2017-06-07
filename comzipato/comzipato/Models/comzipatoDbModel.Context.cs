@@ -30,5 +30,6 @@ namespace comzipato.Models
         public virtual DbSet<product_file> product_file { get; set; }
         public virtual DbSet<product> products { get; set; }
         public virtual DbSet<partner> partners { get; set; }
+        public virtual DbSet<user> users { get; set; }
     }
 }
