@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "ShopVn";
+    ViewBag.Title = "Trang sản phẩm";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <style>
@@ -253,7 +253,7 @@
                                             @foreach (var item in ViewBag.control)
                                             {
                                                 var link = "/product/" + Configs.unicodeToNoMark(item.product_name)+"-"+item.product_id;
-                                                link = "/products/detail?id=" + item.product_id;
+                                                //link = "/products/detail?id=" + item.product_id;
                                                 <li class="first post-19889 product type-product status-publish has-post-thumbnail product_cat-at product_cat-ba product_cat-be product_cat-bg product_cat-ca product_cat-ch product_cat-controllers product_cat-cz product_cat-de product_cat-dk product_cat-ee product_cat-es product_cat-fi product_cat-fr product_cat-gb product_cat-gr product_cat-hr product_cat-hu product_cat-ie product_cat-inter product_cat-it product_cat-lt product_cat-lu product_cat-lv product_cat-mt product_cat-nl product_cat-no product_cat-pl product_cat-pt product_cat-ro product_cat-rs product_cat-ru product_cat-se product_cat-si product_cat-sk product_cat-tr product_cat-ua product_cat-us  instock taxable shipping-taxable purchasable product-type-variable has-default-attributes has-children">
 
                                                     <a href="@link" class="woocommerce-LoopProduct-link">

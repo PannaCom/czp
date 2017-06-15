@@ -43,6 +43,16 @@ namespace comzipato
             new { controller = "Products", action = "List" }
           );
             routes.MapRoute(
+           "Products Detail",
+           "product/{restore}-{id}",
+           new { controller = "Products", action = "Detail", title = UrlParameter.Optional,id = UrlParameter.Optional }
+         );
+            routes.MapRoute(
+           "Products Detail English",
+           "products/{restore}-{id}",
+           new { controller = "Products", action = "DetailEn", title = UrlParameter.Optional, id = UrlParameter.Optional }
+         );
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

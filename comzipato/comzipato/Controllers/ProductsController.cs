@@ -62,7 +62,29 @@ namespace comzipato.Controllers
             ViewBag.acc = p;
             return View();
         }
+        public ActionResult ShopEn(int? pg, string search)
+        {
+
+            var p = (from q in db.products where q.cat_id == 14 && q.lang.Contains("en") select q).OrderByDescending(x => x.product_id).Take(100).ToList();
+            ViewBag.control = p;
+            p = (from q in db.products where q.cat_id == 15 && q.lang.Contains("en") select q).OrderByDescending(x => x.product_id).Take(100).ToList();
+            ViewBag.acc = p;
+            return View();
+        }
         public ActionResult Detail(long id)
+        {
+            product p = db.products.Find(id);
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            if (p == null)
+            {
+                return HttpNotFound();
+            }
+            return View(p);
+        }
+        public ActionResult DetailEn(long id)
         {
             product p = db.products.Find(id);
             if (id == null)

@@ -18,6 +18,10 @@ namespace comzipato.Controllers
         {
             return View();
         }
+        public ActionResult IndexEn()
+        {
+            return View();
+        }
         public ActionResult Admin(int? pg, string search)
         {
             if (Configs.getCookie("admin") == null || Configs.getCookie("admin") == "")

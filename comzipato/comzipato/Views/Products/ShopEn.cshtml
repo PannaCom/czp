@@ -1,0 +1,448 @@
+﻿@{
+    ViewBag.Title = "Zipato Products";
+    Layout = "~/Views/Shared/_LayoutEn.cshtml";
+}
+<style>
+    .section.no-margin .column, .section.no-margin-v .column {
+        margin-bottom: 0;
+    }
+
+    .no-margin-h .one.column {
+        width: 100%;
+    }
+
+    .no-margin-h .column {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .one.column {
+        width: 98%;
+    }
+
+    .column, .columns {
+        float: left;
+        margin: 0 1% 40px;
+    }
+
+    .controllers-container {
+        padding-left: 300px;
+    }
+
+    .woocommerce ul.products.col-4 {
+        text-align: center;
+    }
+
+    .woocommerce .products ul, .woocommerce ul.products {
+        margin: 0 0 1em;
+        padding: 0;
+        list-style: none;
+        clear: both;
+    }
+
+        .woocommerce #content div.product .woocommerce-tabs, .woocommerce #content div.product .woocommerce-tabs ul.tabs::after, .woocommerce #content div.product div.thumbnails a.first, .woocommerce #content div.product div.thumbnails::after, .woocommerce .cart-collaterals::after, .woocommerce .col2-set::after, .woocommerce .woocommerce-pagination ul.page-numbers::after, .woocommerce div.product .woocommerce-tabs, .woocommerce div.product .woocommerce-tabs ul.tabs::after, .woocommerce div.product div.thumbnails a.first, .woocommerce div.product div.thumbnails::after, .woocommerce ul.products, .woocommerce ul.products li.first, .woocommerce ul.products::after, .woocommerce-page #content div.product .woocommerce-tabs, .woocommerce-page #content div.product .woocommerce-tabs ul.tabs::after, .woocommerce-page #content div.product div.thumbnails a.first, .woocommerce-page #content div.product div.thumbnails::after, .woocommerce-page .cart-collaterals::after, .woocommerce-page .col2-set::after, .woocommerce-page .woocommerce-pagination ul.page-numbers::after, .woocommerce-page div.product .woocommerce-tabs, .woocommerce-page div.product .woocommerce-tabs ul.tabs::after, .woocommerce-page div.product div.thumbnails a.first, .woocommerce-page div.product div.thumbnails::after, .woocommerce-page ul.products, .woocommerce-page ul.products li.first, .woocommerce-page ul.products::after {
+            clear: both;
+        }
+
+    .column_column ul {
+        margin: -10px 0px 10px 0px;
+        font-size: 14px;
+        line-height: 21px;
+    }
+
+    .column_column ul, .column_column ol, .the_content_wrapper ul, .the_content_wrapper ol {
+        color: #737E86;
+    }
+
+    .column_column ul, .column_column ol, .column_visual ul, .column_visual ol, .mfn-acc ul, .mfn-acc ol, .ui-tabs-panel ul, .ui-tabs-panel ol, .the_content_wrapper ul, .the_content_wrapper ol {
+        margin: 0 0 15px 30px;
+        font-size: 15px;
+        line-height: 21px;
+    }
+
+    ul {
+        list-style: none outside;
+    }
+
+    ol, ul {
+        list-style: none;
+    }
+
+    .woocommerce ul.products.col-4 li.product:nth-child(4n+1) {
+        clear: both;
+    }
+
+    .woocommerce .products_wrapper ul.products.col-4 li.product {
+        display: inline-block;
+        float: none;
+        width: 22% !important;
+    }
+
+    .woocommerce ul.products.col-4 li.product {
+        width: 23% !important;
+    }
+
+    .woocommerce ul.products li.product {
+        width: 18% !important;
+        margin: 0 1% 20px !important;
+        clear: none;
+    }
+
+    .woocommerce ul.products li.product {
+        width: 31.3% !important;
+        margin: 0 1% 20px !important;
+        clear: none;
+    }
+
+    .product-container-custom-layout-one {
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgba(0, 0, 0, 0.15);
+    }
+
+    .product-container-custom-layout-one {
+        padding: 12px;
+        height: auto;
+        position: relative;
+    }
+
+    img.scale-with-grid, #Content img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .woocommerce ul.products li.product a img, .woocommerce-page ul.products li.product a img, .woocommerce ul.products li.product a:hover img, .woocommerce-page ul.products li.product a:hover img {
+        -webkit-box-shadow: 0px 0px 0px;
+        box-shadow: 0px 0px 0px;
+        margin: 0;
+    }
+
+    .woocommerce ul.products li.product a img {
+        background-color: white;
+    }
+
+    .woocommerce ul.products li.product a img {
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 0 1em;
+        box-shadow: none;
+    }
+
+    .woocommerce img, .woocommerce-page img {
+        height: auto;
+        max-width: 100%;
+    }
+
+    .woocommerce ul.products li.product .product-container-custom-layout-one .product-image-layout-one {
+        height: 133px;
+        min-height: 136px;
+        max-height: 138px;
+    }
+
+    .product-image-layout-one {
+        width: 54%;
+        margin-top: 55px !important;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .product-container-custom-layout-one .product_label {
+        display: block;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        color: white;
+        min-width: 100px;
+        height: 50px;
+    }
+
+    .product-price-layout-one {
+        float: left;
+        font-size: 20px;
+        padding-top: 5px;
+        padding-left: 10px;
+        padding-bottom: 7px;
+        padding-right: 10px;
+        position: absolute;
+        background-color: #ffffff;
+    }
+
+    .product-price-layout-one {
+        background-color: rgba(255, 255, 255, 0.4);
+        box-sizing: border-box;
+        position: relative !important;
+        width: 100%;
+        padding: 5px 0px !important;
+    }
+
+    .product-container-custom-layout-one .add-to-cart-layout-one {
+        margin-top: 13px;
+    }
+
+    .add-to-cart-layout-one {
+    }
+
+    .add-to-cart-layout-one {
+        text-align: center;
+    }
+
+    .no-margin-h .one.column {
+        width: 100%;
+    }
+
+    .no-margin-h .column {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .one.column {
+        width: 98%;
+    }
+
+    .controllers-container {
+        padding-left: 0px !important;
+    }
+
+    .woocommerce ul.products li.product h3 {
+        padding: 0px;
+        margin: 0;
+        font-size: 1.7em;
+        padding-top: 8px !important;
+        color: #000000;
+        line-height: 16px;
+    }
+
+    .woocommerce ul.products li.product h3 {
+        padding: .5em 0;
+        margin: 0;
+        font-size: 18px !important;
+        font-weight: 300 !important;
+    }
+
+    .woocommerce ul.products li.product h3, .woocommerce-page ul.products li.product h4 {
+        margin-bottom: 5px;
+    }
+
+    .woocommerce ul.products li.product h3 {
+        padding: .5em 0;
+        margin: 0;
+        font-size: 1em;
+    }
+
+    .page .section .column h3 {
+        display: block;
+        line-height: 100%;
+        margin-bottom: 10px;
+    }
+
+    h3 {
+        margin-bottom: 5px;
+        font-weight: 100;
+    }
+
+    h3 {
+        font-size: 40px;
+        line-height: 42px;
+    }
+
+    h3 {
+        font-family: "Roboto", Arial, Tahoma, sans-serif;
+        font-weight: 300;
+    }
+
+        h3, h3 a, h3 a:hover {
+            color: #646464;
+        }
+
+    h3 {
+        margin-bottom: 15px;
+    }
+
+    .product-container-main-name-price {
+        height: 40px;
+    }
+
+    .product-name-layout-one {
+        padding-left: 0px;
+        font-size: 18px;
+        padding-top: 0px;
+        text-align: center;
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .woocommerce img, .woocommerce-page img {
+        height: auto;
+        max-width: 100%;
+    }
+</style>
+<div class="entry-content" itemprop="mainContentOfPage">
+    <div style="padding-top:40px; padding-bottom:10px; background-color:" class="section  no-margin-h no-margin-v ">
+        <div class="section_wrapper clearfix">
+            <div class="items_group clearfix">
+                <div class="column one column_visual ">
+                    <h2 style="font-weight: 200; text-align: center;">
+                        <span style="font-size: 40px;">Controllers</span><br>
+                        <span style="font-size: 20px; font-weight: 300;">Please choose at least one Smart Home Controller</span>
+                    </h2>
+                </div>
+                <div class="column one column_divider ">
+                    <hr style="margin: 0 auto 20px;" class="no_line">
+                </div>
+
+                <div class="column one column_column controllers-container">
+                    <div style="" class="column_attr">
+                        <div class="woocommerce columns-4">
+                            <div class="products_wrapper isotope_wrapper">
+                                <div class="woocommerce columns-4">
+                                    <div class="products_wrapper isotope_wrapper">
+                                        <ul class="products grid col-4">
+                                            @foreach (var item in ViewBag.control)
+                                            {
+                                                var link = "/products/" + Configs.unicodeToNoMark(item.product_name) + "-" + item.product_id;
+                                                //link = "/products/detail?id=" + item.product_id;
+                                                <li class="first post-19889 product type-product status-publish has-post-thumbnail product_cat-at product_cat-ba product_cat-be product_cat-bg product_cat-ca product_cat-ch product_cat-controllers product_cat-cz product_cat-de product_cat-dk product_cat-ee product_cat-es product_cat-fi product_cat-fr product_cat-gb product_cat-gr product_cat-hr product_cat-hu product_cat-ie product_cat-inter product_cat-it product_cat-lt product_cat-lu product_cat-lv product_cat-mt product_cat-nl product_cat-no product_cat-pl product_cat-pt product_cat-ro product_cat-rs product_cat-ru product_cat-se product_cat-si product_cat-sk product_cat-tr product_cat-ua product_cat-us  instock taxable shipping-taxable purchasable product-type-variable has-default-attributes has-children">
+
+                                                    <a href="@link" class="woocommerce-LoopProduct-link">
+                                                    </a><a href="@link">
+
+                                                    </a><div class="product-container-custom-layout-one">
+                                                        <a href="@link">
+                                                            <div class="product-price-layout-one">
+
+                                                                <span class="price price-recipes"><span class="woocommerce-Price-amount amount">@*<span class="woocommerce-Price-currencySymbol">@String.Format("{0:n0}", @item.product_price_public)</span>&nbsp vnd*@</span></span>
+                                                            </div>
+
+                                                            @*<div class="product_label ">
+                                                                    <div class="product_label_box">
+                                                                        <span>New</span>
+                                                                    </div>
+                                                                </div>*@
+                                                            <div class="product-image-layout-one">
+                                                                <img src="@item.product_photo" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="Zipatile+ces" title="Zipatile+ces" style="height:126px;width:250px;">
+                                                            </div>
+
+                                                            <div class="product-container-main-name-price">
+                                                                <div class="product-name-layout-one">
+
+                                                                    <h3>@item.product_name</h3>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="product-description-layout-one">
+                                                                <span class="tX20307">
+                                                                    @*@item.product_name*@
+                                                                </span>
+                                                            </div>
+
+                                                        </a><div class="add-to-cart-layout-one">
+                                                            <a href="@link">
+
+                                                            </a>
+                                                            @*<input style="max-width: 70px" step="1" min="0" max="" name="product_id" value="1" title="Qty" class="input-text qty text" size="4" pattern="[0-9]*" inputmode="numeric" type="number">*@
+
+                                                            <a href="@link" class="btn btn-info">Detail</a>
+                                                            <a href="/Partner/ListEn?product_id=@item.product_id" class="btn btn-success">Order</a>
+                                                        </div>
+                                                    </div>
+
+                                                </li>
+                                            }
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column one column_divider">
+                    <div class="hr_wide "><hr></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="padding-top:40px; padding-bottom:10px; background-color:" class="section  no-margin-h no-margin-v ">
+        <div class="section_wrapper clearfix">
+            <div class="items_group clearfix">
+                <div class="column one column_visual ">
+                    <h2 style="font-weight: 200; text-align: center;">
+                        <span style="font-size: 40px;">Accessories</span><br>
+                        <span style="font-size: 20px; font-weight: 300;">Extend your Zipato Smart Home with our accessories</span>
+                    </h2>
+                </div>
+                <div class="column one column_divider ">
+                    <hr style="margin: 0 auto 20px;" class="no_line">
+                </div>
+
+                <div class="column one column_column accessoires-container">
+                    <div style="" class="column_attr">
+                        <div class="woocommerce columns-4">
+                            <div class="products_wrapper isotope_wrapper">
+                                <div class="woocommerce columns-4">
+                                    <div class="products_wrapper isotope_wrapper">
+                                        <ul class="products grid col-4">
+                                            @foreach (var item in ViewBag.acc)
+                                            {
+                                                var link = "/products/" + Configs.unicodeToNoMark(item.product_name) + "-" + item.product_id;
+                                                //link = "/products/detail?id=" + item.product_id;
+                                                <li class="first post-18149 product type-product status-publish has-post-thumbnail product_cat-accessoires product_cat-at product_cat-ba product_cat-be product_cat-bg product_cat-ca product_cat-ch product_cat-cz product_cat-de product_cat-dk product_cat-ee product_cat-es product_cat-fi product_cat-fr product_cat-gb product_cat-gr product_cat-hr product_cat-hu product_cat-ie product_cat-inter product_cat-it product_cat-lt product_cat-lu product_cat-lv product_cat-mt product_cat-nl product_cat-no product_cat-pl product_cat-pt product_cat-ro product_cat-rs product_cat-ru product_cat-se product_cat-si product_cat-sk product_cat-tr product_cat-ua product_cat-us  instock taxable shipping-taxable purchasable product-type-variable has-default-attributes has-children">
+
+                                                    <a href="@link" class="woocommerce-LoopProduct-link">
+                                                    </a><a href="@link">
+
+                                                    </a><div class="product-container-custom-layout-one">
+                                                        <a href="@link">
+                                                            <div class="product-price-layout-one">
+
+                                                                <span class="price price-recipes"><span class="woocommerce-Price-amount amount">@*<span class="woocommerce-Price-currencySymbol">@String.Format("{0:n0}", @item.product_price_public)</span>&nbsp;vnd*@</span> <small class="woocommerce-price-suffix">-</small></span>
+                                                            </div>
+
+                                                            <div class="product_label hidden">
+                                                                <div class="product_label_box">
+                                                                    <span></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-image-layout-one">
+                                                                <img src="@item.product_photo" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="Zipatile+ces" title="Zipatile+ces" style="height:126px;width:250px;">
+                                                            </div>
+
+                                                            <div class="product-container-main-name-price">
+                                                                <div class="product-name-layout-one">
+
+                                                                    <h3>@item.product_name</h3>
+                                                                </div>
+                                                            </div>
+
+                                                            @*<div class="product-description-layout-one">
+                                                                    <span class="tX20272">Easy to use Valve controller that cuts water or gas by leak detection</span>
+                                                                </div>*@
+
+                                                        </a><div class="add-to-cart-layout-one">
+                                                            <a href="@link">
+
+                                                            </a>
+                                                            @*<input style="max-width: 70px" step="1" min="0" max="" name="product_id" value="1" title="Qty" class="input-text qty text" size="4" pattern="[0-9]*" inputmode="numeric" type="number">*@
+
+                                                            <a href="@link" class="btn btn-info">Detail</a>
+                                                            <a href="/Partner/ListEn?product_id=@item.product_id" class="btn btn-success">Order</a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column one column_divider">
+                    <div class="hr_wide "><hr></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
