@@ -1088,6 +1088,7 @@
     <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
     <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="Scripts\ckeditor\skins\moono\readme.md" />
+    <None Include="Properties\PublishProfiles\zipato.pubxml" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\ckeditor\build-config.js" />
@@ -1645,13 +1646,22 @@
     <Content Include="Views\howitworks\rulecreatoren.cshtml" />
     <Content Include="Views\howitworks\compatibilityen.cshtml" />
     <Content Include="Views\howitworks\featureen.cshtml" />
+    <Content Include="Views\Products\ShopEn.cshtml" />
+    <Content Include="Views\Products\DetailEn.cshtml" />
+    <Content Include="Views\Support\IndexEn.cshtml" />
+    <Content Include="Views\Partner\IndexEn.cshtml" />
+    <Content Include="Views\Partner\ListEn.cshtml" />
+    <Content Include="Views\Partner\RegEn.cshtml" />
+    <Content Include="Views\Partner\LogEn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="images\sliders\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>

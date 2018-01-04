@@ -51,6 +51,10 @@ namespace comzipato.Controllers
         {
             return View();
         }
+        public ActionResult RegEn()
+        {
+            return View();
+        }
         public ActionResult AddNew()
         {
             if (Configs.getCookie("admin") == null || Configs.getCookie("admin") == "")
@@ -60,6 +64,11 @@ namespace comzipato.Controllers
             return View();
         }
         public ActionResult Log(string title)
+        {
+            ViewBag.title2 = title;
+            return View();
+        }
+        public ActionResult LogEn(string title)
         {
             ViewBag.title2 = title;
             return View();
@@ -129,6 +138,49 @@ namespace comzipato.Controllers
                 ViewBag.pname = p.product_name;
                 ViewBag.pphoto = p.product_photo;
                 ViewBag.product_id=product_id;
+            }
+            return View(data.ToList().ToPagedList(pageNumber, pageSize));
+        }
+        public ActionResult ListEn(int? pg, string address, long? product_id, double? lon, double? lat, int? d)
+        {
+            int pageSize = 25;
+            if (pg == null) pg = 1;
+            int pageNumber = (pg ?? 1);
+            ViewBag.pg = pg;
+            if (d == null) d = 100000;
+            if (lon == null) lon = 105.8194541;
+            if (lat == null) lat = 21.0227431;
+            string query = "select * from (SELECT TOP 1000 [id],[email],[full_name],[phone],[address],[lon],[lat],ACOS(SIN(PI()*" + lat + "/180.0)*SIN(PI()*lat/180.0)+COS(PI()*" + lat + "/180.0)*COS(PI()*lat/180.0)*COS(PI()*lon/180.0-PI()*" + lon + "/180.0))*6371 As D  FROM [comzipato].[dbo].[partner]) as A where 1=1 ";
+            if (lon != null)
+            {
+                query += " and D<=" + d;
+            }
+            var data = db.Database.SqlQuery<spt>(query).OrderBy(x => x.D).ToList();
+            if (data == null)
+            {
+                return View(data);
+            }
+            //if (!string.IsNullOrWhiteSpace(search))
+            //{
+            //    search = search.Trim();
+            //    data = data.Where(x => x.product_name.ToLower().Contains(search));
+            //    ViewBag.search = search;
+            //}
+
+            //data=data.OrderBy(x => x.D);
+            ViewBag.lon = lon;
+            ViewBag.lat = lat;
+            ViewBag.address = address;
+            ViewBag.d = d;
+            ViewBag.pname = "";
+            ViewBag.pphoto = "";
+            ViewBag.product_id = 0;
+            if (product_id != null && product_id != 0)
+            {
+                var p = db.products.Find((long)product_id);
+                ViewBag.pname = p.product_name;
+                ViewBag.pphoto = p.product_photo;
+                ViewBag.product_id = product_id;
             }
             return View(data.ToList().ToPagedList(pageNumber, pageSize));
         }
